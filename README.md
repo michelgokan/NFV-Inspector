@@ -16,8 +16,10 @@
 ## Introduction
 ## Getting Started
 ## Setup your test environment
+In order to install OpenStack, I wrote a complete guide in DOCS folder.
 ## Install NFV-MON
-### Install Elasticsearch
+### Install Elasticsearch and Integrate it with OpenStack
+I wrote a complete guide in my blog: https://gokan.me/2018/02/18/collectd-elasticsearch-openstack/
 ## Install NFV-VMS
 ## Install NFV-BMS
 ## Install NFV-LAB
