@@ -17,6 +17,7 @@
 ## Getting Started
 ## Setup your test environment
 ## Install NFV-MON
+### Install Elasticsearch
 ## Install NFV-VMS
 ## Install NFV-BMS
 ## Install NFV-LAB
