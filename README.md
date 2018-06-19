@@ -40,6 +40,8 @@ In order to install NFV-BMS do as follows:
   ````
 
 ## Install NFV-LAB
+Still in pre-pre-alpha release! Will be added accordingly.
+
 ## Example Results
 ## Call for contribution
 ## Acknowledgment
