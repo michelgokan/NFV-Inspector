@@ -24,12 +24,21 @@ In order to install Elasticsearch I wrote a complete guide in my blog: https://g
 ### Install NFV-MON Client inside VMs
 SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automatically get installed! To start collectd, use followings command:
 
-`$ /opt/collectd/sbin/collectd`
+  ````
+  $ /opt/collectd/sbin/collectd
+  ````
 
 ## Install NFV-VMS
 In order to install NFV-VMS run `NFV-VMS/install.sh` on master node.
 
 ## Install NFV-BMS
+In order to install NFV-BMS do as follows:
+
+  ````
+  $ cd NFV-BMS
+  $ node install
+  ````
+
 ## Install NFV-LAB
 ## Example Results
 ## Call for contribution
