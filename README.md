@@ -27,7 +27,7 @@ SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automat
 `$ /opt/collectd/sbin/collectd`
 
 ## Install NFV-VMS
-In order to install NFV-VMS
+In order to install NFV-VMS run `NFV-VMS/install.sh` on master node.
 
 ## Install NFV-BMS
 ## Install NFV-LAB
