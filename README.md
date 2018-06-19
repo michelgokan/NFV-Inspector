@@ -1,4 +1,5 @@
 # NFV-Inspector: An automated platform for systematic VNF profiling and analysis
+## IMPORTANT NOTICE: ITS A PRE-ALPHA RELEASE JUST AS A PROOF OF CONCEPT! DO NOT USE IT IN PRODUCTION!
 
 # Table of Contents
 1. [Introduction](#intoduction)
@@ -26,7 +27,7 @@ SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automat
 `$ /opt/collectd/sbin/collectd`
 
 ## Install NFV-VMS
-
+In order to install NFV-VMS
 
 ## Install NFV-BMS
 ## Install NFV-LAB
