@@ -46,4 +46,4 @@ Still in pre-pre-alpha release! Will be added accordingly.
 ## Call for contribution
 NFV-Inspector is open source, and contributions from the community is welcome. Many tasks, (some are low-hanging fruits), are listed and ready to be implemented. If you would like to contribute to the project, but don't know where to start, please send me an email to have a quick discussion: michel@gokan.me
 ## Acknowledgment
-This work was partially supported by the Grant No. 20160182 funded by the Knowledge Foundation of Sweden. I would like to thank Prof. Javid Taheri for his kind helps and Mr. Marian Darula from Ericsson R&D for his constructive feedbacks.
+This work was partially supported by the Grant No. 20160182 funded by the Knowledge Foundation of Sweden. I would like to thank Prof. Javid Taheri for his kind helps and Mr. Marian Darula from Ericsson R&D department for his constructive feedbacks.
