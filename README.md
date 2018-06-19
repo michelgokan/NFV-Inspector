@@ -21,7 +21,7 @@ In order to install OpenStack, I wrote a complete guide in DOCS folder: https://
 ### Install Elasticsearch and Integrate it with OpenStack
 In order to install Elasticsearch I wrote a complete guide in my blog: https://gokan.me/2018/02/18/collectd-elasticsearch-openstack/
 ### Install NFV-MON Client inside VMs
-SSH inside each VM, and run `collectd-installation.sh`. It will automatically get installed! To start collectd, use followings command:
+SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automatically get installed! To start collectd, use followings command:
 
 `$ /opt/collectd/sbin/collectd`
 
