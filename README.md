@@ -40,7 +40,7 @@ In order to install NFV-BMS do as follows:
   ````
 
 ## Install NFV-LAB
-Still in pre-pre-alpha release and only compatible with Open5GCore which is a commercial product and I can't publish its codes. More plugins will be added accordingly.
+Still in pre-pre-alpha release and only compatible with Open5GCore which is a commercial product and I can't publish any part of its codes due to copyright restrictions. More plugins will be added accordingly.
 
 ## Example Results
 ## Call for contribution
