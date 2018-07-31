@@ -9,6 +9,7 @@
 5. [Install NFV-VMS](#install-nfv-vms)
 6. [Install NFV-BMS](#install-nfv-bms)
 7. [Install NFV-LAB](#install-nfv-lab)
+8. [Kubernetes Support](#kubernetes)
 8. [Example Results](#example-results)
 9. [Call for contribution](#call-for-contribution)
 10. [Acknowledgment](#acknowledgment)
@@ -41,6 +42,9 @@ In order to install NFV-BMS do as follows:
 
 ## Install NFV-LAB
 Still in pre-pre-alpha release and only compatible with Open5GCore which is a commercial product and I can't publish any part of its codes due to copyright restrictions. More plugins will be added accordingly.
+
+## Kubernetes Support
+Kubernetes support in under development. Currently working on [kube-openmon](https://github.com/michelgokan/kube-openmon) project to faciliate the process of data gathering from k8s/cAdvisor to InfluxDB/Elasticsearch.
 
 ## Example Results
 ## Call for contribution
