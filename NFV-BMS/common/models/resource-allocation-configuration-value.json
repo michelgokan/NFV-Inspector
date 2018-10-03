@@ -1,0 +1,47 @@
+{
+  "name": "resource_allocation_configuration_value",
+  "plural": "resource_allocation_configurations_values",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "resource_allocation_configuration_id": {
+      "name": "resourceAllocationConfigIdForeignKey",
+      "foreignKey": "resource_allocation_configuration_id",
+      "entityKey": "id",
+      "entity": "resource_allocation_configuration"
+    },
+    "resource_id": {
+      "name": "resourceAllocationConfigResIdForeignKey",
+      "foreignKey": "resource_id",
+      "entityKey": "id",
+      "entity": "resource"
+    }
+  },
+  "properties": {
+    "size_value": {
+      "type": "number",
+      "required": true
+    },
+    "limit_value": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "resourceAllocationConfigIdRelation": {
+      "type": "belongsTo",
+      "model": "resource_allocation_configuration",
+      "foreignKey": "resource_allocation_configuration_id"
+    },
+    "resourceAllocationConfigResIdRelation": {
+      "type": "belongsTo",
+      "model": "resource",
+      "foreignKey": "resource_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

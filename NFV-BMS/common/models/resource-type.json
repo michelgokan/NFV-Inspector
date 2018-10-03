@@ -1,0 +1,25 @@
+{
+  "name": "resource_type",
+  "plural": "resource_types",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "min_cap": {
+      "type": "number"
+    },
+    "max_cap": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

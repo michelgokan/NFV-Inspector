@@ -1,0 +1,11 @@
+{
+  "loopback-component-explorer": {
+    "mountPath": "/explorer",
+    "generateOperationScopedModels": true,
+    "uiDirs": "server/explorer",
+    "apiInfo": {
+      "title": "NFV-Inspector: NFV-BMS Component",
+      "description": "This is the API Explorer for NFV-BMS service"
+    }
+  }
+}

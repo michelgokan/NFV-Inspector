@@ -1,0 +1,33 @@
+{
+  "name": "vnf_properties_configuration",
+  "plural": "vnf_properties_configurations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "vnf_id": {
+      "name": "vnfPropConfVnfIdForeignKey",
+      "foreignKey": "vnf_id",
+      "entityKey": "id",
+      "entity": "vnf"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vnfPropConfVnfIdRelation": {
+      "type": "belongsTo",
+      "model": "vnf",
+      "foreignKey": "vnf_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

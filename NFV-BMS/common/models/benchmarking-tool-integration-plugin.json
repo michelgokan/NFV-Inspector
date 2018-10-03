@@ -1,0 +1,19 @@
+{
+  "name": "benchmarking_tool_integration_plugin",
+  "plural": "benchmarking_tool_integration_plugins",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

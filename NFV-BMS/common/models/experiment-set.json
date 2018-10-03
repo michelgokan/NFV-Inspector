@@ -1,0 +1,55 @@
+{
+  "name": "experiment_set",
+  "plural": "experiment_sets",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "deployment_id": {
+      "name": "experimentSetDepIdForeignKey",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment"
+    },
+    "quality_metric_labeling_configuration_id": {
+      "name": "experimentSetQualMetrLabConfIdForeignKey",
+      "foreignKey": "quality_metric_labeling_configuration_id",
+      "entityKey": "id",
+      "entity": "quality_metric_labeling_configuration"
+    },
+    "benchmarking_tool_integration_plugin_id": {
+      "name": "experimentSetBenchTollIntPlugIdForeignKey",
+      "foreignKey": "benchmarking_tool_integration_plugin_id",
+      "entityKey": "id",
+      "entity": "benchmarking_tool_integration_plugin"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experimentSetDepIdRelation": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id"
+    },
+    "experimentSetQualMetrLabConfIdRelation": {
+      "type": "belongsTo",
+      "model": "quality_metric_labeling_configuration",
+      "foreignKey": "quality_metric_labeling_configuration_id"
+    },
+    "experimentSetBenchTollIntPlugIdRelation": {
+      "type": "belongsTo",
+      "model": "benchmarking_tool_integration_plugin",
+      "foreignKey": "benchmarking_tool_integration_plugin_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

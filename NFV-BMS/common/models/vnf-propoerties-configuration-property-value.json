@@ -1,0 +1,44 @@
+{
+  "name": "vnf_properties_configuration_property_value",
+  "plural": "vnf_properties_configurations_properties_values",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "vnf_properties_configuration_id": {
+      "name": "vnfPropConfValConfIdForeignKey",
+      "foreignKey": "vnf_properties_configuration_id",
+      "entityKey": "id",
+      "entity": "vnf_properties_configuration"
+    },
+    "vnf_property_id": {
+      "name": "vnfPropConfValPropIdForeignKey",
+      "foreignKey": "vnf_property_id",
+      "entityKey": "id",
+      "entity": "vnf_property"
+    }
+  },
+  "properties": {
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vnfPropConfValConfIdRelation": {
+      "type": "belongsTo",
+      "model": "vnf_properties_configuration",
+      "foreignKey": "vnf_properties_configuration_id"
+    },
+    "vnfPropConfValPropIdRelation": {
+      "type": "belongsTo",
+      "model": "vnf_property",
+      "foreignKey": "vnf_property_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

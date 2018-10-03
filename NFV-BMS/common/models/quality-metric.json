@@ -1,0 +1,32 @@
+{
+  "name": "quality_metric",
+  "plural": "quality_metrics",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "quality_metric_type": {
+      "type": "string",
+      "required": true,
+      "description": "This should be either 'node_quality_metric' or 'vnf_quality_metric'"
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "upper_bound": {
+      "type": "number",
+      "required": false
+    },
+    "lower_bound": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

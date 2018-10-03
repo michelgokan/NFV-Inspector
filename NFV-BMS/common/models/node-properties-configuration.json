@@ -1,0 +1,33 @@
+{
+  "name": "node_properties_configuration",
+  "plural": "node_properties_configurations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "node_type_id": {
+      "name": "nodePropertiesConfigurationNodeTypeIDForeignKey",
+      "foreignKey": "node_type_id",
+      "entityKey": "id",
+      "entity": "node_type"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "nodePropertiesConfigurationRelation": {
+      "type": "belongsTo",
+      "model": "node_type",
+      "foreignKey": "node_type_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,29 @@
+{
+  "name": "traffic_demand_configuration",
+  "plural": "traffic_demands_configurations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "total_calls": {
+      "type": "number",
+      "required": true
+    },
+    "distribution": {
+      "type": "string",
+      "required": true,
+      "description": "This should be either 'uniform' or 'burst'",
+      "default": "uniform"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

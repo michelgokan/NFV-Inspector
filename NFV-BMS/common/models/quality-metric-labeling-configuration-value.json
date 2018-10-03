@@ -1,0 +1,50 @@
+{
+  "name": "quality_metric_labeling_configuration_value",
+  "plural": "quality_metrics_labeling_configurations_values",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "quality_metric_labeling_configuration_id": {
+      "name": "qualMetrLabConfQualMetrLabConfId1ForeignKey",
+      "foreignKey": "quality_metric_labeling_configuration_id",
+      "entityKey": "id",
+      "entity": "quality_metric_labeling_configuration"
+    },
+    "quality_metric_id": {
+      "name": "qualMetrLabConfQualMetrId1ForeignKey",
+      "foreignKey": "quality_metric_id",
+      "entityKey": "id",
+      "entity": "quality_metric"
+    }
+  },
+  "properties": {
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "lower_bound": {
+      "type": "number"
+    },
+    "upper_bound": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "qualMetrLabConfQualMetrLabConfId1Relation": {
+      "type": "belongsTo",
+      "model": "quality_metric_labeling_configuration",
+      "foreignKey": "quality_metric_labeling_configuration_id"
+    },
+    "qualMetrLabConfQualMetrId1Relation": {
+      "type": "belongsTo",
+      "model": "quality_metric",
+      "foreignKey": "quality_metric_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
