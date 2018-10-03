@@ -1,0 +1,45 @@
+{
+  "name": "deployment_vnf",
+  "plural": "deployments_vnfs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "deployment_id": {
+      "name": "deploymentVnfDepId1ForeignKey",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment"
+    },
+    "vnf_id": {
+      "name": "deploymentVnfVnfId1ForeignKey",
+      "foreignKey": "vnf_id",
+      "entityKey": "id",
+      "entity": "vnf"
+    }
+  },
+  "properties": {
+    "horizontally_scalable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "deploymentVnfDepId1Relation": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id"
+    },
+    "deploymentVnfVnfId1Relation": {
+      "type": "belongsTo",
+      "model": "vnf",
+      "foreignKey": "vnf_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -1,0 +1,20 @@
+{
+  "name": "vnf_property",
+  "plural": "vnf_properties",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {},
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

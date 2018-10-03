@@ -1,0 +1,50 @@
+{
+  "name": "experiment_system_function_traffic_demand",
+  "plural": "experiments_system_functions_traffic_demands",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_id": {
+      "name": "experimentSysFuncTrafDemandExpIdForeignKey",
+      "foreignKey": "experiment_id",
+      "entityKey": "id",
+      "entity": "experiment"
+    },
+    "system_function_id": {
+      "name": "experimentSysFuncTrafDemandSysFuncIdForeignKey",
+      "foreignKey": "system_function_id",
+      "entityKey": "id",
+      "entity": "system_function"
+    },
+    "traffic_demand_configuration_id": {
+      "name": "experimentSysFuncTrafDemandTrafDemIdForeignKey",
+      "foreignKey": "traffic_demand_configuration_id",
+      "entityKey": "id",
+      "entity": "traffic_demand_configuration"
+    }
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "experimentSysFuncTrafDemandExpIdRelation": {
+      "type": "belongsTo",
+      "model": "experiment",
+      "foreignKey": "experiment_id"
+    },
+    "experimentSysFuncTrafDemandSysFuncIdRelation": {
+      "type": "belongsTo",
+      "model": "system_function",
+      "foreignKey": "system_function_id"
+    },
+    "experimentSysFuncTrafDemandTrafDemIdRelation": {
+      "type": "belongsTo",
+      "model": "traffic_demand_configuration",
+      "foreignKey": "traffic_demand_configuration_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

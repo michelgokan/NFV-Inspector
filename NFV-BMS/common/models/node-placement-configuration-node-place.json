@@ -1,0 +1,58 @@
+{
+  "name": "node_placement_configuration_node_place",
+  "plural": "node_placement_configuration_nodes_places",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "node_placement_configuration_id": {
+      "name": "nodePlacementConfigurationConfigIDForeignKey",
+      "foreignKey": "node_placement_configuration_id",
+      "entityKey": "id",
+      "entity": "node_placement_configuration",
+      "required": true
+    },
+    "node_id": {
+      "name": "nodePlacementConfigurationNodeIDForeignKey",
+      "foreignKey": "node_id",
+      "entityKey": "id",
+      "entity": "node",
+      "required": true
+    },
+    "parent_node_id": {
+      "name": "nodePlacementConfigurationParentNodeIDForeignKey",
+      "foreignKey": "parent_node_id",
+      "entityKey": "id",
+      "entity": "node"
+    }
+  },
+  "properties": {
+    "description": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "nodePlacementConfigurationRelation1": {
+      "type": "belongsTo",
+      "model": "node_placement_configuration",
+      "foreignKey": "node_placement_configuration_id",
+      "required": true
+    },
+    "nodePlacementConfigurationRelation2": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node_id",
+      "required": true
+    },
+    "nodePlacementConfigurationRelation3": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "parent_node_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

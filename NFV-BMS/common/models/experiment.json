@@ -1,0 +1,52 @@
+{
+  "name": "experiment",
+  "plural": "experiments",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_set_id": {
+      "name": "experimentsExperimentSetIDForeignKey",
+      "foreignKey": "experiment_set_id",
+      "entityKey": "id",
+      "entity": "experiment_set"
+    },
+    "node_placement_configuration_id": {
+      "name": "experimentsNodesPlacementIDForeignKey",
+      "foreignKey": "node_placement_configuration_id",
+      "entityKey": "id",
+      "entity": "node_placement_configuration"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "start_time": {
+      "type": "date",
+      "required": true
+    },
+    "end_time": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experimentsNodesPlacementIDRelation": {
+      "type": "belongsTo",
+      "model": "node_placement_configuration",
+      "foreignKey": "node_placement_configuration_id"
+    },
+    "experimentsExperimentSetIDRelation": {
+      "type": "belongsTo",
+      "model": "experiment_set",
+      "foreignKey": "experiment_set_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

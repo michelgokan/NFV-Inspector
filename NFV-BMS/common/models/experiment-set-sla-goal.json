@@ -1,0 +1,48 @@
+{
+  "name": "experiment_set_sla_goal",
+  "plural": "experiment_sets_sla_goals",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_set_id": {
+      "name": "slaGoalExperimentSetIDForeignKey",
+      "foreignKey": "experiment_set_id",
+      "entityKey": "id",
+      "entity": "experiment_set"
+    },
+    "quality_metric_id": {
+      "name": "slaGoalQualityMetricIdForeignKey",
+      "foreignKey": "quality_metric_id",
+      "entityKey": "id",
+      "entity": "quality_metric"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "slaGoalExperimentSetIDRelation": {
+      "type": "belongsTo",
+      "model": "experiment_set",
+      "foreignKey": "experiment_set_id"
+    },
+    "slaGoalQualityMetricIdRelation": {
+      "type": "belongsTo",
+      "model": "quality_metric",
+      "foreignKey": "quality_metric_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

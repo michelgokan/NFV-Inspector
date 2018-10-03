@@ -1,0 +1,46 @@
+{
+  "name": "vnf_resource_requirement",
+  "plural": "vnfs_resource_requirements",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "vnf_id": {
+      "name": "vnfResourceRequirementVNFIdForeignKey",
+      "foreignKey": "vnf_id",
+      "entityKey": "id",
+      "entity": "vnf"
+    },
+    "resource_type_id": {
+      "name": "vnfResourceRequirementRscTypeIdForeignKey",
+      "foreignKey": "resource_type_id",
+      "entityKey": "id",
+      "entity": "resource_type"
+    }
+  },
+  "properties": {
+    "min_cap": {
+      "type": "number"
+    },
+    "max_cap": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vnfResourceRequirementVnfIdRelation": {
+      "type": "belongsTo",
+      "model": "vnf",
+      "foreignKey": "vnf_id"
+    },
+    "vnfResourceRequirementRscTypeIdRelation": {
+      "type": "belongsTo",
+      "model": "resource_type",
+      "foreignKey": "resource_type_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

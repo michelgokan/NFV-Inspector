@@ -1,0 +1,44 @@
+{
+  "name": "node_properties_configuration_property_value",
+  "plural": "node_properties_configurations_properties_values",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "node_property_configuration_id": {
+      "name": "nodeConfigurationPropertyValueValueIDForeignKey",
+      "foreignKey": "node_properties_configuration_id",
+      "entityKey": "id",
+      "entity": "node_properties_configuration"
+    },
+    "node_property_id": {
+      "name": "nodePropertiesConfigurationValuePropertyIDForeignKey",
+      "foreignKey": "node_property_id",
+      "entityKey": "id",
+      "entity": "node_property"
+    }
+  },
+  "properties": {
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "nodePropertyValueRelation1": {
+      "type": "belongsTo",
+      "model": "node_properties_configuration",
+      "foreignKey": "node_properties_configuration_id"
+    },
+    "nodePropertyValueRelation2": {
+      "type": "belongsTo",
+      "model": "node_property",
+      "foreignKey": "node_property_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

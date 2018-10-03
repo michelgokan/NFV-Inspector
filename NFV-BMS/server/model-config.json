@@ -1,0 +1,174 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "User": {
+    "dataSource": "db"
+  },
+  "AccessToken": {
+    "dataSource": "db",
+    "public": false
+  },
+  "ACL": {
+    "dataSource": "db",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "db",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    }
+  },
+  "Role": {
+    "dataSource": "db",
+    "public": false
+  },
+  "node": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "node_type": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "resource_type": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "resource": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "quality_metric": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf_property": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_set_sla_goal": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "system_function": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "node_placement_configuration": {
+    "dataSource": "mysql",
+    "public": false
+  },
+  "deployment": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf_properties_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "resource_property": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "node_properties_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "node_properties_configuration_property_value": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "node_property": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "node_placement_configuration_node_place": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "traffic_demand_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_system_function_traffic_demand": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf_resource_requirement": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "deployment_vnf": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf_properties_configuration_property_value": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_set": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_node_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "combined_vnf": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "resource_properties_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "resource_allocation_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "resource_allocation_configuration_value": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "quality_metric_labeling_configuration": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "quality_metric_labeling_configuration_value": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_quality_metric_value": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "benchmarking_tool_integration_plugin": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "endpoint": {
+    "dataSource": "mysql",
+    "public": true
+  }
+}

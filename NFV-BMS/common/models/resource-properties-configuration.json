@@ -1,0 +1,37 @@
+{
+  "name": "resource_properties_configuration",
+  "plural": "resource_properties_configurations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "resource_property_id": {
+      "name": "resourcePropertiesConfigResPropIdForeignKey",
+      "foreignKey": "resource_property_id",
+      "entityKey": "id",
+      "entity": "resource_property"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "resourcePropertiesConfigResPropIdRelation": {
+      "type": "belongsTo",
+      "model": "resource_property",
+      "foreignKey": "resource_property_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

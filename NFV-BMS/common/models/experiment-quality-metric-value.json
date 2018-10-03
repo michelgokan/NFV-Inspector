@@ -1,0 +1,54 @@
+{
+  "name": "experiment_quality_metric_value",
+  "plural": "experiments_quality_metrics_values",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_id": {
+      "name": "experimentQualityMetricExpIdForeignKey",
+      "foreignKey": "experiment_id",
+      "entityKey": "id",
+      "entity": "experiment"
+    },
+    "quality_metric_id": {
+      "name": "experimentQualityMetricQMIdForeignKey",
+      "foreignKey": "quality_metric_id",
+      "entityKey": "id",
+      "entity": "quality_metric"
+    }
+  },
+  "properties": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "dataType": "float",
+      "precision": 20,
+      "scale": 4
+    },
+    "timestamp": {
+      "type": "date",
+      "required": true,
+      "mysql": {
+        "default": "CURRENT_TIMESTAMP"
+      }
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experimentQualityMetricExpIdRelation": {
+      "type": "belongsTo",
+      "model": "experiment",
+      "foreignKey": "experiment_id"
+    },
+    "experimentQualityMetricQMIdRelation": {
+      "type": "belongsTo",
+      "model": "quality_metric",
+      "foreignKey": "quality_metric_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

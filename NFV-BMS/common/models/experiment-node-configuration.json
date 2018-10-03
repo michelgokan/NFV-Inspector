@@ -1,0 +1,89 @@
+{
+  "name": "experiment_node_configuration",
+  "plural": "experiments_node_configurations",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "indexes": {
+    "UNIQUE_INDEX": {
+      "columns": "`experiment_id`,`node_id`,`vnf_id`,`node_properties_configuration_id`,`resource_allocation_configuration_id`,`vnf_properties_configuration_id`",
+      "kind": "unique"
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_id": {
+      "name": "experimentNodeConfExpIdForeignKey",
+      "foreignKey": "experiment_id",
+      "entityKey": "id",
+      "entity": "experiment"
+    },
+    "node_id": {
+      "name": "experimentNodeConfNodeIdForeignKey",
+      "foreignKey": "node_id",
+      "entityKey": "id",
+      "entity": "node"
+    },
+    "node_properties_configuration_id": {
+      "name": "experimentNodeConfNodePropConfIdForeignKey",
+      "foreignKey": "node_properties_configuration_id",
+      "entityKey": "id",
+      "entity": "node_properties_configuration"
+    },
+    "resource_allocation_configuration_id": {
+      "name": "experimentNodeConfResAllocConfIdForeignKey",
+      "foreignKey": "resource_allocation_configuration_id",
+      "entityKey": "id",
+      "entity": "resource_allocation_configuration"
+    },
+    "vnf_id": {
+      "name": "experimentNodeConfVnfIdForeignKey",
+      "foreignKey": "vnf_id",
+      "entityKey": "id",
+      "entity": "vnf"
+    },
+    "vnf_properties_configuration_id": {
+      "name": "experNodeConfVnfPropConfIdForeignKey",
+      "foreignKey": "vnf_properties_configuration_id",
+      "entityKey": "id",
+      "entity": "vnf_properties_configuration"
+    }
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "experimentNodeConfExpIdRelation": {
+      "type": "belongsTo",
+      "model": "experiment",
+      "foreignKey": "experiment_id"
+    },
+    "experimentNodeConfNodeIdRelation": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node_id"
+    },
+    "experimentNodeConfNodePropConfIdRelation": {
+      "type": "belongsTo",
+      "model": "node_properties_configuration",
+      "foreignKey": "node_properties_configuration_id"
+    },
+    "experimentNodeConfResAllocConfIdRelation": {
+      "type": "belongsTo",
+      "model": "resource_allocation_configuration",
+      "foreignKey": "resource_allocation_configuration_id"
+    },
+    "experimentNodeConfVnfIdRelation": {
+      "type": "belongsTo",
+      "model": "vnf",
+      "foreignKey": "vnf_id"
+    },
+    "experNodeConfVnfPropConfIdRelation": {
+      "type": "belongsTo",
+      "model": "vnf_properties_configuration",
+      "foreignKey": "vnf_properties_configuration_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
