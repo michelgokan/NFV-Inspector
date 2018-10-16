@@ -1,0 +1,41 @@
+{
+  "name": "experiment_time_interval",
+  "plural": "experiments_time_intervals",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_id": {
+      "name": "experimentTimeIntervalExpIdForeignKey",
+      "foreignKey": "experiment_id",
+      "entityKey": "id",
+      "entity": "experiment"
+    }
+  },
+  "properties": {
+    "start_time": {
+      "type": "date",
+      "required": true
+    },
+    "end_time": {
+      "type": "date",
+      "required": true
+    },
+    "throughput": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experimentTimeIntervalExpIdRelation": {
+      "type": "belongsTo",
+      "model": "experiment",
+      "foreignKey": "experiment_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

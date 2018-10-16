@@ -170,5 +170,13 @@
   "endpoint": {
     "dataSource": "mysql",
     "public": true
+  },
+  "experiment_time_interval": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_resource_usage_value": {
+    "dataSource": "mysql",
+    "public": true
   }
 }

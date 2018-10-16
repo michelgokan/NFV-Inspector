@@ -83,28 +83,33 @@ module.exports = function (app) {
                                                     mysqlDs.autoupdate("quality_metric", function (err) {
                                                         console.log("Autoupdated table 'quality_metric'");
 
-                                                        mysqlDs.autoupdate("quality_metric_labeling_configuration", function (err) {
-                                                            console.log("Autoupdated table 'quality_metric_labeling_configuration'");
+                                                        mysqlDs.autoupdate("experiment_time_interval", function (err) {
+                                                            console.log("\nAutoupdated table 'experiment_time_interval'");
 
-                                                            mysqlDs.autoupdate("quality_metric_labeling_configuration_value", function (err) {
-                                                                console.log("Autoupdated table 'quality_metric_labeling_configuration_value'");
-                                                            });
 
-                                                            mysqlDs.autoupdate("experiment_quality_metric_value", function (err) {
-                                                                console.log("\nAutoupdated table 'experiment_quality_metric_value'");
-                                                            });
+                                                            mysqlDs.autoupdate("quality_metric_labeling_configuration", function (err) {
+                                                                console.log("Autoupdated table 'quality_metric_labeling_configuration'");
 
-                                                            mysqlDs.autoupdate("experiment_set", function (err) {
-                                                                console.log("\nAutoupdated table 'experiment_set'");
+                                                                mysqlDs.autoupdate("quality_metric_labeling_configuration_value", function (err) {
+                                                                    console.log("Autoupdated table 'quality_metric_labeling_configuration_value'");
+                                                                });
+
+                                                                mysqlDs.autoupdate("experiment_quality_metric_value", function (err) {
+                                                                    console.log("\nAutoupdated table 'experiment_quality_metric_value'");
+                                                                });
+
+                                                                mysqlDs.autoupdate("experiment_resource_usage_value", function (err) {
+                                                                    console.log("\nAutoupdated table 'experiment_resource_usage_value'");
+                                                                });
 
 
                                                                 mysqlDs.autoupdate("experiment_set_sla_goal", function (err) {
                                                                     console.log("Autoupdated table 'experiment_set_sla_goal'");
                                                                 });
+
                                                             });
                                                         });
                                                     });
-
 
                                                     mysqlDs.autoupdate("vnf_property", function (err) {
                                                         console.log("Autoupdated table 'vnf_property'");
@@ -155,7 +160,6 @@ module.exports = function (app) {
     });
 
 };
-
 
 
 console.log("Migration started!");

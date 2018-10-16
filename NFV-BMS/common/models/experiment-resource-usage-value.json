@@ -1,20 +1,20 @@
 {
-  "name": "experiment_quality_metric_value",
-  "plural": "experiments_quality_metrics_values",
+  "name": "experiment_resource_usage_value",
+  "plural": "experiments_resource_usages_values",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "foreignKeys": {
-    "quality_metric_id": {
-      "name": "experimentQualityMetricQMIdForeignKey",
-      "foreignKey": "quality_metric_id",
+    "resource_id": {
+      "name": "experimentResourceUsageResIdForeignKey",
+      "foreignKey": "resource_id",
       "entityKey": "id",
-      "entity": "quality_metric"
+      "entity": "resource"
     },
     "experiment_time_interval_id": {
-      "name": "experimentTimeIntervalIdForeignKey",
+      "name": "experimentResUsgTimeIntervalIdForeignKey",
       "foreignKey": "experiment_time_interval_id",
       "entityKey": "id",
       "entity": "experiment_time_interval"
@@ -31,12 +31,12 @@
   },
   "validations": [],
   "relations": {
-    "experimentQualityMetricQMIdRelation": {
+    "experimentResourceUsageResIdRelation": {
       "type": "belongsTo",
-      "model": "quality_metric",
-      "foreignKey": "quality_metric_id"
+      "model": "resource",
+      "foreignKey": "resource_id"
     },
-    "experimentTimeIntervalIdRelation": {
+    "experimentResUsgTimeIntervalIdRelation": {
       "type": "belongsTo",
       "model": "experiment_time_interval",
       "foreignKey": "experiment_time_interval_id"
