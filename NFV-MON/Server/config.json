@@ -1,0 +1,17 @@
+{
+  "general": {
+    "name": "NFV_MON",
+    "version": "1.0.0",
+    "backend_db": "ElasticSearch"
+  },
+  "plugins": {
+    "ElasticSearch": {
+      "elasticsearch_host": "1",
+      "elasticsearch_port": "1",
+      "elasticsearch_token": "",
+      "elasticsearch_username": "",
+      "elasticsearch_password": "1"
+    },
+    "InfluxDB": {}
+  }
+}
