@@ -10,25 +10,8 @@ h5,span.digit.static{
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+h6{
+	font-family: 'Titillium Web', sans-serif !important;
+	color: white;
+	font-weight: 200 !important;
+}
