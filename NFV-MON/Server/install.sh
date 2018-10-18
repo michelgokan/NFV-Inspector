@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NFV_MON_VERSION="1.0.0"
+NFV_MON_SERVER_VERSION="1.0.0"
 
 command_exists () {
    type "$1" &> /dev/null ;
@@ -38,8 +38,8 @@ if [ -f ./config.json ]; then
        cat >./config.json <<EOF
 {
     "general": {
-        "name": "NFV_MON",
-        "version": "$NFV_MON_VERSION"
+        "name": "NFV_MON_SERVER",
+        "version": "$NFV_MON_SERVER_VERSION"
     }
 }
 EOF
@@ -89,3 +89,10 @@ else
         source ./Plugins/${plugins[$db]}/config.sh
     fi
 fi
+
+cd src
+
+echo "Enabling REST API Server"
+npm install
+
+node .

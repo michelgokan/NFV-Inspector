@@ -1,0 +1,12 @@
+{
+  "general": {
+    "name": "NFV_MON_CLIENT",
+    "version": "",
+    "server": {},
+    "ccmp": "Kubernetes"
+  },
+  "plugins": {
+    "Kubernetes": {},
+    "OpenStack": {}
+  }
+}
