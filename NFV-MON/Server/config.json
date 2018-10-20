@@ -1,17 +1,16 @@
 {
   "general": {
-    "name": "NFV_MON",
+    "name": "NFV_MON_SERVER",
     "version": "1.0.0",
-    "backend_db": "ElasticSearch"
+    "backend_db": "InfluxDB"
   },
   "plugins": {
-    "ElasticSearch": {
-      "elasticsearch_host": "1",
-      "elasticsearch_port": "1",
-      "elasticsearch_token": "",
-      "elasticsearch_username": "",
-      "elasticsearch_password": "1"
-    },
-    "InfluxDB": {}
+    "ElasticSearch": {},
+    "InfluxDB": {
+      "influxdb_host": "172.16.16.242",
+      "influxdb_port": "8086",
+      "influxdb_username": "",
+      "influxdb_password": ""
+    }
   }
 }
