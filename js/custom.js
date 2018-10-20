@@ -51,21 +51,15 @@
 
      //Countdown
      var note = $('#note'),
-         ts = new Date(2012, 0, 1),
-         newYear = true;
-
-     if ((new Date()) > ts) {
-         // The new year is here! Count towards something else.
-         // Notice the *1000 at the end - time must be in milliseconds
-         ts = (new Date("1/12/2018")).getTime();
+         ts = new Date("December 1, 2018 23:59:59"),
          newYear = false;
-     }
+
 
      $('#countdown').countdown({
          timestamp: ts
      });
 
-     //Sidebar Contents - 3D Transition Effect 
+     //Sidebar Contents - 3D Transition Effect
      $(".infoButton").on("click",function() {
          $('body').addClass("active");
          $('.infoClose').delay(300).fadeIn();
