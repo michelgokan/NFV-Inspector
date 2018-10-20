@@ -51,7 +51,7 @@
 
      //Countdown
      var note = $('#note'),
-         ts = new Date("December 1, 2018 23:59:59"),
+         ts = new Date("November 25, 2018 23:59:59"),
          newYear = false;
 
 
