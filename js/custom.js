@@ -57,7 +57,7 @@
      if ((new Date()) > ts) {
          // The new year is here! Count towards something else.
          // Notice the *1000 at the end - time must be in milliseconds
-         ts = ((new Date("1/12/2018")) - Date.now()) * 1000;
+         ts = ((new Date("1/12/2018")) - Date.now());
          newYear = false;
      }
 
