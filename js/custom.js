@@ -54,7 +54,7 @@
          ts = new Date(2012, 0, 1),
          newYear = true;
 
-     if ((new Date()) > ts) {avocado
+     if ((new Date()) > ts) {
          // The new year is here! Count towards something else.
          // Notice the *1000 at the end - time must be in milliseconds
          ts = (new Date("12/1/2018")) - Date.now();
