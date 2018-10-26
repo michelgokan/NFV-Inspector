@@ -47,6 +47,15 @@ Still in pre-pre-alpha release and only compatible with Open5GCore which is a co
 Kubernetes support in under development. Currently working on [kube-openmon](https://github.com/michelgokan/kube-openmon) project to faciliate the process of data gathering from k8s/cAdvisor to InfluxDB/Elasticsearch.
 
 ## Example Results
+
+# Contributors
+Michel Gokan Khan (Karlstad University, Sweden)
+John Javid Taheri (Karlstad University, Sweden)
+
+# Collaborators
+Ericsson (Stockholm, Sweden)
+VoerEir (Stockholm, Sweden)
+
 ## Call for contribution
 NFV-Inspector is open source, and contributions from the community is welcome. Many tasks, (some are low-hanging fruits), are listed and ready to be implemented. If you would like to contribute to the project, but don't know where to start, please send me an email to have a quick discussion: michel@gokan.me
 ## Acknowledgment

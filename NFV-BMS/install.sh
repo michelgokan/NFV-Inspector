@@ -1,21 +1,12 @@
 #!/bin/bash
 
-NFV_MON_CLIENT_VERSION="1.0.0"
+NFV_BMS_VERSION="1.0.0"
 
-command_exists () {
-   type "$1" &> /dev/null ;
-}
+my_dir="$(dirname "$0")"
 
-array_element_exists(){
-  if [ "$2" != in ]; then
-    echo "Incorrect usage."
-    echo "Correct usage: exists {key} in {array}"
-    return
-  fi
-  eval '[ ${'$3'[$1]+muahaha} ]'
-}
+"$my_dir/uitls/functions.sh"
 
-echo "Welcome to NFV-Inspector monitoring client installation wizard :-)"
+echo "Welcome to NFV-Inspector benchmarking management installation wizard :-)"
 
 if ! command_exists jq ; then
     echo 'jq and moreutils is not installed' >&2
@@ -38,8 +29,8 @@ if [ -f ./config.json ]; then
        cat >./config.json <<EOF
 {
     "general": {
-        "name": "NFV_MON_CLIENT",
-        "version": "NFV_MON_CLIENT_VERSION",
+        "name": "NFV_BMS",
+        "version": "$NFV_BMS_VERSION",
         "server": { }
     }
 }
@@ -72,7 +63,7 @@ counter=$[counter -1]
 
 echo "$counter plugins loaded!"
 
-echo "Please select a CCMP (cloud computing management platform) integration plugin: ($plugins_str): "
+echo "Please select a benchmarking integration plugin: ($plugins_str): "
 
 read -r db
 
@@ -98,8 +89,19 @@ read -r nfv_mon_server_address
 echo "Please enter NFV-MON server endpoint port: "
 read -r nfv_mon_server_port
 
+echo "Please enter NFV-VMS server endpoint address: "
+read -r nfv_vms_server_address
+
+echo "Please enter NFV-VMS server endpoint port: "
+read -r nfv_vms_server_port
+
 echo "Attempting to connect to NFV-MON server"
 
 #TODO Add attempt to connect to NFV-MON Server
 
+echo "Attempting to connect to NFV-VMS server"
+
+#TODO Add attempt to connect to NFV-VMS Server
+
 cat config.json | jq -r ".general.server = { \"address\": \"$nfv_mon_server_address\", \"port\": \"$nfv_mon_server_port\" }" | sponge config.json
+

@@ -6,7 +6,7 @@ read -r influxdb_host
 echo "Please enter InfluxDB port: "
 read -r influxdb_port
 
-echo "Please enter InfludDB username (if exists): "
+echo "Please enter InfluxDB username (if exists): "
 read -r influxdb_username
 
 echo "Please enter InfluxDB password (if exists): "
@@ -24,7 +24,7 @@ else
     echo "InfluxDB client is installed!"
 fi
 
-echo "Attepting to connect to InfluxDB..."
+echo "Attempting to connect to InfluxDB..."
 version="$(curl -sl -I http://$influxdb_host:$influxdb_port/ping | awk 'BEGIN{RS="\r\n"} /Influxdb-Version/ {print $2}')"
 
 if [[ $version =~ ^[0-9]+.[0-9]+.[0-9]+.*$ ]];

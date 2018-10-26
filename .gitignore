@@ -62,3 +62,6 @@ typings/
 
 # Webstorm folder
 .idea
+
+#Ericsson
+NFV-BMS/Plugins/ericssonhssfrontend/*
