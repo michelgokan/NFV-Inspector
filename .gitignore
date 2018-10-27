@@ -65,3 +65,6 @@ typings/
 
 #Ericsson
 NFV-BMS/Plugins/ericssonhssfrontend/*
+
+#Open5GCore
+NFV-BMS/Plugins/open5gcore/*
