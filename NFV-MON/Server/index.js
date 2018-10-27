@@ -10,5 +10,6 @@ const {get, post} = server.router;
 
 // Launch server with options and a couple of routes
 server({port: 8080}, [
-    get('/', ctx => readConfig())
-]);Z
+    get('/', ctx => readConfig()),
+    get('/ping', ctx => "pong")
+]);

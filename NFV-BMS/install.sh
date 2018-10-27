@@ -38,6 +38,36 @@ EOF
     fi
 fi
 
+echo "Please enter NFV-MON server endpoint address: "
+read -r nfv_mon_server_address
+
+echo "Please enter NFV-MON server endpoint port: "
+read -r nfv_mon_server_port
+
+echo "Attempting to connect to NFV-MON server"
+
+NFV_MON_RESPONSE=$(curl $nfv_mon_server_address:$nfv_mon_server_port/ping)
+if [ $NFV_MON_RESPONSE == 'pong' ]; then
+    echo "NFV_MON seems OK!"
+else
+    echo "Failed to connect to NFV_MON"
+    echo $NFV_MON_RESPONSE
+    echo "Exiting installation!"
+    exit 0
+fi
+
+echo "Please enter NFV-VMS server endpoint address: "
+read -r nfv_vms_server_address
+
+echo "Please enter NFV-VMS server endpoint port: "
+read -r nfv_vms_server_port
+
+echo "Attempting to connect to NFV-VMS server"
+
+#TODO Add attempt to connect to NFV-VMS Server
+
+
+
 echo "Loading plugins:"
 
 declare -a plugins
@@ -83,25 +113,7 @@ else
     fi
 fi
 
-echo "Please enter NFV-MON server endpoint address: "
-read -r nfv_mon_server_address
 
-echo "Please enter NFV-MON server endpoint port: "
-read -r nfv_mon_server_port
-
-echo "Please enter NFV-VMS server endpoint address: "
-read -r nfv_vms_server_address
-
-echo "Please enter NFV-VMS server endpoint port: "
-read -r nfv_vms_server_port
-
-echo "Attempting to connect to NFV-MON server"
-
-#TODO Add attempt to connect to NFV-MON Server
-
-echo "Attempting to connect to NFV-VMS server"
-
-#TODO Add attempt to connect to NFV-VMS Server
 
 cat config.json | jq -r ".general.server = { \"address\": \"$nfv_mon_server_address\", \"port\": \"$nfv_mon_server_port\" }" | sponge config.json
 
