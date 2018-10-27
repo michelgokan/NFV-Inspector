@@ -1,5 +1,0 @@
-{
-  "elasticsearchHost": "172.16.16.243",
-  "elasticsearchPort": "9200",
-  "indexName": "5gbench"
-}
