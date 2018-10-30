@@ -33,7 +33,7 @@
   "session": {},
   "auth": {},
   "parse": {},
-  "routes": {
+  "_routes": {
     "loopback#rest": {
       "paths": [
         "${restApiRoot}"

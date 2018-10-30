@@ -8,7 +8,7 @@ function readConfig() {
 const server = require('server');
 const {get, post} = server.router;
 
-// Launch server with options and a couple of routes
+// Launch server with options and a couple of _routes
 server({port: 8080}, [
     get('/', ctx => readConfig()),
     get('/ping', ctx => "pong")

@@ -39,7 +39,7 @@ if [ -f ./config.json ]; then
 {
     "general": {
         "name": "NFV_MON_CLIENT",
-        "version": "NFV_MON_CLIENT_VERSION",
+        "version": "$NFV_MON_CLIENT_VERSION",
         "server": { }
     }
 }

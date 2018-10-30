@@ -4,9 +4,9 @@ NFV_BMS_VERSION="1.0.0"
 
 my_dir="$(dirname "$0")"
 
-"$my_dir/uitls/functions.sh"
+"$my_dir/../utils/functions.sh"
 
-echo "Welcome to NFV-Inspector benchmarking management installation wizard :-)"
+echo "Welcome to NFV-Inspector Benchmarking Management Service installation wizard :-)"
 
 if ! command_exists jq ; then
     echo 'jq and moreutils is not installed' >&2

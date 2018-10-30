@@ -38,6 +38,6 @@ else
     exit 0
 fi
 
-echo "Saving plugin configs"
+echo "Saving plugin configs..."
 cat config.json | jq -r ".plugins.InfluxDB = {\"influxdb_host\":\"$influxdb_host\",\"influxdb_port\":\"$influxdb_port\",\"influxdb_username\":\"$influxdb_username\",\"influxdb_password\":\"$influxdb_password\"}" | sponge config.json
 
