@@ -1,0 +1,25 @@
+{
+  "name": "system_information",
+  "plural": "system_information",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "default": "NFV-VMS"
+    },
+    "version": {
+      "type": "string",
+      "required": true,
+      "default": "1.0.0"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

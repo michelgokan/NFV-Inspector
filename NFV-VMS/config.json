@@ -1,0 +1,36 @@
+{
+  "ids": {
+    "User": 2,
+    "AccessToken": 2,
+    "ACL": 1,
+    "RoleMapping": 2,
+    "Role": 2,
+    "system_information": 2,
+    "configuration": 6
+  },
+  "models": {
+    "User": {
+      "1": "{\"username\":\"admin\",\"password\":\"$2a$10$e0bZvK1ZiAITYOLG4EEFA.UMXM38TutPgFE7dWfBfoPSgYXttehuq\",\"email\":\"admin@admin.admin\",\"id\":1}"
+    },
+    "AccessToken": {
+      "KSMHvCReheeWAfpO71Wzw0JZFEzxzGz11MWCFL0IN5liazFvbb9Ey1yFrc8icepy": "{\"id\":\"KSMHvCReheeWAfpO71Wzw0JZFEzxzGz11MWCFL0IN5liazFvbb9Ey1yFrc8icepy\",\"ttl\":1209600,\"created\":\"2018-10-30T00:16:29.319Z\",\"userId\":1}"
+    },
+    "ACL": {},
+    "RoleMapping": {
+      "1": "{\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1,\"id\":1}"
+    },
+    "Role": {
+      "1": "{\"name\":\"admin\",\"created\":\"2018-10-30T00:16:29.194Z\",\"modified\":\"2018-10-30T00:16:29.194Z\",\"id\":1}"
+    },
+    "system_information": {
+      "1": "{\"name\":\"NFV-VMS\",\"version\":\"1.0.0\",\"id\":1}"
+    },
+    "configuration": {
+      "1": "{\"category\":\"system\",\"key\":\"active_plugin\",\"value\":\"\",\"id\":1}",
+      "2": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_address\",\"value\":\"172.16.16.229\",\"id\":2}",
+      "3": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_port\",\"value\":\"6443\",\"id\":3}",
+      "4": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_protocol\",\"value\":\"https\",\"id\":4}",
+      "5": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_test\",\"value\":\"{ \\\"kind\\\": \\\"APIVersions\\\", \\\"versions\\\": [ \\\"v1\\\" ], \\\"serverAddressByClientCIDRs\\\": [ { \\\"clientCIDR\\\": \\\"0.0.0.0/0\\\", \\\"serverAddress\\\": \\\"172.16.16.229:6443\\\" } ] }\",\"id\":5}"
+    }
+  }
+}
