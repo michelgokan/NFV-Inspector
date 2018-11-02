@@ -17,8 +17,9 @@
     "loopback": "^3.19.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.0.0",
-    "loopback-component-passport": "^3.10.0",
+    "loopback-connector-mysql": "^5.3.1",
     "nfv-inspector-vms-kubernetes-plugin": "git+https://github.com/michelgokan/NFV-Inspector-VMS-Kubernetes-Plugin.git",
+    "nfv-inspector-vms-openstack-plugin": "git+https://github.com/michelgokan/NFV-Inspector-VMS-OpenStack-Plugin.git",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
   },
@@ -33,7 +34,7 @@
   "license": "MIT",
   "description": "NFV-Inspetor VNFs management service",
   "officialPlugins": {
-    "1": "nfv-inspector-vms-kubernetes-plugin",
-    "2": "nfv-inspector-vms-openstack-plugin"
+    "git+https://github.com/michelgokan/NFV-Inspector-VMS-Kubernetes-Plugin.git": "nfv-inspector-vms-kubernetes-plugin",
+    "git+https://github.com/michelgokan/NFV-Inspector-VMS-OpenStack-Plugin.git": "nfv-inspector-vms-openstack-plugin"
   }
 }

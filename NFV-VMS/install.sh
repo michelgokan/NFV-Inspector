@@ -6,14 +6,15 @@ source ../utils/functions.sh
 
 echo "Welcome to NFV-Inspector VNFs Management Service installation wizard :-)"
 
-if ! command_exists node ; then
-    echo 'node/npm/jq is not installed' >&2
+if ! $(command_exists mysql && command_exists node && command_exists jq); then
+    echo 'node/npm/jq/mysql-client is not installed' >&2
 
-    echo "Attempting to install node, moreutils and jq (only works on Ubuntu). May ask for sudo password."
+    echo "Attempting to install node, moreutils, mysql-client and jq (only works on Ubuntu). May ask for sudo password."
     echo "curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -"
     curl -sL https://deb.nodesource.com/setup_11.x | sudo -E bash -
-    echo "sudo apt-get install -y nodejs moreutils jq"
-    sudo apt-get install -y nodejs moreutils jq
+    sudo apt update && apt dist-upgrade
+    echo "sudo apt-get install -y nodejs moreutils jq mysql-client"
+    sudo apt-get install -y nodejs moreutils jq mysql-client
 fi
 
 if [ -f ./config.json ]; then
@@ -24,27 +25,68 @@ if [ -f ./config.json ]; then
     if [ ! $con == 'y' ] && [ ! $con == 'Y' ]; then
        echo "Exiting installation"
        exit 0
-    else
-       rm ./config.json
-       echo "Killing all running node processes..."
-       sudo killall node
-       sleep 2
-       echo "Removing node_modules if exists..."
-       rm -Rf ./node_modules
-       echo "Installing modules..."
-       npm install
-       echo "Attempting to start API server..."
-       node . &
-       NODE_POD=$!
-       showProgress
     fi
 fi
+
+echo "Please enter MySQL server address (i.e 127.0.0.1): "
+read -r mysql_address
+
+echo "Please enter MySQL server port (i.e 3306): "
+read -r mysql_port
+
+echo "Please enter MySQL server username (i.e root): "
+read -r mysql_username
+
+echo "Please enter MySQL server password : "
+read -r mysql_password
+
+echo "Checking MySQL server connection with given credentials..."
+
+if mysql -h $mysql_address -P $mysql_port -u $mysql_username -p$mysql_password -e ";" ; then
+  echo "A successful MySQL connection was made with the parameters defined for this connection."
+else
+  echo "MySQL connection failed..."
+  echo "Exiting installation"
+  exit 0
+fi
+
+echo "Please enter MySQL server database (i.e NFV_VMS): "
+read -r mysql_database
+
+echo "[Re]create MySQL scheme? (y/N) : "
+read -r mysql_database_recreate
+
+if [ ! $mysql_database_recreate == 'y' ] && [ ! $mysql_database_recreate == 'Y' ]; then
+  if ! mysql -h $mysql_address -P $mysql_port -u $mysql_username -p$mysql_password -D $mysql_database -e ";" ; then
+    echo "Database OK!"
+  else
+    echo "Database is not there!"
+    echo "Exiting installation"
+    exit 0
+  fi
+else
+  echo "[Re]creating MySQL scheme..."
+  if mysql -h $mysql_address -P $mysql_port -u $mysql_username -p$mysql_password \
+    -e "DROP DATABASE IF EXISTS $mysql_database; CREATE DATABASE $mysql_database;"; then
+    echo "Database successfully created!"
+  else
+    echo "Error creating database!"
+    echo "Exiting installation"
+    exit 0
+  fi
+fi
+
+echo "Add MySQL as datasource..."
+echo "{}" | jq ".mysql = { \"host\": \"$mysql_address\", \"port\": $mysql_port, \"url\": \"mysql://$mysql_username:$mysql_password@$mysql_address:$mysql_port/$mysql_database\", \"database\": \"$mysql_database\", \"password\": \"$mysql_password\", \"name\": \"mysql\", \"user\": \"$mysql_username\", \"connector\": \"mysql\" }" | jq ".db = {\"name\": \"db\", \"connector\": \"memory\", \"file\": \"config.json\" }" | sponge ./server/datasources.json
+rm ./config.json
 
 echo "Loading plugins:"
 
 declare -a plugins
+declare -a plugins_url
 plugins_str=""
 counter=1
+
 #cd Plugins
 #for f in */; do
 #  folder=${f%?}
@@ -59,7 +101,7 @@ cat package.json | jq ".officialPlugins" > t.json
 while read -r line; do
   # Extract the value from between the double quotes
   # and add it to the array.
-  [[ $line =~ :[[:blank:]]+\"(.*)\" ]] && plugins[counter]="${BASH_REMATCH[1]}" && plugins_str="${plugins_str}${counter}=${BASH_REMATCH[1]}, " && counter=$[counter +1]
+  [[ $line =~ [[:blank:]]*\"(.*)\"[[:blank:]]*:[[:blank:]]+\"(.*)\" ]] && plugins[counter]="${BASH_REMATCH[2]}" && plugins_url[counter]="${BASH_REMATCH[1]}" && plugins_str="${plugins_str}${counter}=${BASH_REMATCH[2]}, " && counter=$[counter +1]
 done < t.json
 
 rm -f t.json
@@ -72,33 +114,80 @@ counter=$[counter -1]
 
 echo "$counter plugins loaded!"
 
-echo "Please select a CCMP (cloud computing management platform) integration plugin ($plugins_str): "
+echo "Please enter a comma seperated list of integration plugins to install ($plugins_str): "
+read -r list_of_ccmps
 
-read -r ccmp
 
-if ! array_element_exists ccmp in plugins; then
-    echo "Wrong choice"
-    echo "Exiting installation wizard"
-    exit 0
-else
-    echo "Saving your choice..."
+echo "Killing all running node processes..."
+echo "(May get asked for a sudo password)"
+sudo killall node
+sleep 2
+echo "Removing node_modules if exists..."
+rm -Rf ./node_modules
+echo "Installing modules..."
+npm install
 
-    curl -X POST --header 'Content-Type: application/json' --header \
-     'Accept: application/json' -d \
-     "{ \"category\": \"system\", \"key\": \"active_plugin\", \"value\": \"${plugins[$db]}\" }" \
-     'http://127.0.0.1:3000/api/configurations'
-
-    echo ''
-
-    echo "Running ./node_modules/${plugins[ccmp]}/config.sh"
-
-    if [ ! -f ./node_modules/${plugins[ccmp]}/config.sh ]; then
-        echo "NO_PLUGIN_CONFIG_ERROR: No config.sh file has been found in the plugin directory or module not installed!" >&2
-        exit 0
-    else
-        source ./node_modules/${plugins[ccmp]}/config.sh
+for ccmp in $(echo $list_of_ccmps | sed "s/,/ /g")
+do
+    if ! array_element_exists ccmp in plugins; then
+      echo "Wrong choice[s]"
+      echo "Exiting installation wizard"
+      exit 0
     fi
-fi
+
+    echo "Installing plugin ${plugins[ccmp]}..."
+    echo "npm install ${plugins_url[ccmp]}"
+    npm install ${plugins_url[ccmp]}
+done
+
+echo "Attempting to start API server..."
+node . &
+showProgress
+
+echo "Saving your choice..."
+
+curl -X POST --header 'Content-Type: application/json' --header \
+ 'Accept: application/json' -d \
+ "{ \"category\": \"system\", \"key\": \"active_plugins\", \"value\": \"$list_of_ccmps\" }" \
+ 'http://127.0.0.1:3000/api/configurations'
+
+ curl -X POST --header 'Content-Type: application/json' --header \
+ 'Accept: application/json' -d \
+ "{ \"category\": \"system\", \"key\": \"mysql_address\", \"value\": \"$mysql_address\" }" \
+ 'http://127.0.0.1:3000/api/configurations'
+
+ curl -X POST --header 'Content-Type: application/json' --header \
+ 'Accept: application/json' -d \
+ "{ \"category\": \"system\", \"key\": \"mysql_port\", \"value\": \"$mysql_port\" }" \
+ 'http://127.0.0.1:3000/api/configurations'
+
+ curl -X POST --header 'Content-Type: application/json' --header \
+ 'Accept: application/json' -d \
+ "{ \"category\": \"system\", \"key\": \"mysql_username\", \"value\": \"$mysql_username\" }" \
+ 'http://127.0.0.1:3000/api/configurations'
+
+ curl -X POST --header 'Content-Type: application/json' --header \
+ 'Accept: application/json' -d \
+ "{ \"category\": \"system\", \"key\": \"mysql_password\", \"value\": \"$mysql_password\" }" \
+ 'http://127.0.0.1:3000/api/configurations'
+
+ curl -X POST --header 'Content-Type: application/json' --header \
+ 'Accept: application/json' -d \
+ "{ \"category\": \"system\", \"key\": \"mysql_database\", \"value\": \"$mysql_database\" }" \
+ 'http://127.0.0.1:3000/api/configurations'
+
+echo ''
+
+for ccmp in $(echo $list_of_ccmps | sed "s/,/ /g")
+do
+  echo "Attempt running ./node_modules/${plugins[ccmp]}/config.sh"
+  source ./node_modules/${plugins[ccmp]}/config.sh
+
+  if [ ! -f ./node_modules/${plugins[ccmp]}/config.sh ]; then
+    echo "NO_PLUGIN_CONFIG_ERROR: No config.sh file has been found in the plugin directory or module not installed!" >&2
+    exit 0
+  fi
+done
 
 #echo "Please enter NFV-MON server endpoint address: "
 #read -r nfv_mon_server_address

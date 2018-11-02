@@ -6,31 +6,44 @@
     "RoleMapping": 2,
     "Role": 2,
     "system_information": 2,
-    "configuration": 6
+    "configuration": 19
   },
   "models": {
     "User": {
-      "1": "{\"username\":\"admin\",\"password\":\"$2a$10$e0bZvK1ZiAITYOLG4EEFA.UMXM38TutPgFE7dWfBfoPSgYXttehuq\",\"email\":\"admin@admin.admin\",\"id\":1}"
+      "1": "{\"username\":\"admin\",\"password\":\"$2a$10$7JAi5ioYPsDpKguDfWxsue0U/LoElKKQNsBXpcO0GhyV9wYw0gBK2\",\"email\":\"admin@admin.admin\",\"id\":1}"
     },
     "AccessToken": {
-      "KSMHvCReheeWAfpO71Wzw0JZFEzxzGz11MWCFL0IN5liazFvbb9Ey1yFrc8icepy": "{\"id\":\"KSMHvCReheeWAfpO71Wzw0JZFEzxzGz11MWCFL0IN5liazFvbb9Ey1yFrc8icepy\",\"ttl\":1209600,\"created\":\"2018-10-30T00:16:29.319Z\",\"userId\":1}"
+      "PNmX43SxbKbK1xuEe9vhGDhb3mmdf8zHIHTRAVf3OcZbWdHHtilvp6WwOcpEJApr": "{\"id\":\"PNmX43SxbKbK1xuEe9vhGDhb3mmdf8zHIHTRAVf3OcZbWdHHtilvp6WwOcpEJApr\",\"ttl\":1209600,\"created\":\"2018-10-31T11:49:49.168Z\",\"userId\":1}"
     },
     "ACL": {},
     "RoleMapping": {
       "1": "{\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1,\"id\":1}"
     },
     "Role": {
-      "1": "{\"name\":\"admin\",\"created\":\"2018-10-30T00:16:29.194Z\",\"modified\":\"2018-10-30T00:16:29.194Z\",\"id\":1}"
+      "1": "{\"name\":\"admin\",\"created\":\"2018-10-31T11:49:49.071Z\",\"modified\":\"2018-10-31T11:49:49.071Z\",\"id\":1}"
     },
     "system_information": {
       "1": "{\"name\":\"NFV-VMS\",\"version\":\"1.0.0\",\"id\":1}"
     },
     "configuration": {
-      "1": "{\"category\":\"system\",\"key\":\"active_plugin\",\"value\":\"\",\"id\":1}",
-      "2": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_address\",\"value\":\"172.16.16.229\",\"id\":2}",
-      "3": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_port\",\"value\":\"6443\",\"id\":3}",
-      "4": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_protocol\",\"value\":\"https\",\"id\":4}",
-      "5": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_test\",\"value\":\"{ \\\"kind\\\": \\\"APIVersions\\\", \\\"versions\\\": [ \\\"v1\\\" ], \\\"serverAddressByClientCIDRs\\\": [ { \\\"clientCIDR\\\": \\\"0.0.0.0/0\\\", \\\"serverAddress\\\": \\\"172.16.16.229:6443\\\" } ] }\",\"id\":5}"
+      "1": "{\"category\":\"system\",\"key\":\"active_plugins\",\"value\":\"1,2\",\"id\":1}",
+      "2": "{\"category\":\"system\",\"key\":\"mysql_address\",\"value\":\"127.0.0.1\",\"id\":2}",
+      "3": "{\"category\":\"system\",\"key\":\"mysql_port\",\"value\":\"3306\",\"id\":3}",
+      "4": "{\"category\":\"system\",\"key\":\"mysql_username\",\"value\":\"root\",\"id\":4}",
+      "5": "{\"category\":\"system\",\"key\":\"mysql_password\",\"value\":\"rootroot\",\"id\":5}",
+      "6": "{\"category\":\"system\",\"key\":\"mysql_database\",\"value\":\"NFV_VMS\",\"id\":6}",
+      "7": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_address\",\"value\":\"172.16.16.229\",\"id\":7}",
+      "8": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_port\",\"value\":\"6443\",\"id\":8}",
+      "9": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_protocol\",\"value\":\"https\",\"id\":9}",
+      "10": "{\"category\":\"nfv-inspector-vms-kubernetes-plugin\",\"key\":\"kubernetes_api_test\",\"value\":\"{ \\\"kind\\\": \\\"APIVersions\\\", \\\"versions\\\": [ \\\"v1\\\" ], \\\"serverAddressByClientCIDRs\\\": [ { \\\"clientCIDR\\\": \\\"0.0.0.0/0\\\", \\\"serverAddress\\\": \\\"172.16.16.229:6443\\\" } ] }\",\"id\":10}",
+      "11": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_username\",\"value\":\"admin\",\"id\":11}",
+      "12": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_password\",\"value\":\"adminPass123\",\"id\":12}",
+      "13": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_project_name\",\"value\":\"admin\",\"id\":13}",
+      "14": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_api_address\",\"value\":\"http://172.16.16.110:35357/v3\",\"id\":14}",
+      "15": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_user_volume_api_version\",\"value\":\"2\",\"id\":15}",
+      "16": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_user_identity_api_version\",\"value\":\"3\",\"id\":16}",
+      "17": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_project_domain_name\",\"value\":\"default\",\"id\":17}",
+      "18": "{\"category\":\"nfv-inspector-vms-openstack-plugin\",\"key\":\"openstack_user_domain_name\",\"value\":\"default\",\"id\":18}"
     }
   }
 }
