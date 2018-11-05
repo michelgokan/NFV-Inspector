@@ -159,6 +159,9 @@ module.exports = function (app) {
         console.log("Autoupdated table 'endpoint'");
     });
 
+    mysqlDs.autoupdate("Michel", function (err) {
+        console.log("Autoupdated table 'michel'");
+    });
 };
 
 

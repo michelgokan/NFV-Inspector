@@ -178,5 +178,9 @@
   "experiment_resource_usage_value": {
     "dataSource": "mysql",
     "public": true
+  },
+  "PersistedModelExtended": {
+    "dataSource": "mysql",
+    "public": true
   }
 }

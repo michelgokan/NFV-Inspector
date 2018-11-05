@@ -35,11 +35,22 @@ if [ -f ./config.json ]; then
        exit 0
     else
        rm ./config.json
+
+       echo "Please NFV-VMS endpoint address: "
+
+       read -r NFV_VMS_ADDRESS
+
+       echo "Please NFV-VMS endpoint point: "
+
+       read -r NFV_VMS_PORT
+
        cat >./config.json <<EOF
 {
     "general": {
         "name": "NFV_MON_SERVER",
-        "version": "$NFV_MON_SERVER_VERSION"
+        "version": "$NFV_MON_SERVER_VERSION",
+        "nfv_vms_address": "$NFV_VMS_ADDRESS",
+        "nfv_vms_port": "$NFV_VMS_PORT"
     }
 }
 EOF

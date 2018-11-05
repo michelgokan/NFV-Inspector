@@ -32,6 +32,10 @@
     "end_time": {
       "type": "string",
       "required": true
+    },
+    "status": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],

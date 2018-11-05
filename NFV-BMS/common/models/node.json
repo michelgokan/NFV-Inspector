@@ -1,7 +1,7 @@
 {
   "name": "node",
   "plural": "nodes",
-  "base": "PersistedModel",
+  "base": "PersistedModelExtended",
   "idInjection": true,
   "options": {
     "validateUpsert": true

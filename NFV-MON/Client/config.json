@@ -1,8 +1,11 @@
 {
   "general": {
     "name": "NFV_MON_CLIENT",
-    "version": "",
-    "server": {},
+    "version": "1.0.0",
+    "server": {
+      "address": "127.0.0.1",
+      "port": "8080"
+    },
     "ccmp": "Kubernetes"
   },
   "plugins": {

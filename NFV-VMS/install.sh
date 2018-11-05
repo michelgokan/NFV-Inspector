@@ -118,7 +118,7 @@ echo "Please enter a comma seperated list of integration plugins to install ($pl
 read -r list_of_ccmps
 
 
-echo "Killing all running node processes..."
+echo "fing all running node processes..."
 echo "(May get asked for a sudo password)"
 sudo killall node
 sleep 2
@@ -140,7 +140,7 @@ do
     npm install ${plugins_url[ccmp]}
 done
 
-echo "Attempting to start API server..."
+echo "Attempting to start API server on port 3000..."
 node . &
 showProgress
 
@@ -189,6 +189,9 @@ do
   fi
 done
 
+echo "*****"
+echo "Installation Successful!"
+echo "Please visit http://127.0.0.1:3000/explorer to access Swagger API documentation"
 #echo "Please enter NFV-MON server endpoint address: "
 #read -r nfv_mon_server_address
 #

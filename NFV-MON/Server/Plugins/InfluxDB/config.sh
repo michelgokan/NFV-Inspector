@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Please enter InfluxDB host: "
+echo "Please enter InfluxDB host (i.e 172.16.16.242): "
 read -r influxdb_host
 
-echo "Please enter InfluxDB port: "
+echo "Please enter InfluxDB port (default: 8086): "
 read -r influxdb_port
 
 echo "Please enter InfluxDB username (if exists): "

@@ -2,6 +2,8 @@
   "general": {
     "name": "NFV_MON_SERVER",
     "version": "1.0.0",
+    "nfv_vms_address": "127.0.0.1",
+    "nfv_vms_port": "3000",
     "backend_db": "InfluxDB"
   },
   "plugins": {
