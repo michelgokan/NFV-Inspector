@@ -37,6 +37,7 @@ if [ "$kubernetes_status" == "null" ]; then
     echo "Can't connect to Kubernetes with provided information!"
     echo $kubernetes_api_test
     echo "Exiting application!"
+    exit 0
 else
     echo "Successfully connected to Kubernetes!"
     echo "Saving plugin configs..."

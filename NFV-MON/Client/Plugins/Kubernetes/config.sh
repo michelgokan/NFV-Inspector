@@ -40,6 +40,7 @@ echo "Retrieving Kubernetes information from NFV-VMS on $NFV_VMS_ADDRESS:$NFV_VM
 KUBERNETES_ADDRESS=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22kubernetes_api_address%22%7D%7D" | jq --raw-output '.value')
 KUBERNETES_PORT=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22kubernetes_api_port%22%7D%7D" | jq --raw-output '.value')
 KUBERNETES_TOKEN=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22kubernetes_token%22%7D%7D" | jq --raw-output '.value')
+KUBERNETES_API_PROTOCOL=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22kubernetes_api_protocol%22%7D%7D" | jq --raw-output '.value')
 
 echo "kubernetes_address=$KUBERNETES_ADDRESS\nkubernetes_port=$KUBERNETES_PORT\nkubernetes_token=$KUBERNETES_TOKEN"
 
@@ -88,17 +89,40 @@ if ! command_exists kubectl ; then
     sudo apt-get install -y kubectl
 fi
 
+kubernetes_api_test=$(curl -ks "$KUBERNETES_API_PROTOCOL://$KUBERNETES_ADDRESS:$KUBERNETES_PORT/api/")
+
+kubernetes_status=$(echo "$kubernetes_api_test" | jq '.versions')
+
+if [ "$kubernetes_status" == "null" ]; then
+    echo "Can't connect to Kubernetes with provided information!"
+    echo $kubernetes_api_test
+    echo "Exiting application!"
+    exit 0
+else
+    echo "Successfully connected to Kubernetes!"
+fi
+
+echo "Retrieving Kubernetes nodes..."
+
+kubectl --token="$KUBERNETES_TOKEN" --server="$KUBERNETES_API_PROTOCOL://$KUBERNETES_ADDRESS:$KUBERNETES_PORT" --insecure-skip-tls-verify=true get nodes
+
+if [ $? -eq 0 ]; then
+    echo "Error retrieving Kubernetes nodes..."
+    echo "Please check the configuration and try again!"
+    echo "Exiting installation!"
+    exit 0
+else
+    echo "Kubernetes seems ok!"
+fi
+
 echo "Are you sure want to continue deploying kube-openmon on Kubernetes? (y/n)"
 read -r con
-
-
-
 
 if [ ! $con == 'y' ] && [ ! $con == 'Y' ]; then
    echo "Exiting installation"
    exit 0
 else
    echo "Deploying kube-openmon"
-   kubectl apply -f kube-openmon.yaml
+   kubectl --token="$KUBERNETES_TOKEN" --server="$KUBERNETES_API_PROTOCOL://$KUBERNETES_ADDRESS:$KUBERNETES_PORT" --insecure-skip-tls-verify=true apply -f kube-openmon.yaml
 fi
 
