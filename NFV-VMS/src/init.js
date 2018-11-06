@@ -1,4 +1,4 @@
-const NFV_VMS_KEY = Symbol.for("com.NFVInspector.NFVVMS");
+xconst NFV_VMS_KEY = Symbol.for("com.NFVInspector.NFVVMS");
 const globalSymbols = Object.getOwnPropertySymbols(global);
 const hasNFVVMS = (globalSymbols.indexOf(NFV_VMS_KEY) > -1);
 
