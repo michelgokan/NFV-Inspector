@@ -106,7 +106,7 @@ echo "Retrieving Kubernetes nodes..."
 
 kubectl --token="$KUBERNETES_TOKEN" --server="$KUBERNETES_API_PROTOCOL://$KUBERNETES_ADDRESS:$KUBERNETES_PORT" --insecure-skip-tls-verify=true get nodes
 
-if [ $? -eq 0 ]; then
+if [ $? -ne 0 ]; then
     echo "Error retrieving Kubernetes nodes..."
     echo "Please check the configuration and try again!"
     echo "Exiting installation!"
