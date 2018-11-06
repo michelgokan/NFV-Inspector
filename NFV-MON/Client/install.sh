@@ -2,18 +2,7 @@
 
 NFV_MON_CLIENT_VERSION="1.0.0"
 
-command_exists () {
-   type "$1" &> /dev/null ;
-}
-
-array_element_exists(){
-  if [ "$2" != in ]; then
-    echo "Incorrect usage."
-    echo "Correct usage: exists {key} in {array}"
-    return
-  fi
-  eval '[ ${'$3'[$1]+muahaha} ]'
-}
+source ../../utils/functions.sh
 
 echo "Welcome to NFV-Inspector monitoring client installation wizard :-)"
 

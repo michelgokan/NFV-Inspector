@@ -78,7 +78,7 @@ echo "Sourcing functions.sh"
 source ../../../utils/functions.sh
 
 echo "Checking if kubectl is already installed..."
-if ! $(command_exists kubectl); then
+if ! command_exists kubectl ; then
     echo "Kubectl is not installed..."
     echo "Attempting to install kubectl (May get asked for the sudo password)"
     sudo apt-get update && sudo apt-get install -y apt-transport-https
