@@ -88,7 +88,7 @@ status_code=$(curl --write-out %{http_code} --silent --output /dev/null "$NFV_VM
 if [[ "$status_code" -eq 200 ]] ; then
   echo "NFV_VMS seems OK!"
   echo "Saving configs..."
-  cat config.json | jq -r ".general.server = { \"address\": \"$nfv_mon_server_address\", \"port\": \"$nfv_mon_server_port\" }" | sponge config.json
+  cat config.json | jq -r ".general.server = { \"nfv_mon_server_address\": \"$nfv_mon_server_address\", \"nfv_mon_server_port\": \"$nfv_mon_server_port\", \"nfv_vms_address\":\"$NFV_VMS_ADDRESS\", \"nfv_vms_port\":\"$NFV_VMS_PORT\" }" | sponge config.json
 else
   echo "Failed to connect to NFV_VMS!"
   echo "Exiting installation..."

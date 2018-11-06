@@ -20,9 +20,7 @@ if [ $BACKEND_DB == 'InfluxDB' ]; then
     BACKEND_DB_PORT=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_port')
     BACKEND_DB_USERNAME=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_username')
     BACKEND_DB_PASSWORD=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_password')
-
-    echo "Please enter the database name:"
-    read -r BACKEND_DB_DATABASE_NAME
+    BACKEND_DB_DATABASE=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_db')
 
     echo "IMPORTANT QUESTION: May break the system later on if answered incorrectly!"
     echo "Are you sure you already have a database with name \"$BACKEND_DB_DATABASE_NAME\" in your InfluxDB server at $BACKEND_DB_HOST? (y/n):"

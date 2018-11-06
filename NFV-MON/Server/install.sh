@@ -33,6 +33,8 @@ if [ -f ./config.json ]; then
 
        read -r NFV_VMS_PORT
 
+       #TODO: check NFV_VMS connectivity...
+
        cat >./config.json <<EOF
 {
     "general": {

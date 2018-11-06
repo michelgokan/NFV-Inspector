@@ -12,7 +12,10 @@ read -r influxdb_username
 echo "Please enter InfluxDB password (if exists): "
 read -r influxdb_password
 
-echo -e "InfluxDB host: $influxdb_host \nInfluxDB port: $influxdb_port \nInfluxDB username: $influxdb_username\nInfluxDB password: $influxdb_password\n"
+echo "Please enter the database name:"
+read -r influxdb_database
+
+echo -e "InfluxDB host: $influxdb_host \nInfluxDB port: $influxdb_port \nInfluxDB username: $influxdb_username\nInfluxDB password: $influxdb_password\nInfluxDB database: $influxdb_database"
 
 if ! command_exists influx ; then
     echo 'Error: IndluxDB client is not installed.' >&2
@@ -39,5 +42,5 @@ else
 fi
 
 echo "Saving plugin configs..."
-cat config.json | jq -r ".plugins.InfluxDB = {\"influxdb_host\":\"$influxdb_host\",\"influxdb_port\":\"$influxdb_port\",\"influxdb_username\":\"$influxdb_username\",\"influxdb_password\":\"$influxdb_password\"}" | sponge config.json
+cat config.json | jq -r ".plugins.InfluxDB = {\"influxdb_host\":\"$influxdb_host\",\"influxdb_port\":\"$influxdb_port\",\"influxdb_username\":\"$influxdb_username\",\"influxdb_password\":\"$influxdb_password\",\"influxdb_db\":\"$influxdb_database\"}" | sponge config.json
 

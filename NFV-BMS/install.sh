@@ -4,7 +4,7 @@ NFV_BMS_VERSION="1.0.0"
 
 my_dir="$(dirname "$0")"
 
-"$my_dir/../utils/functions.sh"
+source "$my_dir/../utils/functions.sh"
 
 echo "Welcome to NFV-Inspector Benchmarking Management Service installation wizard :-)"
 
@@ -56,16 +56,27 @@ else
     exit 0
 fi
 
-echo "Please enter NFV-VMS server endpoint address: "
-read -r nfv_vms_server_address
+echo "Getting NFV-MON server configuration at $nfv_mon_server_address:$nfv_mon_server_port..."
+NFV_MON_CONFIG=$(curl $nfv_mon_server_address:$nfv_mon_server_port)
 
-echo "Please enter NFV-VMS server endpoint port: "
-read -r nfv_vms_server_port
+echo $NFV_MON_CONFIG
 
-echo "Attempting to connect to NFV-VMS server"
+NFV_VMS_ADDRESS=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_address')
+NFV_VMS_PORT=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_port')
 
-#TODO Add attempt to connect to NFV-VMS Server
+echo "Attempting to connect to NFV_VMS based on the retrieved configuration: $NFV_VMS_ADDRESS:$NFV_VMS_PORT..."
 
+status_code=$(curl --write-out %{http_code} --silent --output /dev/null "$NFV_VMS_ADDRESS:$NFV_VMS_PORT")
+
+if [[ "$status_code" -eq 200 ]] ; then
+  echo "NFV_VMS seems OK!"
+  echo "Saving configs..."
+  cat config.json | jq -r ".general.server = { \"address\": \"$nfv_mon_server_address\", \"port\": \"$nfv_mon_server_port\" }" | sponge config.json
+else
+  echo "Failed to connect to NFV_VMS!"
+  echo "Exiting installation..."
+  exit 0
+fi
 
 
 echo "Loading plugins:"
