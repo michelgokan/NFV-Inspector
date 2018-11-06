@@ -90,8 +90,12 @@ read -r con
 
 
 
+
 if [ ! $con == 'y' ] && [ ! $con == 'Y' ]; then
    echo "Exiting installation"
    exit 0
+else
+   echo "Deploying kube-openmon"
+   kubectl apply -f kube-openmon.yaml
 fi
 
