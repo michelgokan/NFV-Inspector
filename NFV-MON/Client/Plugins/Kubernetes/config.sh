@@ -23,6 +23,17 @@ if [ $BACKEND_DB == 'InfluxDB' ]; then
 
     echo "Please enter the database name:"
     read -r BACKEND_DB_DATABASE_NAME
+
+    echo "IMPORTANT QUESTION: May break the system later on if answered incorrectly!"
+    echo "Are you sure you already have a database with name \"$BACKEND_DB_DATABASE_NAME\" in your InfluxDB server at $BACKEND_DB_HOST? (y/n):"
+    read -r backend_database_exists
+
+    #TODO: Add Automated checking
+    if [ ! $backend_database_exists == 'y' ] && [ ! $backend_database_exists == 'Y' ]; then
+        echo "Database is not there!"
+        echo "Exiting installation"
+        exit 0
+    fi
 else
     echo "No compatible adaptor exists for the $BACKEND_DB database!"
     echo "Consider add a compatible adaptor in adapters folder"
@@ -32,6 +43,8 @@ fi
 
 echo "Retrieved information from NFV-MON server..."
 echo -e "Backend database type: $BACKEND_DB \nBackend database address: $BACKEND_DB_HOST \nBackend database port: $BACKEND_DB_PORT \nBackend database username: $BACKEND_DB_USERNAME\nBackend database password: $BACKEND_DB_PASSWORD\n"
+
+
 
 NFV_VMS_ADDRESS=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_address')
 NFV_VMS_PORT=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_port')
