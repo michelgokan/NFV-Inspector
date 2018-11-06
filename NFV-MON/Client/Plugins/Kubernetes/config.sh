@@ -72,8 +72,23 @@ sed -i -e "s/{KUBERNETES_CUSTOM_TOKEN}/$KUBERNETES_TOKEN/g" ./kube-openmon.yaml
 echo "kube-openmon configuration..."
 cat ./kube-openmon.yaml
 
+source ./../../../../utils/functions.sh
+
+echo "Checking if kubectl is already installed..."
+if ! $(command_exists kubectl); then
+    echo "Kubectl is not installed..."
+    echo "Attempting to install kubectl (May get asked for the sudo password)"
+    sudo apt-get update && sudo apt-get install -y apt-transport-https
+    curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+    echo "deb http://apt.kubernetes.io/ kubernetes-xenial main" | sudo tee -a /etc/apt/sources.list.d/kubernetes.list
+    sudo apt-get update
+    sudo apt-get install -y kubectl
+fi
+
 echo "Are you sure want to continue deploying kube-openmon on Kubernetes? (y/n)"
 read -r con
+
+
 
 if [ ! $con == 'y' ] && [ ! $con == 'Y' ]; then
    echo "Exiting installation"
