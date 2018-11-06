@@ -71,8 +71,8 @@ sed -i -e "s/{KUBERNETES_CUSTOM_TOKEN}/$KUBERNETES_TOKEN/g" ./kube-openmon.yaml
 
 echo "kube-openmon configuration..."
 cat ./kube-openmon.yaml
-pwd
-source ./../../utils/functions.sh
+
+source ./../../../../utils/functions.sh
 
 echo "Checking if kubectl is already installed..."
 if ! $(command_exists kubectl); then
