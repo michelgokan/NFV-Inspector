@@ -82,21 +82,19 @@ fi
 echo "Loading plugins:"
 
 declare -a plugins
+declare -a plugins_url
 plugins_str=""
 counter=1
-cd Plugins
-for f in */; do
-  folder=${f%?}
-  plugins[counter]="$folder"
-  plugins_str="${plugins_str}${counter}=$folder, "
-  echo "${plugins[$counter]}"
-  counter=$[counter +1]
 
-  cat ../config.json | jq -r ".plugins |= . + { \"$folder\": { } }" | sponge ../config.json
+cat package.json | jq ".officialPlugins" > t.json
 
-done
+while read -r line; do
+  # Extract the value from between the double quotes
+  # and add it to the array.
+  [[ $line =~ [[:blank:]]*\"(.*)\"[[:blank:]]*:[[:blank:]]+\"(.*)\" ]] && plugins[counter]="${BASH_REMATCH[2]}" && plugins_url[counter]="${BASH_REMATCH[1]}" && plugins_str="${plugins_str}${counter}=${BASH_REMATCH[2]}, " && counter=$[counter +1]
+done < t.json
 
-cd ..
+rm -f t.json
 
 echo $plugins_str
 plugins_str=${plugins_str%??}
@@ -104,26 +102,34 @@ counter=$[counter -1]
 
 echo "$counter plugins loaded!"
 
-echo "Please select a benchmarking integration plugin: ($plugins_str): "
+echo "Please enter a benchmarking integration plugin to install and load ($plugins_str): "
+read -r plugin
 
-read -r db
+echo "Make sure no other instance of NFV-VMS is running..."
+#sudo killall node
+sleep 2
+echo "Removing node_modules if exists..."
+rm -Rf ./node_modules
+echo "Installing modules..."
+npm install
 
-if ! array_element_exists db in plugins; then
-    echo "Wrong choice"
-    echo "Exiting installation wizard"
+
+if ! array_element_exists plugin in plugins; then
+  echo "Wrong choice[s]"
+  echo "Exiting installation wizard"
+  exit 0
+fi
+
+echo "Installing plugin ${plugins[plugin]}..."
+echo "npm install ${plugins_url[plugin]}"
+npm install ${plugins_url[plugin]}
+
+echo "Attempt running ./node_modules/${plugins[ccmp]}/config.sh"
+source ./node_modules/${plugins[ccmp]}/config.sh
+
+if [ ! -f ./node_modules/${plugins[ccmp]}/config.sh ]; then
+    echo "NO_PLUGIN_CONFIG_ERROR: No config.sh file has been found in the plugin directory or module not installed!" >&2
     exit 0
-else
-    cat config.json | jq -r ".general.benchmarking_plugin = \"${plugins[$db]}\"" | sponge config.json
-    echo "Running ./Plugins/${plugins[$db]}/config.sh"
-
-    if [ ! -f ./Plugins/${plugins[$db]}/config.sh ]; then
-        echo "NO_PLUGIN_CONFIG_ERROR: No config.sh file has been found in the plugin directory!" >&2
-        exit 0
-    else
-        cd ./Plugins/${plugins[$db]}/
-        source ./config.sh
-        cd ../../
-    fi
 fi
 
 echo ""

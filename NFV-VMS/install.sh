@@ -117,10 +117,8 @@ echo "$counter plugins loaded!"
 echo "Please enter a comma seperated list of integration plugins to install ($plugins_str): "
 read -r list_of_ccmps
 
-
-echo "fing all running node processes..."
-echo "(May get asked for a sudo password)"
-sudo killall node
+echo "Make sure no other instance of NFV-VMS is running..."
+#sudo killall node
 sleep 2
 echo "Removing node_modules if exists..."
 rm -Rf ./node_modules
