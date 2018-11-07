@@ -124,13 +124,16 @@ echo "Installing plugin ${plugins[plugin]}..."
 echo "npm install ${plugins_url[plugin]}"
 npm install ${plugins_url[plugin]}
 
-echo "Attempting to run ./node_modules/${plugins[plugin]}/config.sh"
-source ./node_modules/${plugins[plugin]}/config.sh
+echo "Checking if ./node_modules/${plugins[plugin]}/config.sh exists..."
 
 if [ ! -f ./node_modules/${plugins[plugin]}/config.sh ]; then
-    echo "NO_PLUGIN_CONFIG_ERROR: No config.sh file has been found in the plugin directory or module not installed!" >&2
+    echo "NO_PLUGIN_CONFIG_ERROR: No config.sh file has been found in ./node_modules/${plugins[plugin]}/ or module not installed!" >&2
+    echo "Exiting installation!"
     exit 0
 fi
+
+echo "Attempting to run ./node_modules/${plugins[plugin]}/config.sh"
+source ./node_modules/${plugins[plugin]}/config.sh
 
 echo ""
 echo "Installation successful!"
