@@ -78,6 +78,39 @@ else
   exit 0
 fi
 
+echo "Retrieving MySQL configuration from NFV-VMS..."
+
+MYSQL_ADDRESS=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22mysql_address%22%7D%7D" | jq --raw-output '.value')
+MYSQL_PORT=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22mysql_port%22%7D%7D" | jq --raw-output '.value')
+MYSQL_USERNAME=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22mysql_username%22%7D%7D" | jq --raw-output '.value')
+MYSQL_PASSWORD=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22mysql_password%22%7D%7D" | jq --raw-output '.value')
+MYSQL_DATABASE="NFV_BMS"
+
+echo "Add MySQL as datasource..."
+echo "{}" | jq ".mysql = { \"host\": \"$MYSQL_ADDRESS\", \"port\": $MYSQL_PORT, \"url\": \"mysql://$MYSQL_USERNAME:$MYSQL_PASSWORD@$MYSQL_ADDRESS:$MYSQL_PORT/$MYSQL_DATABASE\", \"database\": \"$MYSQL_DATABASE\", \"password\": \"$MYSQL_PASSWORD\", \"name\": \"mysql\", \"user\": \"$MYSQL_USERNAME\", \"connector\": \"mysql\" }" | jq ".db = {\"name\": \"db\", \"connector\": \"memory\", \"file\": \"config.json\" }" | sponge ./server/datasources.json
+
+echo "[Re]create MySQL scheme? (y/N) : "
+read -r mysql_database_recreate
+
+if [ ! $mysql_database_recreate == 'y' ] && [ ! $mysql_database_recreate == 'Y' ]; then
+  if ! mysql -h $MYSQL_ADDRESS -P $MYSQL_PORT -u $MYSQL_USERNAME -p$MYSQL_PASSWORD -D $MYSQL_DATABASE -e ";" ; then
+    echo "Database OK!"
+  else
+    echo "Database is not there!"
+    echo "Exiting installation"
+    exit 0
+  fi
+else
+  echo "[Re]creating MySQL scheme..."
+  if mysql -h $MYSQL_ADDRESS -P $MYSQL_PORT -u $MYSQL_USERNAME -p$MYSQL_PASSWORD \
+    -e "DROP DATABASE IF EXISTS $MYSQL_DATABASE; CREATE DATABASE $MYSQL_DATABASE;"; then
+    echo "Database successfully created!"
+  else
+    echo "Error creating database!"
+    echo "Exiting installation"
+    exit 0
+  fi
+fi
 
 echo "Loading plugins:"
 
