@@ -25,11 +25,11 @@ if [ -f ./config.json ]; then
     else
        rm ./config.json
 
-       echo "Please NFV-VMS endpoint address: "
+       echo "Please NFV-VMS endpoint address (i.e. 127.0.0.1): "
 
        read -r NFV_VMS_ADDRESS
 
-       echo "Please NFV-VMS endpoint point: "
+       echo "Please NFV-VMS endpoint port (default port: 3000): "
 
        read -r NFV_VMS_PORT
 
