@@ -24,8 +24,10 @@ if [ -f ./config.json ]; then
     if [ ! $con == 'y' ] && [ ! $con == 'Y' ]; then
        echo "Exiting installation"
        exit 0
-    else
-       rm ./config.json
+    fi
+fi
+
+rm ./config.json
        cat >./config.json <<EOF
 {
     "general": {
@@ -35,8 +37,6 @@ if [ -f ./config.json ]; then
     }
 }
 EOF
-    fi
-fi
 
 echo "Please enter NFV-MON server endpoint address (i.e. 127.0.0.1): "
 read -r nfv_mon_server_address
