@@ -126,7 +126,9 @@ else
     fi
 fi
 
-
+echo ""
+echo "Installation successful!"
+echo "Running NFV-BMS..."
 ./run.sh
 #cat config.json | jq -r ".general.server = { \"address\": \"$nfv_mon_server_address\", \"port\": \"$nfv_mon_server_port\" }" | sponge config.json
 
