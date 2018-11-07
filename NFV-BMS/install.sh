@@ -38,17 +38,17 @@ EOF
     fi
 fi
 
-echo "Please enter NFV-MON server endpoint address: "
+echo "Please enter NFV-MON server endpoint address (i.e. 127.0.0.1): "
 read -r nfv_mon_server_address
 
-echo "Please enter NFV-MON server endpoint port: "
+echo "Please enter NFV-MON server endpoint port (default port: 8080): "
 read -r nfv_mon_server_port
 
 echo "Attempting to connect to NFV-MON server"
 
 NFV_MON_RESPONSE=$(curl $nfv_mon_server_address:$nfv_mon_server_port/ping)
 if [ $NFV_MON_RESPONSE == 'pong' ]; then
-    echo "NFV_MON seems OK!"
+    echo "NFV-MON server seems OK!"
 else
     echo "Failed to connect to NFV_MON"
     echo $NFV_MON_RESPONSE

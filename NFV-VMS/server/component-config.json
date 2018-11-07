@@ -4,8 +4,8 @@
     "generateOperationScopedModels": true,
     "uiDirs": "server/explorer",
     "apiInfo": {
-      "title": "NFV-Inspector: NFV-BMS Component",
-      "description": "This is the API Explorer for NFV-BMS service"
+      "title": "NFV-Inspector: NFV-VMS Component",
+      "description": "This is the API Explorer for the NFV-VMS service"
     }
   },
   "nfv-inspector-vms-kubernetes-plugin": {
