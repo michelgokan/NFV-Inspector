@@ -113,7 +113,7 @@ if ! array_element_exists db in plugins; then
     echo "Exiting installation wizard"
     exit 0
 else
-    cat config.json | jq -r ".general.ccmp = \"${plugins[$db]}\"" | sponge config.json
+    cat config.json | jq -r ".general.benchmarking_plugin = \"${plugins[$db]}\"" | sponge config.json
     echo "Running ./Plugins/${plugins[$db]}/config.sh"
 
     if [ ! -f ./Plugins/${plugins[$db]}/config.sh ]; then
