@@ -121,7 +121,7 @@ else
         exit 0
     else
         cd ./Plugins/${plugins[$db]}/
-        source ./Plugins/${plugins[$db]}/config.sh
+        source ./config.sh
         cd ../../
     fi
 fi
