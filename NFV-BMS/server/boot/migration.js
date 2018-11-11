@@ -14,7 +14,6 @@ module.exports = function (app) {
 
         mysqlDs.autoupdate("node", function (err) {
             console.log("\nAutoupdated table 'node'");
-            console.log("\nAutoupdated table 'node'");
 
             mysqlDs.autoupdate("node_placement_configuration", function (err) {
                 console.log("\nAutoupdated table 'node_placement_configuration'");
@@ -157,10 +156,6 @@ module.exports = function (app) {
     });
     mysqlDs.autoupdate("endpoint", function (err) {
         console.log("Autoupdated table 'endpoint'");
-    });
-
-    mysqlDs.autoupdate("Michel", function (err) {
-        console.log("Autoupdated table 'michel'");
     });
 };
 

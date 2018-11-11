@@ -1,16 +1,16 @@
 {
-  "db": {
-    "name": "db",
-    "connector": "memory"
-  },
   "mysql": {
-    "host": "127.0.0.1",
+    "host": "172.16.16.227",
     "port": 3306,
-    "url": "mysql://root:rootroot@localhost/NFV_BMS",
+    "url": "mysql://root:root@172.16.16.227:3306/NFV_BMS",
     "database": "NFV_BMS",
-    "password": "rootroot",
+    "password": "root",
     "name": "mysql",
     "user": "root",
     "connector": "mysql"
+  },
+  "db": {
+    "name": "db",
+    "connector": "memory"
   }
 }

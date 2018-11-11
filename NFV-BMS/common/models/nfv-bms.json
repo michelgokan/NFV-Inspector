@@ -1,0 +1,25 @@
+{
+  "name": "nfv_bms",
+  "plural": "nfv_bms",
+  "base": "Model",
+  "properties": {},
+  "methods": {
+    "repopulateDatabase": {
+      "isStatic": true,
+      "accepts": [{
+        "arg": "q",
+        "type": "string",
+        "http": {
+          "source": "query"
+        }
+      }],
+      "returns": {
+        "arg": "result",
+        "type": "string"
+      },
+      "http": {
+        "verb": "get"
+      }
+    }
+  }
+}

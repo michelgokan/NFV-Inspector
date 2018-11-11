@@ -179,8 +179,7 @@
     "dataSource": "mysql",
     "public": true
   },
-  "PersistedModelExtended": {
-    "dataSource": "mysql",
-    "public": true
+  "nfv_bms": {
+    "dataSource": null
   }
 }
