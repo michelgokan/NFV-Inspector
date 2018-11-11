@@ -70,3 +70,5 @@ NFV-BMS/Plugins/ericssonhssfrontend/*
 NFV-BMS/Plugins/open5gcore/*
 
 .idea/
+
+NFV-MON/Client/kube-openmon/

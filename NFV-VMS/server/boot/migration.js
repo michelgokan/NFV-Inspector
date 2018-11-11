@@ -9,7 +9,8 @@ module.exports = function (app) {
         console.log("Running migration in "+component+" under lib/boot/migration...");
         require(__dirname + "/../../node_modules/" + component + "/lib/boot/migration").migrate(app);
       } catch (ex){
-        console.log("No migration found in "+component+" under lib/boot/migration");
+        console.log("No migration found in "+component+" under lib/boot/migration or error running it!");
+        console.log(ex.stack);
       }
     }
   }
