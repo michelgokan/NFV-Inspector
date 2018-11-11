@@ -141,7 +141,7 @@ do
     npm install ${plugins_url[ccmp]}
     selected_plugins_str="${selected_plugins_str}${plugins[ccmp]},"
 done
-selected_plugins_str=${selected_plugins_str%??}
+selected_plugins_str=${selected_plugins_str%?}
 
 echo "Attempting to start API server on port 3000..."
 node . &
