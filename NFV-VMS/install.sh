@@ -125,6 +125,9 @@ rm -Rf ./node_modules
 echo "Installing modules..."
 npm install
 
+selected_plugins_str=""
+
+
 for ccmp in $(echo $list_of_ccmps | sed "s/,/ /g")
 do
     if ! array_element_exists ccmp in plugins; then
@@ -136,7 +139,9 @@ do
     echo "Installing plugin ${plugins[ccmp]}..."
     echo "npm install ${plugins_url[ccmp]}"
     npm install ${plugins_url[ccmp]}
+    selected_plugins_str="${selected_plugins_str}${plugins[ccmp]},"
 done
+selected_plugins_str=${selected_plugins_str%??}
 
 echo "Attempting to start API server on port 3000..."
 node . &
@@ -146,7 +151,7 @@ echo "Saving your choice..."
 
 curl -X POST --header 'Content-Type: application/json' --header \
  'Accept: application/json' -d \
- "{ \"category\": \"system\", \"key\": \"active_plugins\", \"value\": \"$list_of_ccmps\" }" \
+ "{ \"category\": \"system\", \"key\": \"active_plugins\", \"value\": \"$selected_plugins_str\" }" \
  'http://127.0.0.1:3000/api/configurations'
 
  curl -X POST --header 'Content-Type: application/json' --header \
