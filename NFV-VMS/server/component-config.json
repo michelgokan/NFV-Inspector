@@ -10,5 +10,8 @@
   },
   "nfv-inspector-vms-kubernetes-plugin": {
     "useEnvVars": true
+  },
+  "nfv-inspector-vms-openstack-plugin": {
+    "useEnvVars": true
   }
 }
