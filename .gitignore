@@ -72,3 +72,8 @@ NFV-BMS/Plugins/open5gcore/*
 .idea/
 
 NFV-MON/Client/kube-openmon/
+
+#config.json
+NFV-BMS/config.json
+NFV-VMS/config.json
+NFV-MON/Server/config.json
