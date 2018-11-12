@@ -64,7 +64,7 @@ typings/
 .idea
 
 #Ericsson
-NFV-BMS/Plugins/ericssonhssfrontend/*
+NFV-BMS/Plugins/nfv-inspector-bms-hss-fe-plugin/*
 
 #Open5GCore
 NFV-BMS/Plugins/open5gcore/*

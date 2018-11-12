@@ -59,5 +59,20 @@
     }
   },
   "acls": [],
-  "methods": {}
-}
+  "methods": {
+    "start": {
+      "isStatic": true,
+      "accepts": [
+        {
+          "arg": "id", "type": "any", "description": "Model id", "required": true}
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "string"
+      },
+      "http": {
+        "verb": "get", "path": "/:id/start"
+      },
+      "description": "Start an experiment set."
+    }
+  }}

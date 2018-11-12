@@ -27,16 +27,16 @@ if [ -f ./config.json ]; then
     fi
 fi
 
-rm ./config.json
-       cat >./config.json <<EOF
-{
-    "general": {
-        "name": "NFV_BMS",
-        "version": "$NFV_BMS_VERSION",
-        "server": { }
-    }
-}
-EOF
+#rm ./config.json
+#       cat >./config.json <<EOF
+#{
+#    "general": {
+#        "name": "NFV_BMS",
+#        "version": "$NFV_BMS_VERSION",
+#        "server": { }
+#    }
+#}
+#EOF
 
 echo "Please enter NFV-MON server endpoint address (i.e. 127.0.0.1): "
 read -r nfv_mon_server_address
@@ -71,7 +71,30 @@ status_code=$(curl --write-out %{http_code} --silent --output /dev/null "$NFV_VM
 if [[ "$status_code" -eq 200 ]] ; then
   echo "NFV_VMS seems OK!"
   echo "Saving configs..."
-  cat config.json | jq -r ".general.server = { \"nfv_mon_server_address\": \"$nfv_mon_server_address\", \"nfv_mon_server_port\": \"$nfv_mon_server_port\", \"nfv_vms_address\": \"$NFV_VMS_ADDRESS\", \"nfv_vms_port\":\"$NFV_VMS_PORT\" }" | sponge config.json
+
+  curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_mon_server_address\", \"value\": \"$nfv_mon_server_address\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+ curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_mon_server_port\", \"value\": \"$nfv_mon_server_port\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+ curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_vms_address\", \"value\": \"$NFV_VMS_ADDRESS\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+ curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_vms_port\", \"value\": \"$NFV_VMS_PORT\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+
+
+  #cat config.json | jq -r ".general.server = { \"nfv_mon_server_address\": \"$nfv_mon_server_address\", \"nfv_mon_server_port\": \"$nfv_mon_server_port\", \"nfv_vms_address\": \"$NFV_VMS_ADDRESS\", \"nfv_vms_port\":\"$NFV_VMS_PORT\" }" | sponge config.json
 else
   echo "Failed to connect to NFV_VMS!"
   echo "Exiting installation..."

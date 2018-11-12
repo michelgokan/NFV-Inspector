@@ -96,5 +96,7 @@ cd src
 
 echo "Enabling REST API Server"
 npm install
-sleep 2
+
 node . &
+
+sleep 2
