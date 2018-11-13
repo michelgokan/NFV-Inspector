@@ -38,3 +38,18 @@ showProgress () {
     echo -ne '#######################   (100%)\r'
     sleep 1
 }
+
+showProgressLonger () {
+    echo -ne '###                       (16.6%)\r'
+    sleep 2
+    echo -ne '#####                     (33.3%)\r'
+    sleep 2
+    echo -ne '#########                 (50%)\r'
+    sleep 2
+    echo -ne '#############             (66.6%)\r'
+    sleep 2
+    echo -ne '###################       (83.3%)\r'
+    sleep 2
+    echo -ne '#######################   (100%)\r'
+    sleep 2
+}

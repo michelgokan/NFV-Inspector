@@ -181,5 +181,13 @@
   },
   "nfv_bms": {
     "dataSource": null
+  },
+  "system_information": {
+    "dataSource": "db",
+    "public": true
+  },
+  "configuration": {
+    "dataSource": "db",
+    "public": true
   }
 }

@@ -27,7 +27,7 @@ if [ -f ./config.json ]; then
     fi
 fi
 
-#rm ./config.json
+rm ./config.json
 #       cat >./config.json <<EOF
 #{
 #    "general": {
@@ -70,30 +70,6 @@ status_code=$(curl --write-out %{http_code} --silent --output /dev/null "$NFV_VM
 
 if [[ "$status_code" -eq 200 ]] ; then
   echo "NFV_VMS seems OK!"
-  echo "Saving configs..."
-
-  curl -X POST --header "Content-Type: application/json" --header \
- "Accept: application/json" -d \
- "{ \"category\": \"system\", \"key\": \"nfv_mon_server_address\", \"value\": \"$nfv_mon_server_address\" }" \
- "http://127.0.0.1:3001/api/configurations"
-
- curl -X POST --header "Content-Type: application/json" --header \
- "Accept: application/json" -d \
- "{ \"category\": \"system\", \"key\": \"nfv_mon_server_port\", \"value\": \"$nfv_mon_server_port\" }" \
- "http://127.0.0.1:3001/api/configurations"
-
- curl -X POST --header "Content-Type: application/json" --header \
- "Accept: application/json" -d \
- "{ \"category\": \"system\", \"key\": \"nfv_vms_address\", \"value\": \"$NFV_VMS_ADDRESS\" }" \
- "http://127.0.0.1:3001/api/configurations"
-
- curl -X POST --header "Content-Type: application/json" --header \
- "Accept: application/json" -d \
- "{ \"category\": \"system\", \"key\": \"nfv_vms_port\", \"value\": \"$NFV_VMS_PORT\" }" \
- "http://127.0.0.1:3001/api/configurations"
-
-
-
   #cat config.json | jq -r ".general.server = { \"nfv_mon_server_address\": \"$nfv_mon_server_address\", \"nfv_mon_server_port\": \"$nfv_mon_server_port\", \"nfv_vms_address\": \"$NFV_VMS_ADDRESS\", \"nfv_vms_port\":\"$NFV_VMS_PORT\" }" | sponge config.json
 else
   echo "Failed to connect to NFV_VMS!"
@@ -188,12 +164,37 @@ if [ ! -f ./node_modules/${plugins[plugin]}/config.sh ]; then
     exit 0
 fi
 
+echo "Running NFV-BMS..."
+echo "Starting NFV-BMS on port 3001"
+node . &
+showProgressLonger
+
+  echo "Saving configs..."
+
+  curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_mon_server_address\", \"value\": \"$nfv_mon_server_address\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+ curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_mon_server_port\", \"value\": \"$nfv_mon_server_port\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+ curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_vms_address\", \"value\": \"$NFV_VMS_ADDRESS\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
+ curl -X POST --header "Content-Type: application/json" --header \
+ "Accept: application/json" -d \
+ "{ \"category\": \"system\", \"key\": \"nfv_vms_port\", \"value\": \"$NFV_VMS_PORT\" }" \
+ "http://127.0.0.1:3001/api/configurations"
+
 echo "Attempting to run ./node_modules/${plugins[plugin]}/config.sh"
 source ./node_modules/${plugins[plugin]}/config.sh
 
 echo ""
 echo "Installation successful!"
-echo "Running NFV-BMS..."
-./run.sh
 #cat config.json | jq -r ".general.server = { \"address\": \"$nfv_mon_server_address\", \"port\": \"$nfv_mon_server_port\" }" | sponge config.json
 
