@@ -111,10 +111,6 @@
     "dataSource": "mysql",
     "public": true
   },
-  "experiment_system_function_traffic_demand": {
-    "dataSource": "mysql",
-    "public": true
-  },
   "vnf_resource_requirement": {
     "dataSource": "mysql",
     "public": true

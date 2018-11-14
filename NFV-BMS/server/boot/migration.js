@@ -85,136 +85,149 @@ module.exports = function (app) {
                                     }
                                     console.log("\nAutoupdated table 'experiment_set'");
 
-                                    mysqlDs.autoupdate("experiment", function (err) {
+                                    mysqlDs.autoupdate("system_function", function (err) {
                                         if (err !== undefined && err !== "" && err !== null) {
                                             console.error("Error creating table:" + err);
                                         }
-                                        console.log("Autoupdated table 'experiment'");
+                                        console.log("Autoupdated table 'system_function'");
 
-                                        mysqlDs.autoupdate("resource_type", function (err) {
+                                        mysqlDs.autoupdate("traffic_demand_configuration", function (err) {
                                             if (err !== undefined && err !== "" && err !== null) {
                                                 console.error("Error creating table:" + err);
                                             }
-                                            console.log("Autoupdated table 'resource_type'");
-
-                                            mysqlDs.autoupdate("resource", function (err) {
+                                            console.log("Autoupdated table 'traffic_demand_configuration'");
+                                            mysqlDs.autoupdate("experiment", function (err) {
                                                 if (err !== undefined && err !== "" && err !== null) {
                                                     console.error("Error creating table:" + err);
                                                 }
-                                                console.log("\nAutoupdated table 'resource'");
+                                                console.log("Autoupdated table 'experiment'");
 
-                                                mysqlDs.autoupdate("resource_property", function (err) {
+                                                mysqlDs.autoupdate("resource_type", function (err) {
                                                     if (err !== undefined && err !== "" && err !== null) {
                                                         console.error("Error creating table:" + err);
                                                     }
-                                                    console.log("Autoupdated table 'resource_property'");
+                                                    console.log("Autoupdated table 'resource_type'");
 
-
-                                                    mysqlDs.autoupdate("resource_allocation_configuration", function (err) {
+                                                    mysqlDs.autoupdate("resource", function (err) {
                                                         if (err !== undefined && err !== "" && err !== null) {
                                                             console.error("Error creating table:" + err);
                                                         }
-                                                        console.log("Autoupdated table 'resource_allocation_configuration_id'");
+                                                        console.log("\nAutoupdated table 'resource'");
 
-                                                        mysqlDs.autoupdate("resource_allocation_configuration_value", function (err) {
+                                                        mysqlDs.autoupdate("resource_property", function (err) {
                                                             if (err !== undefined && err !== "" && err !== null) {
                                                                 console.error("Error creating table:" + err);
                                                             }
-                                                            console.log("\nAutoupdated table 'resource_allocation_configuration_value'");
-                                                        });
+                                                            console.log("Autoupdated table 'resource_property'");
 
-                                                        mysqlDs.autoupdate("vnf", function (err) {
-                                                            if (err !== undefined && err !== "" && err !== null) {
-                                                                console.error("Error creating table:" + err);
-                                                            }
-                                                            console.log("\nAutoupdated table 'vnf'");
 
-                                                            mysqlDs.autoupdate("deployment_vnf", function (err) {
+                                                            mysqlDs.autoupdate("resource_allocation_configuration", function (err) {
                                                                 if (err !== undefined && err !== "" && err !== null) {
                                                                     console.error("Error creating table:" + err);
                                                                 }
-                                                                console.log("\nAutoupdated table 'deployment_vnf'");
-                                                            });
+                                                                console.log("Autoupdated table 'resource_allocation_configuration_id'");
 
-                                                            mysqlDs.autoupdate("combined_vnf", function (err) {
-                                                                if (err !== undefined && err !== "" && err !== null) {
-                                                                    console.error("Error creating table:" + err);
-                                                                }
-                                                                console.log("\nAutoupdated table 'combined_vnf'");
-                                                            });
-
-
-                                                            mysqlDs.autoupdate("experiment_time_interval", function (err) {
-                                                                if (err !== undefined && err !== "" && err !== null) {
-                                                                    console.error("Error creating table:" + err);
-                                                                }
-                                                                console.log("\nAutoupdated table 'experiment_time_interval'");
-
-
-                                                                mysqlDs.autoupdate("quality_metric_labeling_configuration_value", function (err) {
+                                                                mysqlDs.autoupdate("resource_allocation_configuration_value", function (err) {
                                                                     if (err !== undefined && err !== "" && err !== null) {
                                                                         console.error("Error creating table:" + err);
                                                                     }
-                                                                    console.log("Autoupdated table 'quality_metric_labeling_configuration_value'");
+                                                                    console.log("\nAutoupdated table 'resource_allocation_configuration_value'");
                                                                 });
 
-                                                                mysqlDs.autoupdate("experiment_quality_metric_value", function (err) {
+                                                                mysqlDs.autoupdate("vnf", function (err) {
                                                                     if (err !== undefined && err !== "" && err !== null) {
                                                                         console.error("Error creating table:" + err);
                                                                     }
-                                                                    console.log("\nAutoupdated table 'experiment_quality_metric_value'");
-                                                                });
+                                                                    console.log("\nAutoupdated table 'vnf'");
 
-                                                                mysqlDs.autoupdate("experiment_resource_usage_value", function (err) {
-                                                                    if (err !== undefined && err !== "" && err !== null) {
-                                                                        console.error("Error creating table:" + err);
-                                                                    }
-                                                                    console.log("\nAutoupdated table 'experiment_resource_usage_value'");
-                                                                });
-
-
-                                                                mysqlDs.autoupdate("experiment_set_sla_goal", function (err) {
-                                                                    if (err !== undefined && err !== "" && err !== null) {
-                                                                        console.error("Error creating table:" + err);
-                                                                    }
-                                                                    console.log("Autoupdated table 'experiment_set_sla_goal'");
-                                                                });
-
-                                                            });
-
-                                                            mysqlDs.autoupdate("vnf_property", function (err) {
-                                                                if (err !== undefined && err !== "" && err !== null) {
-                                                                    console.error("Error creating table:" + err);
-                                                                }
-                                                                console.log("Autoupdated table 'vnf_property'");
-
-                                                                mysqlDs.autoupdate("vnf_properties_configuration", function (err) {
-                                                                    if (err !== undefined && err !== "" && err !== null) {
-                                                                        console.error("Error creating table:" + err);
-                                                                    }
-                                                                    console.log("Autoupdated table 'vnf_properties_configuration'");
-
-                                                                    mysqlDs.autoupdate("vnf_properties_configuration_property_value", function (err) {
+                                                                    mysqlDs.autoupdate("deployment_vnf", function (err) {
                                                                         if (err !== undefined && err !== "" && err !== null) {
                                                                             console.error("Error creating table:" + err);
                                                                         }
-                                                                        console.log("\nAutoupdated table 'vnf_properties_configuration_property_value'");
+                                                                        console.log("\nAutoupdated table 'deployment_vnf'");
                                                                     });
 
-                                                                    mysqlDs.autoupdate("experiment_node_configuration", function (err) {
+                                                                    mysqlDs.autoupdate("combined_vnf", function (err) {
                                                                         if (err !== undefined && err !== "" && err !== null) {
                                                                             console.error("Error creating table:" + err);
                                                                         }
-                                                                        console.log("\nAutoupdated table 'experiment_node_configuration'");
+                                                                        console.log("\nAutoupdated table 'combined_vnf'");
+                                                                    });
+
+
+                                                                    mysqlDs.autoupdate("experiment_time_interval", function (err) {
+                                                                        if (err !== undefined && err !== "" && err !== null) {
+                                                                            console.error("Error creating table:" + err);
+                                                                        }
+                                                                        console.log("\nAutoupdated table 'experiment_time_interval'");
+
+
+                                                                        mysqlDs.autoupdate("quality_metric_labeling_configuration_value", function (err) {
+                                                                            if (err !== undefined && err !== "" && err !== null) {
+                                                                                console.error("Error creating table:" + err);
+                                                                            }
+                                                                            console.log("Autoupdated table 'quality_metric_labeling_configuration_value'");
+                                                                        });
+
+                                                                        mysqlDs.autoupdate("experiment_quality_metric_value", function (err) {
+                                                                            if (err !== undefined && err !== "" && err !== null) {
+                                                                                console.error("Error creating table:" + err);
+                                                                            }
+                                                                            console.log("\nAutoupdated table 'experiment_quality_metric_value'");
+                                                                        });
+
+                                                                        mysqlDs.autoupdate("experiment_resource_usage_value", function (err) {
+                                                                            if (err !== undefined && err !== "" && err !== null) {
+                                                                                console.error("Error creating table:" + err);
+                                                                            }
+                                                                            console.log("\nAutoupdated table 'experiment_resource_usage_value'");
+                                                                        });
+
+
+                                                                        mysqlDs.autoupdate("experiment_set_sla_goal", function (err) {
+                                                                            if (err !== undefined && err !== "" && err !== null) {
+                                                                                console.error("Error creating table:" + err);
+                                                                            }
+                                                                            console.log("Autoupdated table 'experiment_set_sla_goal'");
+                                                                        });
+
+                                                                    });
+
+                                                                    mysqlDs.autoupdate("vnf_property", function (err) {
+                                                                        if (err !== undefined && err !== "" && err !== null) {
+                                                                            console.error("Error creating table:" + err);
+                                                                        }
+                                                                        console.log("Autoupdated table 'vnf_property'");
+
+                                                                        mysqlDs.autoupdate("vnf_properties_configuration", function (err) {
+                                                                            if (err !== undefined && err !== "" && err !== null) {
+                                                                                console.error("Error creating table:" + err);
+                                                                            }
+                                                                            console.log("Autoupdated table 'vnf_properties_configuration'");
+
+                                                                            mysqlDs.autoupdate("vnf_properties_configuration_property_value", function (err) {
+                                                                                if (err !== undefined && err !== "" && err !== null) {
+                                                                                    console.error("Error creating table:" + err);
+                                                                                }
+                                                                                console.log("\nAutoupdated table 'vnf_properties_configuration_property_value'");
+                                                                            });
+
+                                                                            mysqlDs.autoupdate("experiment_node_configuration", function (err) {
+                                                                                if (err !== undefined && err !== "" && err !== null) {
+                                                                                    console.error("Error creating table:" + err);
+                                                                                }
+                                                                                console.log("\nAutoupdated table 'experiment_node_configuration'");
+                                                                            });
+                                                                        });
+                                                                    });
+
+                                                                    mysqlDs.autoupdate("vnf_resource_requirement", function (err) {
+                                                                        if (err !== undefined && err !== "" && err !== null) {
+                                                                            console.error("Error creating table:" + err);
+                                                                        }
+                                                                        console.log("\nAutoupdated table 'vnf_resource_requirement'");
                                                                     });
                                                                 });
-                                                            });
-
-                                                            mysqlDs.autoupdate("vnf_resource_requirement", function (err) {
-                                                                if (err !== undefined && err !== "" && err !== null) {
-                                                                    console.error("Error creating table:" + err);
-                                                                }
-                                                                console.log("\nAutoupdated table 'vnf_resource_requirement'");
                                                             });
                                                         });
                                                     });
@@ -223,26 +236,13 @@ module.exports = function (app) {
                                         });
 
 
-                                        mysqlDs.autoupdate("system_function", function (err) {
-                                            if (err !== undefined && err !== "" && err !== null) {
-                                                console.error("Error creating table:" + err);
-                                            }
-                                            console.log("Autoupdated table 'system_function'");
-
-                                            mysqlDs.autoupdate("traffic_demand_configuration", function (err) {
-                                                if (err !== undefined && err !== "" && err !== null) {
-                                                    console.error("Error creating table:" + err);
-                                                }
-                                                console.log("Autoupdated table 'traffic_demand_configuration'");
-
-                                                mysqlDs.autoupdate("experiment_system_function_traffic_demand", function (err) {
-                                                    if (err !== undefined && err !== "" && err !== null) {
-                                                        console.error("Error creating table:" + err);
-                                                    }
-                                                    console.log("Autoupdated table 'experiment_system_function_traffic_demand'");
-                                                });
-                                            });
-                                        });
+                                        // mysqlDs.autoupdate("experiment_system_function_traffic_demand", function (err) {
+                                        //     if (err !== undefined && err !== "" && err !== null) {
+                                        //         console.error("Error creating table:" + err);
+                                        //     }
+                                        //     console.log("Autoupdated table 'experiment_system_function_traffic_demand'");
+                                        //
+                                        // });
                                     });
                                 });
                             });
@@ -259,15 +259,15 @@ module.exports = function (app) {
         console.log("Autoupdated table 'endpoint'");
     });
 
-    const components = require(__dirname+"/../component-config");
+    const components = require(__dirname + "/../component-config");
 
-    for(var component in components){
-        if(component.match(/^nfv-inspector-bms-/)){
+    for (var component in components) {
+        if (component.match(/^nfv-inspector-bms-/)) {
             try {
-                console.log("Running migration in "+component+" under lib/boot/migration...");
+                console.log("Running migration in " + component + " under lib/boot/migration...");
                 require(__dirname + "/../../node_modules/" + component + "/lib/boot/migration").migrate(app);
-            } catch (ex){
-                console.log("No migration found in "+component+" under lib/boot/migration or error running it!");
+            } catch (ex) {
+                console.log("No migration found in " + component + " under lib/boot/migration or error running it!");
                 console.log(ex.stack);
             }
         }

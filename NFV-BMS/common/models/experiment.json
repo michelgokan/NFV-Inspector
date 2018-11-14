@@ -13,6 +13,18 @@
       "entityKey": "id",
       "entity": "experiment_set"
     },
+    "system_function_id": {
+      "name": "experimentSysFuncTrafDemandSysFuncIdForeignKey",
+      "foreignKey": "system_function_id",
+      "entityKey": "id",
+      "entity": "system_function"
+    },
+    "traffic_demand_configuration_id": {
+      "name": "experimentSysFuncTrafDemandTrafDemIdForeignKey",
+      "foreignKey": "traffic_demand_configuration_id",
+      "entityKey": "id",
+      "entity": "traffic_demand_configuration"
+    },
     "node_placement_configuration_id": {
       "name": "experimentsNodesPlacementIDForeignKey",
       "foreignKey": "node_placement_configuration_id",
@@ -49,6 +61,16 @@
       "type": "belongsTo",
       "model": "experiment_set",
       "foreignKey": "experiment_set_id"
+    },
+    "experimentSysFuncTrafDemandSysFuncIdRelation": {
+      "type": "belongsTo",
+      "model": "system_function",
+      "foreignKey": "system_function_id"
+    },
+    "experimentSysFuncTrafDemandTrafDemIdRelation": {
+      "type": "belongsTo",
+      "model": "traffic_demand_configuration",
+      "foreignKey": "traffic_demand_configuration_id"
     }
   },
   "acls": [],
