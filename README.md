@@ -53,7 +53,6 @@ Michel Gokan Khan (Karlstad University, Karlstad, Sweden)
 
 # Collaborators
 Ericsson (Stockholm, Sweden)
-VoerEir (Stockholm, Sweden)
 
 # Supervisors
 John Javid Taheri (Karlstad University, Karlstad, Sweden)
