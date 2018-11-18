@@ -1,33 +1,39 @@
 {
-  "name": "datatables.net-editor-demo",
-  "version": "1.7.4",
-  "description": "DataTables Editor demo package, including examples and test data",
-  "main": "index.js",
-  "directories": {
-    "example": "examples"
-  },
+  "name": "nfv-dashboard",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
   "dependencies": {
-    "body-parser": "^1.17.2",
-    "datatables.net-editor-server": ">=1.7.0",
-    "express": "^4.15.3",
-    "express-busboy": "^6.0.1",
-    "knex": "^0.14.0",
-    "mssql": "^4.1.0",
-    "mysql": "^2.13.0",
-    "pg": "^7.4.0",
-    "sqlite3": "^4.0.2"
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "grunt": "^1.0.3",
+    "node-fetch": "^2.3.0",
+    "request": "^2.88.0",
+    "sails": "^1.1.0",
+    "sails-hook-grunt": "^3.1.0",
+    "sails-hook-orm": "^2.1.1",
+    "sails-hook-sockets": "^1.5.5",
+    "sync-request": "^6.0.0"
   },
   "devDependencies": {
-    "source-map-support": "^0.4.15"
+    "@sailshq/eslint": "^4.19.3"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "NODE_ENV=production node app.js",
+    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
   },
-  "keywords": [
-    "DataTables",
-    "Editor"
-  ],
-  "author": "SpryMedia Limited",
-  "license": "SEE LICENSE IN https://editor.datatables.net/license"
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/michelgokan/nfv-dashboard.git"
+  },
+  "author": "michelgokan",
+  "license": "",
+  "engines": {
+    "node": "^8.9"
+  }
 }

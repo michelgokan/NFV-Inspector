@@ -73,7 +73,7 @@
   },
   "node_placement_configuration": {
     "dataSource": "mysql",
-    "public": false
+    "public": true
   },
   "deployment": {
     "dataSource": "mysql",

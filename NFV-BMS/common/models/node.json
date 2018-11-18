@@ -12,6 +12,12 @@
       "foreignKey": "type_id",
       "entityKey": "id",
       "entity": "node_type"
+    },
+    "vnf_id": {
+      "name": "nodeVnf_ForeignKey",
+      "foreignKey": "vnf_id",
+      "entityKey": "id",
+      "entity": "vnf"
     }
   },
   "properties": {
@@ -26,6 +32,11 @@
       "type": "belongsTo",
       "model": "node_type",
       "foreignKey": "type_id"
+    },
+    "nodeVnf_Relation": {
+      "type": "belongsTo",
+      "model": "vnf",
+      "foreignKey": "vnf_id"
     }
   },
   "acls": [],

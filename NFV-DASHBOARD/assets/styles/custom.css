@@ -1,0 +1,7 @@
+/* Add here all your CSS customizations */
+
+@media (min-width: 992px) {
+  .header.header-nav-menu .header-nav-main nav > ul > li > a {
+    font-size: 18px;
+  }
+}

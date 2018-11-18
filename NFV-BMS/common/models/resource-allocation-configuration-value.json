@@ -13,11 +13,11 @@
       "entityKey": "id",
       "entity": "resource_allocation_configuration"
     },
-    "resource_id": {
-      "name": "resourceAllocationConfigResIdForeignKey",
-      "foreignKey": "resource_id",
+    "resource_type_id": {
+      "name": "resourceAllocationConfigResTypIdForeignKey",
+      "foreignKey": "resource_type_id",
       "entityKey": "id",
-      "entity": "resource"
+      "entity": "resource_type"
     }
   },
   "properties": {
@@ -36,10 +36,10 @@
       "model": "resource_allocation_configuration",
       "foreignKey": "resource_allocation_configuration_id"
     },
-    "resourceAllocationConfigResIdRelation": {
+    "resourceAllocationConfigResTypIdRelation": {
       "type": "belongsTo",
-      "model": "resource",
-      "foreignKey": "resource_id"
+      "model": "resource_type",
+      "foreignKey": "resource_type_id"
     }
   },
   "acls": [],

@@ -1,0 +1,143 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
+<% pageTitle="Dashboard" %>
+<% appName="NFV-MON" %>
+<% block('localCustomScripts', '<script src="/dependencies/select2/js/select2.js"></script>\n' +
+  '<script src="/dependencies/datatables/media/js/jquery.dataTables.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/media/js/dataTables.bootstrap4.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/dataTables.buttons.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.bootstrap4.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.html5.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.print.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js"></script>\n' +
+  '<script src="/js/datatable.js"></script>\n');
+
+  block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/select2/css/select2.css" />\n' +
+    '<link rel="stylesheet" href="/dependencies/select2-bootstrap-theme/select2-bootstrap.min.css" />\n' +
+    '<link rel="stylesheet" href="/dependencies/datatables/media/css/dataTables.bootstrap4.css" />\n');
+  %>
+
+<div class="row">
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Kubernetes Pods</h2>
+      </header>
+      <div class="card-body">
+        <table class="table table-bordered table-striped mb-0" id="kubernetes-pods-table" data-url="/api/v1/k8s/pods">
+          <thead>
+          <tr>
+            <th>Pod Name</th>
+            <th>Host</th>
+            <th>CPU Request</th>
+            <th>CPU Limit</th>
+            <th>Memory Request</th>
+            <th>Memory Limit</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Kubernetes Workers</h2>
+      </header>
+      <div class="card-body">
+        <table class="table table-bordered table-striped mb-0" id="kubernetes-workers-table" data-url="/api/v1/k8s/nodes">
+          <thead>
+          <tr>
+            <th>Worker Name</th>
+            <th>IP</th>
+            <th>Allocatable CPU</th>
+            <th>Allocatable Memory</th>
+            <th>Allocatable Disk</th>
+            <th>Allocatable Pods</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">OpenStack Virtual Machines</h2>
+      </header>
+      <div class="card-body">
+        <table class="table table-bordered table-striped mb-0" id="openstack-vms-table" data-url="/api/v1/openstack/vms">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Status</th>
+            <th>Flavor</th>
+            <th>Networks</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">OpenStack Compute Nodes</h2>
+      </header>
+      <div class="card-body">
+        <table class="table table-bordered table-striped mb-0" id="openstack-compute-nodes-table" data-url="/api/v1/openstack/nodes">
+          <thead>
+          <tr>
+            <th>Host Name</th>
+            <th>Zone</th>
+            <th>Service</th>
+          </tr>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+</div>
