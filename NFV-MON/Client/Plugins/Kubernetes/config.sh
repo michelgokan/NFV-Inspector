@@ -23,7 +23,7 @@ if [ $BACKEND_DB == 'InfluxDB' ]; then
     BACKEND_DB_DATABASE=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_db')
 
     echo "IMPORTANT QUESTION: May break the system later on if answered incorrectly!"
-    echo "Are you sure you already have a database with name \"$BACKEND_DB_DATABASE_NAME\" in your InfluxDB server at $BACKEND_DB_HOST? (y/n):"
+    echo "Are you sure you already have a database with name \"$BACKEND_DB_DATABASE\" in your InfluxDB server at $BACKEND_DB_HOST? (y/n):"
     read -r backend_database_exists
 
     #TODO: Add Automated checking
@@ -74,7 +74,7 @@ if [ $BACKEND_DB == 'InfluxDB' ]; then
     sed -i -e "s/{INFLUXDB_PORT}/$BACKEND_DB_PORT/g" ./kube-openmon.yaml
     sed -i -e "s/{INFLUXDB_USERNAME}/$BACKEND_DB_USERNAME/g" ./kube-openmon.yaml
     sed -i -e "s/{INFLUXDB_PASSWORD}/$BACKEND_DB_PASSWORD/g" ./kube-openmon.yaml
-    sed -i -e "s/{INFLUXDB_DATABASE}/$BACKEND_DB_DATABASE_NAME/g" ./kube-openmon.yaml
+    sed -i -e "s/{INFLUXDB_DATABASE}/$BACKEND_DB_DATABASE/g" ./kube-openmon.yaml
 fi
 
 sed -i -e "s/{KUBERNETES_CUSTOM_ADDRESS}/$KUBERNETES_ADDRESS/g" ./kube-openmon.yaml

@@ -7177,6 +7177,10 @@ html .card-dark .card-title {
 	border-radius: 5px;
 }
 
+html.dark .flot-tick-label{
+  color: rgba(180, 180, 180, 0.73);
+}
+
 .jqstooltip {
 	min-width: 30px;
 	min-height: 25px;
@@ -7997,12 +8001,16 @@ html.dark .input-daterange .input-group-addon {
 	text-shadow: none;
 }
 
-html.dark .datepicker-dropdown {
+html.dark .datepicker-dropdown, html.dark .bootstrap-datetimepicker-widget{
 	color: #EEE;
 	background-color: #282d36;
 }
 
-html.dark .datepicker-dropdown:after {
+.bootstrap-datetimepicker-widget table td span:hover {
+  background: #11bc36;
+}
+
+html.dark .datepicker-dropdown:after, html.dark .bootstrap-datetimepicker-widget:after {
 	border-bottom-color: #282d36;
 }
 

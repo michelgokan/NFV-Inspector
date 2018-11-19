@@ -19,7 +19,8 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': { view: 'pages/homepage' },
+  '/': { view: 'pages/nfv-mon/homepage' },
+  '/nfv-mon/kubernetes/resource-usage': { view: 'pages/nfv-mon/kubernetes/resource-usage' },
 
 
   /***************************************************************************

@@ -5,7 +5,7 @@
   <!-- Basic -->
   <meta charset="UTF-8">
 
-  <title>NFV-Inspector Dashboard</title>
+  <title>NFV-Inspector Dashboard / <%=pageTitle%></title>
   <meta name="keywords" content="NFV-Inspector"/>
   <meta name="description"
         content="NFV-Inspector: a machine learning ready NFV systems automated analysis and monitoring platform">
@@ -13,6 +13,8 @@
 
   <!-- Mobile Metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+  <link rel="icon" href="/images/logo.png" type="image/png">
 
   <!-- Web Fonts  -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800|Shadows+Into+Light" rel="stylesheet"
@@ -67,22 +69,22 @@
         <div class="header-nav-main header-nav-main-effect-1 header-nav-main-sub-effect-1">
           <nav>
             <ul class="nav nav-pills" id="mainNav">
-              <li class="active">
+              <li class="<%=(appName === "NFV-MON"?"active":"")%>">
                 <a class="nav-link" href="index.html">
                   NFV-MON
                 </a>
               </li>
-              <li class="">
+              <li class="<%=(appName === "NFV-VMS"?"active":"")%>">
                 <a class="nav-link" href="#">
                   NFV-VMS
                 </a>
               </li>
-              <li class="">
+              <li class="<%=(appName === "NFV-BMS"?"active":"")%>">
                 <a class="nav-link" href="#">
                   NFV-BMS
                 </a>
               </li>
-              <li class="">
+              <li class="<%=(appName === "NFV-LAB"?"active":"")%>">
                 <a class="nav-link" href="#">
                   NFV-LAB
                 </a>
@@ -319,7 +321,7 @@
 <script src="/dependencies/jquery/jquery.js"></script>
 <script src="/dependencies/jquery-browser-mobile/jquery.browser.mobile.js"></script>
 <script src="/dependencies/popper/umd/popper.min.js"></script>
-<script src="/dependencies/bootstrap/js/bootstrap.js"></script>
+<script src="/dependencies/bootstrap/js/bootstrap.bundle.js"></script>
 <script src="/dependencies/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
 <script src="/dependencies/common/common.js"></script>
 <script src="/dependencies/nanoscroller/nanoscroller.js"></script>

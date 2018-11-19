@@ -1,0 +1,207 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
+<% pageTitle = "Kubernetes Resource Usage" %>
+<% appName = "NFV-MON" %>
+<% block('localCustomScripts', '<script src="/dependencies/autosize/autosize.js"></script>\n' +
+  '<script src="/dependencies/chartist/chartist.js"></script>\n' +
+  '<script src="/dependencies/moment/moment.js"></script>\n' +
+  '<script src="/dependencies/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>\n' +
+  '<script src="/js/chart.js"></script>\n' +
+  '<script src="/js/datetime.js"></script>\n');
+
+block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/chartist.min.css" />\n'+
+  '<link rel="stylesheet" href="/dependencies/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />\n');
+%>
+<div class="row">
+  <div class="col-lg-12">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Pod Information and Time Range</h2>
+      </header>
+      <div class="card-body">
+        <form class="form-horizontal form-bordered">
+
+
+          <div class="row form-group">
+            <label class="col-lg-3 control-label text-lg-right pt-2">Default Datepicker</label>
+            <div class="col-lg-6">
+              <div class="input-group">
+                <input type="text" placeholder="Enter pod name here..." class="form-control"
+                       value="<%= req.query.pod_name %>"></div>
+            </div>
+
+          </div>
+
+          <div class="form-group row">
+            <label class="col-lg-3 control-label text-lg-right pt-2">Date range</label>
+            <div class="col-lg-6">
+              <div class="input-daterange input-group date">
+														<span class="input-group-prepend">
+															<span class="input-group-text">
+																<i class="fas fa-calendar-alt"></i>
+															</span>
+														</span>
+                <input type="text" class="form-control" name="start" id="startDateTime">
+                <span class="input-group-text border-left-0 border-right-0 rounded-0">
+															to
+														</span>
+                <input type="text" class="form-control" name="end" id="endDateTime">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group row">
+
+
+              <div class="col-lg-12 text-right">
+                <button type="button" class="btn btn-success">View Resource Utilization</button>
+              </div>
+
+          </div>
+
+
+        </form>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Liquid Meter</h2>
+        <p class="card-subtitle">Exclusive Plug-in by Okler Themes</p>
+      </header>
+      <div class="card-body">
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="row">
+              <div class="col-lg-12"><h3 class="center">CPU Usage</h3></div>
+            </div>
+            <meter min="0" max="100" value="85" class="meterDark"></meter>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <div class="col-lg-12"><h3 class="center">Memory Usage</h3></div>
+            </div>
+
+            <meter min="0" max="100" value="85" class="meterDark"></meter>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <div class="col-lg-12"><h3 class="center">Disk Usage</h3></div>
+            </div>
+
+            <meter min="0" max="100" value="85" class="meterDark"></meter>
+          </div>
+          <div class="col-lg-3">
+            <div class="row">
+              <div class="col-lg-12"><h3 class="center">Network Usage</h3></div>
+            </div>
+
+            <meter min="0" max="100" value="85" class="meterDark"></meter>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">CPU Usage Plot</h2>
+        <p class="card-subtitle">View pod's CPU Usage plot.</p>
+      </header>
+      <div class="card-body">
+
+        <!-- Flot: Curves -->
+        <div class="chart chart-md" id="cpu"></div>
+
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Memory Usage Plot</h2>
+        <p class="card-subtitle">View pod's memory usage plot.</p>
+      </header>
+      <div class="card-body">
+
+        <!-- Flot: Curves -->
+        <div class="chart chart-md" id="memory"></div>
+
+      </div>
+    </section>
+  </div>
+</div>
+<div class="row">
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Disk Usage Plot</h2>
+        <p class="card-subtitle">View pod's disk usage plot.</p>
+      </header>
+      <div class="card-body">
+
+        <!-- Flot: Curves -->
+        <div class="chart chart-md" id="disk"></div>
+
+      </div>
+    </section>
+  </div>
+
+  <div class="col-lg-6">
+    <section class="card">
+      <header class="card-header">
+        <div class="card-actions">
+          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+        </div>
+
+        <h2 class="card-title">Network Usage Plot</h2>
+        <p class="card-subtitle">View pod's network usage plot.</p>
+      </header>
+      <div class="card-body">
+
+        <!-- Flot: Curves -->
+        <div class="chart chart-md" id="network"></div>
+
+      </div>
+    </section>
+  </div>
+
+</div>
