@@ -102,7 +102,7 @@ echo "Saving your choice..."
 
 curl -X POST --header 'Content-Type: application/json' --header \
  'Accept: application/json' -d \
- "{ \"category\": \"system\", \"key\": \"active_plugins\", \"value\": \"$selected_plugin_str\" }" \
+ "{ \"category\": \"system\", \"key\": \"active_plugin\", \"value\": \"$selected_plugin_str\" }" \
  'http://127.0.0.1:3002/api/configurations'
 
  curl -X POST --header 'Content-Type: application/json' --header \

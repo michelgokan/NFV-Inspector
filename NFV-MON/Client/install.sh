@@ -74,10 +74,10 @@ else
   exit 0
 fi
 
-echo "Getting NFV-MON server configuration at $nfv_mon_server_address:$nfv_mon_server_port..."
-NFV_MON_CONFIG=$(curl $nfv_mon_server_address:$nfv_mon_server_port)
-
-echo $NFV_MON_CONFIG
+#echo "Getting NFV-MON server configuration at $nfv_mon_server_address:$nfv_mon_server_port..."
+#NFV_MON_CONFIG=$(curl $nfv_mon_server_address:$nfv_mon_server_port)
+#
+#echo $NFV_MON_CONFIG
 
 NFV_VMS_ADDRESS=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22nfv_vms_server_address%22%7D%7D" | jq --raw-output '.value')
 NFV_VMS_PORT=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22nfv_vms_server_port%22%7D%7D" | jq --raw-output '.value')
@@ -96,8 +96,8 @@ else
   exit 0
 fi
 
-echo $plugins_str
 plugins_str=${plugins_str%??}
+echo $plugins_str
 counter=$[counter -1]
 
 echo "$counter plugins loaded!"

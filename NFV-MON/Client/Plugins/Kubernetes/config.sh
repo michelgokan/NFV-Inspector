@@ -9,18 +9,17 @@ read -r monitoring_log_level
 echo "Monitoring enabled by default? (0=No, 1=Yes):"
 read -r monitoring_enabled
 
-echo "Retrieving NFV-MON configuration..."
-NFV_MON_CONFIG=$(curl $nfv_mon_server_address:$nfv_mon_server_port)
-BACKEND_DB=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.backend_db')
+echo "Retrieving NFV-MON configuration from $nfv_mon_server_address:$nfv_mon_server_port..."
+ACTIVE_BACKEND_DB_PLUGIN_NAME=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22active_plugin%22%7D%7D" | jq --raw-output '.value')
 
 #TODO: HARD-CODED IF: We should change this part!
-if [ $BACKEND_DB == 'InfluxDB' ]; then
+if [ $ACTIVE_BACKEND_DB_PLUGIN_NAME == 'nfv-inspector-mon-influxdb-plugin' ]; then
     echo "InfluxDB is supported!"
-    BACKEND_DB_HOST=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_host')
-    BACKEND_DB_PORT=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_port')
-    BACKEND_DB_USERNAME=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_username')
-    BACKEND_DB_PASSWORD=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_password')
-    BACKEND_DB_DATABASE=$(echo $NFV_MON_CONFIG | jq --raw-output '.plugins.InfluxDB.influxdb_db')
+    BACKEND_DB_HOST=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22influxdb_host%22%7D%7D" | jq --raw-output '.value')
+    BACKEND_DB_PORT=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22influxdb_port%22%7D%7D" | jq --raw-output '.value')
+    BACKEND_DB_USERNAME=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22influxdb_username%22%7D%7D" | jq --raw-output '.value')
+    BACKEND_DB_PASSWORD=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22influxdb_password%22%7D%7D" | jq --raw-output '.value')
+    BACKEND_DB_DATABASE=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22influxdb_database%22%7D%7D" | jq --raw-output '.value')
 
     echo "IMPORTANT QUESTION: May break the system later on if answered incorrectly!"
     echo "Are you sure you already have a database with name \"$BACKEND_DB_DATABASE\" in your InfluxDB server at $BACKEND_DB_HOST? (y/n):"
@@ -33,19 +32,14 @@ if [ $BACKEND_DB == 'InfluxDB' ]; then
         exit 0
     fi
 else
-    echo "No compatible adaptor exists for the $BACKEND_DB database!"
+    echo "No compatible adaptor exists for the $ACTIVE_BACKEND_DB_PLUGIN_NAME database!"
     echo "Consider add a compatible adaptor in adapters folder"
     echo "Exiting installation!"
     exit 0
 fi
 
 echo "Retrieved information from NFV-MON server..."
-echo -e "Backend database type: $BACKEND_DB \nBackend database address: $BACKEND_DB_HOST \nBackend database port: $BACKEND_DB_PORT \nBackend database username: $BACKEND_DB_USERNAME\nBackend database password: $BACKEND_DB_PASSWORD\n"
-
-
-
-NFV_VMS_ADDRESS=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_address')
-NFV_VMS_PORT=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_port')
+echo -e "Backend database type: $ACTIVE_BACKEND_DB_PLUGIN_NAME \nBackend database address: $BACKEND_DB_HOST \nBackend database port: $BACKEND_DB_PORT \nBackend database username: $BACKEND_DB_USERNAME\nBackend database password: $BACKEND_DB_PASSWORD\n"
 
 echo "Retrieving Kubernetes information from NFV-VMS on $NFV_VMS_ADDRESS:$NFV_VMS_PORT..."
 KUBERNETES_ADDRESS=$(curl -X GET --header 'Accept: application/json' "http://$NFV_VMS_ADDRESS:$NFV_VMS_PORT/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22kubernetes_api_address%22%7D%7D" | jq --raw-output '.value')
@@ -69,7 +63,7 @@ sed -i -e "s/{LOG_LEVEL}/$monitoring_log_level/g" ./kube-openmon.yaml
 sed -i -e "s/{ENABLED}/$monitoring_enabled/g" ./kube-openmon.yaml
 
 #TODO: Hard-coded!!!! Consider changing this part!
-if [ $BACKEND_DB == 'InfluxDB' ]; then
+if [ $ACTIVE_BACKEND_DB_PLUGIN_NAME == 'InfluxDB' ]; then
     sed -i -e "s/{INFLUXDB_ADDRESS}/$BACKEND_DB_HOST/g" ./kube-openmon.yaml
     sed -i -e "s/{INFLUXDB_PORT}/$BACKEND_DB_PORT/g" ./kube-openmon.yaml
     sed -i -e "s/{INFLUXDB_USERNAME}/$BACKEND_DB_USERNAME/g" ./kube-openmon.yaml
