@@ -63,7 +63,7 @@ sed -i -e "s/{LOG_LEVEL}/$monitoring_log_level/g" ./kube-openmon.yaml
 sed -i -e "s/{ENABLED}/$monitoring_enabled/g" ./kube-openmon.yaml
 
 #TODO: Hard-coded!!!! Consider changing this part!
-if [ $ACTIVE_BACKEND_DB_PLUGIN_NAME == 'InfluxDB' ]; then
+if [ $ACTIVE_BACKEND_DB_PLUGIN_NAME == 'nfv-inspector-mon-influxdb-plugin' ]; then
     sed -i -e "s/{INFLUXDB_ADDRESS}/$BACKEND_DB_HOST/g" ./kube-openmon.yaml
     sed -i -e "s/{INFLUXDB_PORT}/$BACKEND_DB_PORT/g" ./kube-openmon.yaml
     sed -i -e "s/{INFLUXDB_USERNAME}/$BACKEND_DB_USERNAME/g" ./kube-openmon.yaml
