@@ -44,25 +44,22 @@ read -r nfv_mon_server_address
 echo "Please enter NFV-MON server endpoint port (default port: 3002): "
 read -r nfv_mon_server_port
 
-echo "Attempting to connect to NFV-MON server"
+echo "Attempting to connect to NFV-MON server based on the given configuration: $nfv_mon_server_address:$nfv_mon_server_port..."
 
-NFV_MON_RESPONSE=$(curl $nfv_mon_server_address:$nfv_mon_server_port/ping)
-if [ $NFV_MON_RESPONSE == 'pong' ]; then
-    echo "NFV-MON server seems OK!"
+status_code=$(curl --write-out %{http_code} --silent --output /dev/null "$nfv_mon_server_address:$nfv_mon_server_port")
+
+if [[ "$status_code" -eq 200 ]] ; then
+  echo "NFV-MON server seems OK!"
+  #cat config.json | jq -r ".general.server = { \"nfv_mon_server_address\": \"$nfv_mon_server_address\", \"nfv_mon_server_port\": \"$nfv_mon_server_port\", \"nfv_vms_address\": \"$NFV_VMS_ADDRESS\", \"nfv_vms_port\":\"$NFV_VMS_PORT\" }" | sponge config.json
 else
-    echo "Failed to connect to NFV_MON"
-    echo $NFV_MON_RESPONSE
-    echo "Exiting installation!"
-    exit 0
+  echo "Failed to connect to NFV-MON server!"
+  echo "Exiting installation..."
+  exit 0
 fi
 
 echo "Getting NFV-MON server configuration at $nfv_mon_server_address:$nfv_mon_server_port..."
-NFV_MON_CONFIG=$(curl $nfv_mon_server_address:$nfv_mon_server_port)
-
-echo $NFV_MON_CONFIG
-
-NFV_VMS_ADDRESS=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_address')
-NFV_VMS_PORT=$(echo $NFV_MON_CONFIG | jq --raw-output '.general.nfv_vms_port')
+NFV_VMS_ADDRESS=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22nfv_vms_server_address%22%7D%7D" | jq --raw-output '.value')
+NFV_VMS_PORT=$(curl -X GET --header 'Accept: application/json' "http://$nfv_mon_server_address:$nfv_mon_server_port/api/configurations/findOne?filter=%7B%22where%22%3A%20%7B%22key%22%3A%20%22nfv_vms_server_port%22%7D%7D" | jq --raw-output '.value')
 
 echo "Attempting to connect to NFV_VMS based on the retrieved configuration: $NFV_VMS_ADDRESS:$NFV_VMS_PORT..."
 
