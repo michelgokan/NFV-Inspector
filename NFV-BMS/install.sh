@@ -41,7 +41,7 @@ rm ./config.json
 echo "Please enter NFV-MON server endpoint address (i.e. 127.0.0.1): "
 read -r nfv_mon_server_address
 
-echo "Please enter NFV-MON server endpoint port (default port: 8080): "
+echo "Please enter NFV-MON server endpoint port (default port: 3002): "
 read -r nfv_mon_server_port
 
 echo "Attempting to connect to NFV-MON server"

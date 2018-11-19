@@ -1,14 +1,38 @@
 {
-  "name": "nfv-mon-server",
+  "name": "Server",
   "version": "1.0.0",
-  "description": "NFV-Inspetor monitoring server",
-  "main": "index.js",
+  "main": "server/server.js",
+  "engines": {
+    "node": ">=4"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint .",
+    "start": "node .",
+    "posttest": "npm run lint"
   },
   "dependencies": {
-    "server": "latest"
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "helmet": "^3.10.0",
+    "loopback": "^3.19.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^6.0.0",
+    "nfv-inspector-mon-influxdb-plugin": "git+https://github.com/michelgokan/NFV-Inspector-MON-InfluxDB-Plugin.git",
+    "serve-favicon": "^2.0.1",
+    "strong-error-handler": "^3.0.0"
   },
-  "author": "Michel Gokan Khan",
-  "license": "MIT"
+  "devDependencies": {
+    "eslint": "^3.17.1",
+    "eslint-config-loopback": "^8.0.0"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "license": "MIT",
+  "description": "Server",
+  "officialPlugins": {
+    "git+https://github.com/michelgokan/NFV-Inspector-MON-InfluxDB-Plugin.git": "nfv-inspector-mon-influxdb-plugin",
+    "git+https://github.com/michelgokan/NFV-Inspector-MON-Elasticsearch-Plugin.git": "nfv-inspector-mon-elasticsearch-plugin"
+  }
 }

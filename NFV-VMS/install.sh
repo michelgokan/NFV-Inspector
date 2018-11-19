@@ -108,8 +108,8 @@ rm -f t.json
 
 #cd ..
 
-echo $plugins_str
 plugins_str=${plugins_str%??}
+echo $plugins_str
 counter=$[counter -1]
 
 echo "$counter plugins loaded!"

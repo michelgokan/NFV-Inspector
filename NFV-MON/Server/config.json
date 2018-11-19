@@ -1,18 +1,29 @@
 {
-  "general": {
-    "name": "NFV_MON_SERVER",
-    "version": "1.0.0",
-    "nfv_vms_address": "127.0.0.1",
-    "nfv_vms_port": "3000",
-    "backend_db": "InfluxDB"
+  "ids": {
+    "User": 1,
+    "AccessToken": 1,
+    "ACL": 1,
+    "RoleMapping": 1,
+    "Role": 1,
+    "system_information": 1,
+    "configuration": 9
   },
-  "plugins": {
-    "ElasticSearch": {},
-    "InfluxDB": {
-      "influxdb_host": "172.16.16.242",
-      "influxdb_port": "8086",
-      "influxdb_username": "",
-      "influxdb_password": ""
+  "models": {
+    "User": {},
+    "AccessToken": {},
+    "ACL": {},
+    "RoleMapping": {},
+    "Role": {},
+    "system_information": {},
+    "configuration": {
+      "1": "{\"category\":\"system\",\"key\":\"active_plugins\",\"value\":\"nfv-inspector-mon-influxdb-plugin\",\"id\":1}",
+      "2": "{\"category\":\"system\",\"key\":\"nfv_vms_server_address\",\"value\":\"172.16.16.227\",\"id\":2}",
+      "3": "{\"category\":\"system\",\"key\":\"nfv_vms_server_port\",\"value\":\"3000\",\"id\":3}",
+      "4": "{\"category\":\"nfv-inspector-mon-influxdb-plugin\",\"key\":\"influxdb_host\",\"value\":\"172.16.16.242\",\"id\":4}",
+      "5": "{\"category\":\"nfv-inspector-mon-influxdb-plugin\",\"key\":\"influxdb_port\",\"value\":\"8086\",\"id\":5}",
+      "6": "{\"category\":\"nfv-inspector-mon-influxdb-plugin\",\"key\":\"influxdb_username\",\"value\":\"\",\"id\":6}",
+      "7": "{\"category\":\"nfv-inspector-mon-influxdb-plugin\",\"key\":\"influxdb_password\",\"value\":\"\",\"id\":7}",
+      "8": "{\"category\":\"nfv-inspector-mon-influxdb-plugin\",\"key\":\"influxdb_database\",\"value\":\"NFV_MON\",\"id\":8}"
     }
   }
 }
