@@ -66,9 +66,10 @@
       color: 'rgba(255,255,255,0.2)'
     },
     xaxis: {
-      show: false
+      show: true
     }
   });
+
   var memPlot = $.plot('#memory', [getRandomData()], {
     colors: ['#8CC9E8'],
     series: {
@@ -101,7 +102,7 @@
       color: 'rgba(255,255,255,0.2)'
     },
     xaxis: {
-      show: false
+      show: true
     }
   });
   var diskPlot = $.plot('#disk', [getRandomData()], {
@@ -136,7 +137,7 @@
       color: 'rgba(255,255,255,0.2)'
     },
     xaxis: {
-      show: false
+      show: true
     }
   });
   var networkPlot = $.plot('#network', [getRandomData()], {
@@ -171,7 +172,7 @@
       color: 'rgba(255,255,255,0.2)'
     },
     xaxis: {
-      show: false
+      show: true
     }
   });
 

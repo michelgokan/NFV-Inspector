@@ -6,12 +6,12 @@ source ../../utils/functions.sh
 
 echo "Welcome to NFV-Inspector monitoring server installation wizard :-)"
 
-if ! command_exists jq ; then
-    echo 'jq and moreutils is not installed' >&2
+if ! $(command_exists influx && command_exists node && command_exists jq); then
+    echo 'jq, moreutils and influxdb-client are not installed' >&2
 
     echo "Attempting to install jq and moreutils (only works on Ubuntu). May ask for sudo password."
     echo "sudo apt-get install jq moreutils"
-    sudo apt-get install jq moreutils
+    sudo apt-get install -y jq moreutils python-influxdb influxdb-client
 fi
 
 

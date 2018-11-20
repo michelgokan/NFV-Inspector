@@ -1,6 +1,14 @@
 {
   "loopback-component-explorer": {
     "mountPath": "/explorer",
-    "generateOperationScopedModels": true
+    "generateOperationScopedModels": true,
+    "uiDirs": "server/explorer",
+    "apiInfo": {
+      "title": "NFV-Inspector: NFV-MON Server Component",
+      "description": "This is the API Explorer for the NFV-MON server service"
+    }
+  },
+  "nfv-inspector-mon-influxdb-plugin": {
+    "useEnvVars": true
   }
 }

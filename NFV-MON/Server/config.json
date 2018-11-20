@@ -1,22 +1,32 @@
 {
   "ids": {
-    "User": 1,
-    "AccessToken": 1,
+    "User": 2,
+    "AccessToken": 2,
     "ACL": 1,
-    "RoleMapping": 1,
-    "Role": 1,
-    "system_information": 1,
+    "RoleMapping": 2,
+    "Role": 2,
+    "system_information": 2,
     "configuration": 9
   },
   "models": {
-    "User": {},
-    "AccessToken": {},
+    "User": {
+      "1": "{\"username\":\"admin\",\"password\":\"$2a$10$qnijgToiovkhK5c5rwgwZe.mhnNoo2Z4QGsZgmLqP0sk92EKBKCPu\",\"email\":\"admin@admin.admin\",\"id\":1}"
+    },
+    "AccessToken": {
+      "OtowsuqNwDgsd5kyOQTlBUJoX3xd6G6ic6pAAXfoykUc8hODOMdIEmH8dLenBOns": "{\"id\":\"OtowsuqNwDgsd5kyOQTlBUJoX3xd6G6ic6pAAXfoykUc8hODOMdIEmH8dLenBOns\",\"ttl\":1209600,\"created\":\"2018-11-19T19:03:31.037Z\",\"userId\":1}"
+    },
     "ACL": {},
-    "RoleMapping": {},
-    "Role": {},
-    "system_information": {},
+    "RoleMapping": {
+      "1": "{\"principalType\":\"USER\",\"principalId\":\"1\",\"roleId\":1,\"id\":1}"
+    },
+    "Role": {
+      "1": "{\"name\":\"admin\",\"created\":\"2018-11-19T19:03:30.856Z\",\"modified\":\"2018-11-19T19:03:30.856Z\",\"id\":1}"
+    },
+    "system_information": {
+      "1": "{\"name\":\"NFV-MON\",\"version\":\"1.0.0\",\"id\":1}"
+    },
     "configuration": {
-      "1": "{\"category\":\"system\",\"key\":\"active_plugins\",\"value\":\"nfv-inspector-mon-influxdb-plugin\",\"id\":1}",
+      "1": "{\"category\":\"system\",\"key\":\"active_plugin\",\"value\":\"nfv-inspector-mon-influxdb-plugin\",\"id\":1}",
       "2": "{\"category\":\"system\",\"key\":\"nfv_vms_server_address\",\"value\":\"172.16.16.227\",\"id\":2}",
       "3": "{\"category\":\"system\",\"key\":\"nfv_vms_server_port\",\"value\":\"3000\",\"id\":3}",
       "4": "{\"category\":\"nfv-inspector-mon-influxdb-plugin\",\"key\":\"influxdb_host\",\"value\":\"172.16.16.242\",\"id\":4}",

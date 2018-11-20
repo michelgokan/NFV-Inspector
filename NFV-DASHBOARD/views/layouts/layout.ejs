@@ -47,7 +47,16 @@
 
   <!-- Head Libs -->
   <script src="/dependencies/modernizr/modernizr.js"></script>
-
+  <script>
+    const nfv_mon_address = "<%= sails.config.custom.nfv_mon_address %>",
+          nfv_mon_port = "<%= sails.config.custom.nfv_mon_port %>",
+          nfv_vms_address = "<%= sails.config.custom.nfv_vms_address %>",
+          nfv_vms_port = "<%= sails.config.custom.nfv_vms_port %>",
+          nfv_bms_address = "<%= sails.config.custom.nfv_bms_address %>",
+          nfv_bms_port = "<%= sails.config.custom.nfv_bms_port %>",
+          nfv_lab_address = "<%= sails.config.custom.nfv_lab_address %>",
+          nfv_lab_port = "<%= sails.config.custom.nfv_lab_port %>";
+  </script>
 </head>
 
 <body>
