@@ -18,7 +18,10 @@
 ## Introduction
 ## Getting Started
 ## Setup your test environment
-In order to install OpenStack, I wrote a complete guide in DOCS folder: https://github.com/michelgokan/nfv-inspector/blob/master/DOCS/openstack-installation-guide/README.md
+In order to install OpenStack, I wrote a complete guide in DOCS folder: https://github.com/michelgokan/nfv-inspector/tree/master/docs/openstack-installation-guide
+
+In order to install/setup Kubernetes, I wrote a complete guide here: https://git.cs.kau.se/michkhan/Kubernetes-Cluster-Installation-Guide (will be publically available soon)
+
 ## Install NFV-MON
 ### Install Elasticsearch and Integrate it with OpenStack
 In order to install Elasticsearch I wrote a complete guide in my blog: https://gokan.me/2018/02/18/collectd-elasticsearch-openstack/
