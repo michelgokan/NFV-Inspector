@@ -100,6 +100,9 @@ showProgress
 
 echo "Saving your choice..."
 
+#TODO: Change nfv_vms_server_address and port to -> nfv_vms_address and nfv_vms_port because
+# it should look like the same across all services (like the one in NFV-BMS)
+
 curl -X POST --header 'Content-Type: application/json' --header \
  'Accept: application/json' -d \
  "{ \"category\": \"system\", \"key\": \"active_plugin\", \"value\": \"$selected_plugin_str\" }" \

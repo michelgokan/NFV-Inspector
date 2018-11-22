@@ -3,8 +3,10 @@
     "name": "NFV_MON_CLIENT",
     "version": "1.0.0",
     "server": {
-      "address": "127.0.0.1",
-      "port": "8080"
+      "nfv_mon_server_address": "127.0.0.1",
+      "nfv_mon_server_port": "3002",
+      "nfv_vms_address": "172.16.16.227",
+      "nfv_vms_port": "3000"
     },
     "ccmp": "Kubernetes"
   },
