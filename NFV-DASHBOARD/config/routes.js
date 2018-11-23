@@ -20,7 +20,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   '/': { view: 'pages/nfv-mon/homepage' },
-  '/nfv-mon/kubernetes/resource-usage': { view: 'pages/nfv-mon/kubernetes/resource-usage' },
+  '/nfv-mon/kubernetes/resource-usage': { action: 'nfv-mon/k8s/resource-usage' },
 
 
   /***************************************************************************
@@ -34,9 +34,10 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  'GET   /api/v1/k8s/pods':                   { action: 'k8s/pods' },
-  'GET   /api/v1/k8s/nodes':                  { action: 'k8s/nodes' },
-  'GET   /api/v1/openstack/vms':                   { action: 'openstack/vms' },
-  'GET   /api/v1/openstack/nodes':                  { action: 'openstack/nodes' }
+  'GET   /api/v1/k8s/pods':                   { action: 'nfv-mon/k8s/pods' },
+  'GET   /api/v1/k8s/nodes':                  { action: 'nfv-mon/k8s/nodes' },
+  'GET   /api/v1/k8s/getResourceUsages':      { action: 'nfv-mon/k8s/get-resource-usages' },
+  'GET   /api/v1/openstack/vms':                   { action: 'nfv-mon/openstack/vms' },
+  'GET   /api/v1/openstack/nodes':                  { action: 'nfv-mon/openstack/nodes' }
 
 };

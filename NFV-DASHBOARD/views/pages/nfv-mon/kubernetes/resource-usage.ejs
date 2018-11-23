@@ -10,15 +10,17 @@ For more information, see:
   '<script src="/dependencies/chartist/chartist.js"></script>\n' +
   '<script src="/dependencies/moment/moment.js"></script>\n' +
   '<script src="/dependencies/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>\n' +
+  '<script src="/dependencies/ios7-switch/ios7-switch.js"></script>\n' +
   '<script src="/js/chart.js"></script>\n' +
   '<script src="/js/datetime.js"></script>\n');
 
-block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/chartist.min.css" />\n'+
+block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/chartist.min.css" />\n' +
   '<link rel="stylesheet" href="/dependencies/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css" />\n');
 %>
 <div class="row">
   <div class="col-lg-12">
     <section class="card">
+
       <header class="card-header">
         <div class="card-actions">
           <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
@@ -28,20 +30,33 @@ block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/
         <h2 class="card-title">Pod Information and Time Range</h2>
       </header>
       <div class="card-body">
-        <form class="form-horizontal form-bordered">
+        <form class="form-horizontal form-bordered" action="/NFV-MON/kubernetes/resource-usage">
 
 
           <div class="row form-group">
-            <label class="col-lg-3 control-label text-lg-right pt-2">Default Datepicker</label>
+            <label class="col-lg-3 control-label text-lg-right pt-2 required">Pod Name</label>
             <div class="col-lg-6">
               <div class="input-group">
                 <input type="text" placeholder="Enter pod name here..." class="form-control"
-                       value="<%= req.query.pod_name %>"></div>
+                       value="<%= req.query.pod_name %>" name="pod_name" required></div>
             </div>
 
           </div>
 
-          <div class="form-group row">
+          <div class="row form-group">
+            <label class="col-lg-3 control-label text-lg-right pt-2">Show Live Resource Usage</label>
+            <div class="col-lg-6">
+              <div class="input-group">
+                <div class="switch switch-sm switch-success">
+                  <!--TODO: show_live to get_live or vice versa!!!!!-->
+                  <input type="checkbox" id="showLive" name="show_live" value="1" data-plugin-ios-switch <%=(req.query.show_live == undefined || req.query.show_live === "1"?"checked=\"checked\"":"")%>/>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="form-group row <%=(req.query.show_live == undefined || req.query.show_live === "1"?"display-none":"")%>" id="dateRangeRow">
             <label class="col-lg-3 control-label text-lg-right pt-2">Date range</label>
             <div class="col-lg-6">
               <div class="input-daterange input-group date">
@@ -50,11 +65,11 @@ block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/
 																<i class="fas fa-calendar-alt"></i>
 															</span>
 														</span>
-                <input type="text" class="form-control" name="start" id="startDateTime">
+                <input type="text" class="form-control" name="start_time" value="<%=req.query.start_time%>" id="startDateTime">
                 <span class="input-group-text border-left-0 border-right-0 rounded-0">
 															to
 														</span>
-                <input type="text" class="form-control" name="end" id="endDateTime">
+                <input type="text" class="form-control" name="end_time" value="<%=req.query.end_time%>" id="endDateTime">
               </div>
             </div>
           </div>
@@ -62,9 +77,9 @@ block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/
           <div class="form-group row">
 
 
-              <div class="col-lg-12 text-right">
-                <button type="button" class="btn btn-success">View Resource Utilization</button>
-              </div>
+            <div class="col-lg-12 text-right">
+              <button type="submit" class="btn btn-success">View Resource Utilization</button>
+            </div>
 
           </div>
 
@@ -75,133 +90,130 @@ block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/chartist/
   </div>
 </div>
 
-<div class="row">
-  <div class="col-md-12">
-    <section class="card">
-      <header class="card-header">
-        <div class="card-actions">
-          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
-        </div>
+<% if(req.query.pod_name && req.query.pod_name != ""){ %>
+  <script>
+    function htmlDecode(input) {
+      var doc = new DOMParser().parseFromString(input, "text/html");
+      return doc.documentElement.textContent;
+    }
 
-        <h2 class="card-title">Liquid Meter</h2>
-        <p class="card-subtitle">Exclusive Plug-in by Okler Themes</p>
-      </header>
-      <div class="card-body">
-        <div class="row">
-          <div class="col-lg-3">
-            <div class="row">
-              <div class="col-lg-12"><h3 class="center">CPU Usage</h3></div>
-            </div>
-            <meter min="0" max="100" value="85" class="meterDark"></meter>
+    body = JSON.parse(htmlDecode("<%= body %>"));
+
+  </script>
+  <div class="row">
+    <div class="col-md-12">
+      <section class="card">
+        <header class="card-header">
+          <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
           </div>
-          <div class="col-lg-3">
-            <div class="row">
-              <div class="col-lg-12"><h3 class="center">Memory Usage</h3></div>
-            </div>
 
-            <meter min="0" max="100" value="85" class="meterDark"></meter>
-          </div>
-          <div class="col-lg-3">
-            <div class="row">
-              <div class="col-lg-12"><h3 class="center">Disk Usage</h3></div>
+          <h2 class="card-title">Resource Usages Summary</h2>
+          <p class="card-subtitle">Average Resource Usages Over a Period of Time.</p>
+        </header>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12"><h3 class="center">CPU Usage</h3></div>
+              </div>
+              <meter min="0" max="100" value="0" class="meterDark" id="cpuAverage"></meter>
             </div>
+            <div class="col-lg-6">
+              <div class="row">
+                <div class="col-lg-12"><h3 class="center">Memory Usage</h3></div>
+              </div>
 
-            <meter min="0" max="100" value="85" class="meterDark"></meter>
-          </div>
-          <div class="col-lg-3">
-            <div class="row">
-              <div class="col-lg-12"><h3 class="center">Network Usage</h3></div>
+              <meter min="0" max="100" value="0" class="meterDark" id="memoryAverage"></meter>
             </div>
-
-            <meter min="0" max="100" value="85" class="meterDark"></meter>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
 
-<div class="row">
-  <div class="col-lg-6">
-    <section class="card">
-      <header class="card-header">
-        <div class="card-actions">
-          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+  <div class="row">
+    <div class="col-lg-6">
+      <section class="card">
+        <header class="card-header">
+          <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+          </div>
+
+          <h2 class="card-title">CPU Usage Plot</h2>
+          <p class="card-subtitle">View pod's CPU Usage plot.</p>
+        </header>
+        <div class="card-body">
+
+          <!-- Flot: Curves -->
+          <div class="chart chart-md" id="cpu"></div>
+
         </div>
+      </section>
+    </div>
 
-        <h2 class="card-title">CPU Usage Plot</h2>
-        <p class="card-subtitle">View pod's CPU Usage plot.</p>
-      </header>
-      <div class="card-body">
+    <div class="col-lg-6">
+      <section class="card">
+        <header class="card-header">
+          <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+          </div>
 
-        <!-- Flot: Curves -->
-        <div class="chart chart-md" id="cpu"></div>
+          <h2 class="card-title">Memory Usage Plot</h2>
+          <p class="card-subtitle">View pod's memory usage plot.</p>
+        </header>
+        <div class="card-body">
 
-      </div>
-    </section>
-  </div>
+          <!-- Flot: Curves -->
+          <div class="chart chart-md" id="memory"></div>
 
-  <div class="col-lg-6">
-    <section class="card">
-      <header class="card-header">
-        <div class="card-actions">
-          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
         </div>
-
-        <h2 class="card-title">Memory Usage Plot</h2>
-        <p class="card-subtitle">View pod's memory usage plot.</p>
-      </header>
-      <div class="card-body">
-
-        <!-- Flot: Curves -->
-        <div class="chart chart-md" id="memory"></div>
-
-      </div>
-    </section>
+      </section>
+    </div>
   </div>
-</div>
-<div class="row">
-  <div class="col-lg-6">
-    <section class="card">
-      <header class="card-header">
-        <div class="card-actions">
-          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+  <div class="row">
+    <div class="col-lg-6">
+      <section class="card">
+        <header class="card-header">
+          <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+          </div>
+
+          <h2 class="card-title">Disk Usage Plot</h2>
+          <p class="card-subtitle">View pod's disk usage plot.</p>
+        </header>
+        <div class="card-body">
+
+          <!-- Flot: Curves -->
+          <div class="chart chart-md" id="disk"></div>
+
         </div>
+      </section>
+    </div>
 
-        <h2 class="card-title">Disk Usage Plot</h2>
-        <p class="card-subtitle">View pod's disk usage plot.</p>
-      </header>
-      <div class="card-body">
+    <div class="col-lg-6">
+      <section class="card">
+        <header class="card-header">
+          <div class="card-actions">
+            <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
+            <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
+          </div>
 
-        <!-- Flot: Curves -->
-        <div class="chart chart-md" id="disk"></div>
+          <h2 class="card-title">Network Usage Plot</h2>
+          <p class="card-subtitle">View pod's network usage plot.</p>
+        </header>
+        <div class="card-body">
 
-      </div>
-    </section>
-  </div>
+          <!-- Flot: Curves -->
+          <div class="chart chart-md" id="network"></div>
 
-  <div class="col-lg-6">
-    <section class="card">
-      <header class="card-header">
-        <div class="card-actions">
-          <a href="#" class="card-action card-action-toggle" data-card-toggle></a>
-          <a href="#" class="card-action card-action-dismiss" data-card-dismiss></a>
         </div>
+      </section>
+    </div>
 
-        <h2 class="card-title">Network Usage Plot</h2>
-        <p class="card-subtitle">View pod's network usage plot.</p>
-      </header>
-      <div class="card-body">
-
-        <!-- Flot: Curves -->
-        <div class="chart chart-md" id="network"></div>
-
-      </div>
-    </section>
   </div>
-
-</div>
+<% } %>
