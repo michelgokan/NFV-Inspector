@@ -1,0 +1,35 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
+<% pageTitle = "Dashboard" %>
+<% appName = "NFV-BMS" %>
+<% block('localCustomScripts', '<script src="/dependencies/select2/js/select2.js"></script>\n' +
+  '<script src="/dependencies/datatables/media/js/jquery.dataTables.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/media/js/dataTables.bootstrap4.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/dataTables.buttons.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.bootstrap4.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.html5.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.print.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js"></script>\n' +
+  '<script src="/js/datatable.js"></script>\n');
+
+block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/select2/css/select2.css" />\n' +
+  '<link rel="stylesheet" href="/dependencies/select2-bootstrap-theme/select2-bootstrap.min.css" />\n' +
+  '<link rel="stylesheet" href="/dependencies/datatables/media/css/dataTables.bootstrap4.css" />\n');
+%>
+
+<div class="row">
+  <div class="col-lg-3 center">
+    <a href="/nfv-bms/ericsson-hss-fe/benchmark"><img src="/images/nfv-bms/ericsson-hss-fe/logo.png" width="50%"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">Ericsson HSS Frontend Benchmark Tool Integration </div>
+  </div>
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-bms/synthetic-workload-generator/logo.png" width="50%"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">Synthetic Workload Generator Benchmark Tool Integration </div>
+  </div>
+</div>

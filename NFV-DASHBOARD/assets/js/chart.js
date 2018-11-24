@@ -55,6 +55,7 @@
           populateTimestamps(data.result);
           cpuPlot.setData([{data: data.result.cpu}]);
           memPlot.setData([data.result.memory]);
+          //TODO: This is only for 1 interface!!!!! We may have many different interfaces, consider add more charts in frontend!!!
           networkPlot.setData([
             {data: data.result.networkTransmittedPackets, label: "Transmitted Packets"},
             {data: data.result.networkTransmittedPacketDrops, label: "Transmitted Packet Drops"},

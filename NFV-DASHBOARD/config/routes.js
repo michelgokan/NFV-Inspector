@@ -22,6 +22,8 @@ module.exports.routes = {
   '/': { view: 'pages/nfv-mon/homepage' },
   '/nfv-mon/kubernetes/resource-usage': { action: 'nfv-mon/k8s/resource-usage' },
 
+  '/nfv-bms/': { view: 'pages/nfv-bms/homepage' },
+  '/nfv-bms/ericsson-hss-fe/benchmark': { action: 'nfv-bms/ericsson-hss-fe/benchmark' },
 
   /***************************************************************************
   *                                                                          *
