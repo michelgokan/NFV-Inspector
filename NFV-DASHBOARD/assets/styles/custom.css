@@ -28,3 +28,12 @@ div.xAxis div.tickLabel {
   /*rotation-point:50% 50%;*/ /* CSS3 */
   /*rotation:270deg;*/ /* CSS3 */
 }
+
+html.dark table.dataTable {
+  color: lightgray !important;
+}
+
+html.dark table.dataTable tr input[type="text"]:not([disabled]){
+  border-color: lightgray;
+}
+

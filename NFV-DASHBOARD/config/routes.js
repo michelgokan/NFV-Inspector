@@ -24,6 +24,7 @@ module.exports.routes = {
 
   '/nfv-bms/': { view: 'pages/nfv-bms/homepage' },
   '/nfv-bms/ericsson-hss-fe/benchmark': { action: 'nfv-bms/ericsson-hss-fe/benchmark' },
+  '/nfv-bms/manage-nfv-system-deployment': { view: 'pages/nfv-bms/manage-nfv-system-deployment' },
 
   /***************************************************************************
   *                                                                          *
