@@ -7,11 +7,11 @@
     "validateUpsert": true
   },
   "foreignKeys": {
-    "resource_id": {
-      "name": "experimentResourceUsageResIdForeignKey",
-      "foreignKey": "resource_id",
+    "resource_type_id": {
+      "name": "experimentResourceUsageResTypIdForeignKey",
+      "foreignKey": "resource_type_id",
       "entityKey": "id",
-      "entity": "resource"
+      "entity": "resource_type"
     },
     "experiment_time_interval_id": {
       "name": "experimentResUsgTimeIntervalIdForeignKey",
@@ -31,10 +31,10 @@
   },
   "validations": [],
   "relations": {
-    "experimentResourceUsageResIdRelation": {
+    "experimentResourceUsageResTypIdRelation": {
       "type": "belongsTo",
-      "model": "resource",
-      "foreignKey": "resource_id"
+      "model": "resource_type",
+      "foreignKey": "resource_type_id"
     },
     "experimentResUsgTimeIntervalIdRelation": {
       "type": "belongsTo",

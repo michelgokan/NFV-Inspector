@@ -2,12 +2,13 @@
 
   'use strict';
 
-  var columnsOrder = ["id", "name", "benchmarking_tool_integration_plugin_id"];
+  var columnsOrder = ["id", "type_id", "name", "vnf_id"];
   var url = $("#datatable-editable").data("url");
   var aoColumns = [
     {data: "id"},
+    {data: "type_id"},
     {data: "name"},
-    {data: "benchmarking_tool_integration_plugin_id"},
+    {data: "vnf_id"},
     {"bSortable": false, "mData": null}
   ];
 

@@ -2,12 +2,12 @@
 
   'use strict';
 
-  var columnsOrder = ["id", "name", "benchmarking_tool_integration_plugin_id"];
+  var columnsOrder = ["id", "name", "quality_metric_labeling_configuration_id"];
   var url = $("#datatable-editable").data("url");
   var aoColumns = [
     {data: "id"},
     {data: "name"},
-    {data: "benchmarking_tool_integration_plugin_id"},
+    {data: "quality_metric_labeling_configuration_id"},
     {"bSortable": false, "mData": null}
   ];
 

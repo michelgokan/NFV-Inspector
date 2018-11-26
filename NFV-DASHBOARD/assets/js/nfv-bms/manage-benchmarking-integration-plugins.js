@@ -2,18 +2,16 @@
 
   'use strict';
 
-  var columnsOrder = ["id", "name", "benchmarking_tool_integration_plugin_id"];
+  var columnsOrder = ["id", "name", "start_parameter"];
   var url = $("#datatable-editable").data("url");
   var aoColumns = [
     {data: "id"},
     {data: "name"},
-    {data: "benchmarking_tool_integration_plugin_id"},
+    {data: "start_parameter"},
     {"bSortable": false, "mData": null}
   ];
 
   $(function () {
     EditableTable.initialize(columnsOrder, url, aoColumns);
   });
-
-
 }).apply(this, [jQuery]);

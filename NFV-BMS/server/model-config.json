@@ -47,10 +47,6 @@
     "dataSource": "mysql",
     "public": true
   },
-  "resource": {
-    "dataSource": "mysql",
-    "public": true
-  },
   "vnf": {
     "dataSource": "mysql",
     "public": true
@@ -60,10 +56,6 @@
     "public": true
   },
   "vnf_property": {
-    "dataSource": "mysql",
-    "public": true
-  },
-  "experiment_set_sla_goal": {
     "dataSource": "mysql",
     "public": true
   },
@@ -172,6 +164,14 @@
     "public": true
   },
   "experiment_resource_usage_value": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "sla": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "sla_value": {
     "dataSource": "mysql",
     "public": true
   },

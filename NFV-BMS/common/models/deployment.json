@@ -12,8 +12,22 @@
       "required": true
     }
   },
+  "foreignKeys": {
+    "benchmarking_tool_integration_plugin_id": {
+      "name": "deploymentBenchTollIntPlugIdForeignKey",
+      "foreignKey": "benchmarking_tool_integration_plugin_id",
+      "entityKey": "id",
+      "entity": "benchmarking_tool_integration_plugin"
+    }
+  },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "deploymentBenchTollIntPlugIdRelation": {
+      "type": "belongsTo",
+      "model": "benchmarking_tool_integration_plugin",
+      "foreignKey": "benchmarking_tool_integration_plugin_id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

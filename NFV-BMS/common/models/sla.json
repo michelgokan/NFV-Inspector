@@ -1,0 +1,33 @@
+{
+  "name": "sla",
+  "plural": "slas",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "foreignKeys": {
+    "quality_metric_labeling_configuration_id": {
+      "name": "slaQualMetrLabConfIdForeignKey",
+      "foreignKey": "quality_metric_labeling_configuration_id",
+      "entityKey": "id",
+      "entity": "quality_metric_labeling_configuration"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "slaQualMetrLabConfIdRelation": {
+      "type": "belongsTo",
+      "model": "quality_metric_labeling_configuration",
+      "foreignKey": "quality_metric_labeling_configuration_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

@@ -10,6 +10,10 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "nfv_vms_plugin_name": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

@@ -2,12 +2,13 @@
 
   'use strict';
 
-  var columnsOrder = ["id", "name", "benchmarking_tool_integration_plugin_id"];
+  var columnsOrder = ["id", "name", "min_cap", "max_cap"];
   var url = $("#datatable-editable").data("url");
   var aoColumns = [
     {data: "id"},
     {data: "name"},
-    {data: "benchmarking_tool_integration_plugin_id"},
+    {data: "min_cap"},
+    {data: "max_cap"},
     {"bSortable": false, "mData": null}
   ];
 

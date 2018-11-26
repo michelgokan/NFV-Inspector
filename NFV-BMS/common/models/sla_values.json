@@ -1,0 +1,59 @@
+{
+  "name": "sla_value",
+  "plural": "sla_values",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "min_guaranteed_value": {
+      "type": "number",
+      "required": false
+    },
+    "max_guaranteed_value": {
+      "type": "number",
+      "required": false
+    }
+  },
+  "foreignKeys": {
+    "sla_id": {
+      "name": "slaIdForeignKey",
+      "foreignKey": "sla_id",
+      "entityKey": "id",
+      "entity": "sla"
+    },
+    "traffic_demand_configuration_id": {
+      "name": "slaTrafficDemandConfigForeignKey",
+      "foreignKey": "traffic_demand_configuration_id",
+      "entityKey": "id",
+      "entity": "traffic_demand_configuration"
+    },
+    "quality_metric_id": {
+      "name": "slaQualityMetricIdForeignKey",
+      "foreignKey": "quality_metric_id",
+      "entityKey": "id",
+      "entity": "quality_metric"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "slaIdRelation": {
+      "type": "belongsTo",
+      "model": "sla",
+      "foreignKey": "sla_id"
+    },
+    "slaTrafficDemandConfigRelation": {
+      "type": "belongsTo",
+      "model": "traffic_demand_configuration",
+      "foreignKey": "traffic_demand_configuration_id"
+    },
+    "slaQualityMetricIdRelation": {
+      "type": "belongsTo",
+      "model": "quality_metric",
+      "foreignKey": "quality_metric_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

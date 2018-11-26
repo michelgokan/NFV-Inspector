@@ -13,17 +13,11 @@
       "entityKey": "id",
       "entity": "deployment"
     },
-    "quality_metric_labeling_configuration_id": {
-      "name": "experimentSetQualMetrLabConfIdForeignKey",
-      "foreignKey": "quality_metric_labeling_configuration_id",
+    "sla_id": {
+      "name": "experimentSetSlaIdForeignKey",
+      "foreignKey": "sla_id",
       "entityKey": "id",
-      "entity": "quality_metric_labeling_configuration"
-    },
-    "benchmarking_tool_integration_plugin_id": {
-      "name": "experimentSetBenchTollIntPlugIdForeignKey",
-      "foreignKey": "benchmarking_tool_integration_plugin_id",
-      "entityKey": "id",
-      "entity": "benchmarking_tool_integration_plugin"
+      "entity": "sla"
     }
   },
   "properties": {
@@ -47,15 +41,10 @@
       "model": "deployment",
       "foreignKey": "deployment_id"
     },
-    "experimentSetQualMetrLabConfIdRelation": {
+    "experimentSetSlaIdRelation": {
       "type": "belongsTo",
-      "model": "quality_metric_labeling_configuration",
-      "foreignKey": "quality_metric_labeling_configuration_id"
-    },
-    "experimentSetBenchTollIntPlugIdRelation": {
-      "type": "belongsTo",
-      "model": "benchmarking_tool_integration_plugin",
-      "foreignKey": "benchmarking_tool_integration_plugin_id"
+      "model": "sla",
+      "foreignKey": "sla_id"
     }
   },
   "acls": [],
