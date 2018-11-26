@@ -1,5 +1,6 @@
 # NFV-Inspector: An automated platform for systematic VNF profiling and analysis
-## IMPORTANT NOTICE: ITS A PRE-ALPHA VERSION JUST AS A PROOF OF CONCEPT AND ONLY TESTED FOR A SINGLE SCENARIO! DO NOT USE IT IN PRODUCTION!
+
+## Documentation, guides and tutorials under prepration.
 
 # Table of Contents
 1. [Introduction](#intoduction)
