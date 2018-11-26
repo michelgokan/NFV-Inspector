@@ -47,9 +47,12 @@ Michel Gokan Khan (Karlstad University, Karlstad, Sweden)
 # Collaborators
 Ericsson (Stockholm, Sweden)
 
-# Supervisors
+# Academic Supervisors
 * John Javid Taheri (Karlstad University, Karlstad, Sweden)
 * Andreas Kassler (Karlstad University, Karlstad, Sweden)
+
+# Industry Supervisors
+* Marian Darula (Ericsson R&D, Stockholm, Sweden)
 
 ## Call for contribution
 NFV-Inspector is open source, and contributions from the community is welcome. Many tasks, (some are low-hanging fruits), are listed and ready to be implemented. If you would like to contribute to the project, but don't know where to start, please send me an email to have a quick discussion: michel@gokan.me
