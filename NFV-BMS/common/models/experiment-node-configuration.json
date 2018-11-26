@@ -37,12 +37,6 @@
       "entityKey": "id",
       "entity": "resource_allocation_configuration"
     },
-    "vnf_id": {
-      "name": "experimentNodeConfVnfIdForeignKey",
-      "foreignKey": "vnf_id",
-      "entityKey": "id",
-      "entity": "vnf"
-    },
     "vnf_properties_configuration_id": {
       "name": "experNodeConfVnfPropConfIdForeignKey",
       "foreignKey": "vnf_properties_configuration_id",
@@ -72,11 +66,6 @@
       "type": "belongsTo",
       "model": "resource_allocation_configuration",
       "foreignKey": "resource_allocation_configuration_id"
-    },
-    "experimentNodeConfVnfIdRelation": {
-      "type": "belongsTo",
-      "model": "vnf",
-      "foreignKey": "vnf_id"
     },
     "experNodeConfVnfPropConfIdRelation": {
       "type": "belongsTo",
