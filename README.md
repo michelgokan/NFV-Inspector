@@ -41,14 +41,14 @@ SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automat
 In order to install each service, simply run `{service}/install.sh`.
 
 
-# Contributors
+## Contributors
 Michel Gokan Khan (Karlstad University, Karlstad, Sweden)
 
-# Academic Supervisors
+## Academic Supervisors
 * John Javid Taheri (Karlstad University, Karlstad, Sweden)
 * Andreas Kassler (Karlstad University, Karlstad, Sweden)
 
-# Industry Collaborators
+## Industry Collaborators
 Ericsson (Stockholm, Sweden)
 
 ## Call for contribution
