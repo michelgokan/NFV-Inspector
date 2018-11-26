@@ -22,6 +22,8 @@ NFV-Inspector is a systematic VNF profiling and analysis platform, designed for 
 
 
 ## Getting Started
+**Documentation, guides and tutorials are under prepration.**
+
 ## Setup your test environment
 In order to install OpenStack, I wrote a complete guide in DOCS folder: https://github.com/michelgokan/nfv-inspector/tree/master/docs/openstack-installation-guide
 
