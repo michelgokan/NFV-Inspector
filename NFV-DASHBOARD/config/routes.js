@@ -43,6 +43,8 @@ module.exports.routes = {
   '/nfv-bms/manage-nodes-placement-configuration-policy-values': { view: 'pages/nfv-bms/manage-nodes-placement-configuration-policy-values' },
   '/nfv-bms/manage-benchmarking-integration-plugins': { view: 'pages/nfv-bms/manage-benchmarking-integration-plugins' },
   '/nfv-bms/manage-experiment-sets': { view: 'pages/nfv-bms/manage-experiment-sets' },
+  '/nfv-bms/manage-experiments': { view: 'pages/nfv-bms/manage-experiments' },
+  '/nfv-bms/manage-experiments-nodes-configurations': { view: 'pages/nfv-bms/manage-experiments-nodes-configurations' },
 
   /***************************************************************************
   *                                                                          *

@@ -229,6 +229,8 @@ var EditableTable = {
           $this.html("<input name='"+columnsOrder[columnId]+"' id='"+columnsOrder[columnId]+'_'+randm_number+"' type='hidden' "+(value != null && value !== "" ? "value='"+value+"'" : "value='node_quality_metric'")+" />  <select class='form-control form-control-lg mb-3' onchange='$(this).prev(\"input\").val($(this).val())'><option value='node_quality_metric' " + (value==="node_quality_metric"?"selected":"") +">NFVi Level Quality Metric</option><option value='vnf_quality_metric' "+(value==="vnf_quality_metric"?"selected":"")+">VNF/Application Level Quality Metric</option></select>");
         else if (columnsOrder[columnId] === "distribution")
           $this.html("<input name='"+columnsOrder[columnId]+"' id='"+columnsOrder[columnId]+'_'+randm_number+"' type='hidden' "+(value != null && value !== "" ? "value='"+value+"'" : "value='uniform'")+" />  <select class='form-control form-control-lg mb-3' onchange='$(this).prev(\"input\").val($(this).val())'><option value='uniform' " + (value==="uniform"?"selected":"") +">Uniformly Distributed Traffic</option><option value='burst' "+(value==="burst"?"selected":"")+">Burst Traffic</option></select>");
+        else if (columnsOrder[columnId] === "start_time" || columnsOrder[columnId] === "end_time")
+          $this.html('<input name="'+columnsOrder[columnId]+'" id="'+columnsOrder[columnId]+'" type="text" class="form-control" ' + (value != null && value !== "" ? "value='"+value+"'" : "") + ' ' + (i == 0 ? "disabled" : "") + '/><script>reloadDateTimeControls();</script>');
         else
           $this.html('<input name="'+columnsOrder[columnId]+'" id="'+columnsOrder[columnId]+'_'+randm_number+'" type="text" class="form-control input-block" ' + (value != null && value !== "" ? "value='"+value+"'" : "") + ' ' + (i == 0 ? "disabled" : "") + '/>');
       }
@@ -282,7 +284,7 @@ var EditableTable = {
       // skip loop if the property is from prototype
       if (!ajaxData.hasOwnProperty(key)) continue;
 
-      if (key.toString().endsWith("_id")) {
+      if (key.toString().endsWith("_id") || key.toString() === "start_time" || key.toString() === "end_time") {
         if (ajaxData[key] === "") {
           delete ajaxData[key];
         }

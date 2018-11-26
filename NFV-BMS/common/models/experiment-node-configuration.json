@@ -5,7 +5,7 @@
   "idInjection": true,
   "indexes": {
     "UNIQUE_INDEX": {
-      "columns": "`experiment_id`,`node_id`,`vnf_id`,`node_properties_configuration_id`,`resource_allocation_configuration_id`,`vnf_properties_configuration_id`",
+      "columns": "`experiment_id`,`node_id`,`node_properties_configuration_id`,`resource_allocation_configuration_id`,`vnf_properties_configuration_id`",
       "kind": "unique"
     }
   },
