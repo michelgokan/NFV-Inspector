@@ -1,3 +1,5 @@
+# Drop me an email if you need any help: michel@gokan.me
+
 # NFV-Inspector: An automated platform for NFV researchers and engineers
 
 ## Documentation, guides and tutorials are under prepration.
