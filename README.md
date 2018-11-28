@@ -1,4 +1,4 @@
-# Drop me an email if you need any help: michel {at sign} gokan _DOT_ me
+# Drop me an email if you need any help: michel {at sign} gokan @d0t@ me
 
 # NFV-Inspector: An automated platform for NFV researchers and engineers
 
