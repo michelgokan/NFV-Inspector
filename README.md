@@ -1,6 +1,6 @@
 # NFV-Inspector: An automated platform for NFV researchers and engineers
 
-## Documentation, guides and tutorials are under prepration.
+## Documentation, guides and tutorials are under preperation.
 # Drop me an email if you need any help, I will respond quickly: michel {at sign} gokan {dot} me
 
 
@@ -20,11 +20,11 @@
 
 ## Introduction
 NFV-Inspector is a systematic VNF profiling and analysis platform, designed for NFV researchers and engineers.
-**Documentation, guides and tutorials are under prepration.**
+**Documentation, guides and tutorials are under preperation.**
 
 
 ## Getting Started
-**Documentation, guides and tutorials are under prepration.**
+**Documentation, guides and tutorials are under preperation.**
 
 ## Setup your test environment
 In order to install OpenStack, I wrote a complete guide in DOCS folder: https://github.com/michelgokan/nfv-inspector/tree/master/docs/openstack-installation-guide
