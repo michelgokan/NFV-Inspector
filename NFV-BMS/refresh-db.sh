@@ -266,9 +266,6 @@ echo "Creating Response time quality metric"
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{   "quality_metric_type": "vnf_quality_metric",    "name": "response_time", "lower_bound": 0 }' 'http://127.0.0.1:3001/api/quality_metrics'
 read -r t
 
-
-
-
 #echo "Creating CPU resource types"
 #curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{  "name": "cpu",   "min_cap": 1,   "max_cap": 1024 }' 'http://127.0.0.1:3001/api/resource_types'
 #read -r t

@@ -1,0 +1,59 @@
+<!--
+This is your default homepage.
+For more information, see:
+• https://sailsjs.com/documentation/concepts/views
+• https://sailsjs.com/documentation/concepts/routes
+-->
+<% pageTitle = "Dashboard" %>
+<% appName = "NFV-LAB" %>
+<% block('localCustomScripts', '<script src="/dependencies/select2/js/select2.js"></script>\n' +
+  '<script src="/dependencies/datatables/media/js/jquery.dataTables.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/media/js/dataTables.bootstrap4.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/dataTables.buttons.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.bootstrap4.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.html5.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/Buttons-1.4.2/js/buttons.print.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/JSZip-2.5.0/jszip.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/pdfmake-0.1.32/pdfmake.min.js"></script>\n' +
+  '<script src="/dependencies/datatables/extras/TableTools/pdfmake-0.1.32/vfs_fonts.js"></script>\n' +
+  '<script src="/js/nfv-lab/homepage.js"></script>\n' +
+  '<script src="/js/datatable.js"></script>\n');
+
+block('localCustomStyles', '<link rel="stylesheet" href="/dependencies/select2/css/select2.css" />\n' +
+  '<link rel="stylesheet" href="/dependencies/select2-bootstrap-theme/select2-bootstrap.min.css" />\n' +
+  '<link rel="stylesheet" href="/dependencies/datatables/media/css/dataTables.bootstrap4.css" />\n');
+%>
+
+<div class="row">
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/dummy-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">Dummy Plugin</div>
+  </div>
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/correlation-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">QoS/Resource Usage <br/> Correlation Calculation </div>
+  </div>
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/resource-policy-recommender-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">Initial Resource Allocation <br/> Policy Recommender </div>
+  </div>
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/fault-detection-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">Fault Detection </div>
+  </div>
+</div>
+<div class="row">
+
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/nfv-optimizer-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">NFV-Optimizer</div>
+  </div>
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/vnfs-classification-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">VNF's Resource Usage <br/> Characteristic Classification</div>
+  </div>
+  <div class="col-lg-3 center">
+    <a href="#"><img src="/images/nfv-lab/traffic-prediction-logo.png" width="50%" style="max-width: 100px;"/></a><br/>
+    <div style="text-align: center; color: white; font-size: 16px; padding-top: 10px">Incoming Traffic Prediction</div>
+  </div>
+</div>

@@ -13,6 +13,12 @@
       "entityKey": "id",
       "entity": "resource_type"
     },
+    "node_id": {
+      "name": "nodeResUsgTimeIntervalIdForeignKey",
+      "foreignKey": "node_id",
+      "entityKey": "id",
+      "entity": "node"
+    },
     "experiment_time_interval_id": {
       "name": "experimentResUsgTimeIntervalIdForeignKey",
       "foreignKey": "experiment_time_interval_id",
@@ -35,6 +41,11 @@
       "type": "belongsTo",
       "model": "resource_type",
       "foreignKey": "resource_type_id"
+    },
+    "nodeResUsgTimeIntervalIdRelation": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node_id"
     },
     "experimentResUsgTimeIntervalIdRelation": {
       "type": "belongsTo",

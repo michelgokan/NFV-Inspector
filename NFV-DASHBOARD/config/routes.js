@@ -45,6 +45,8 @@ module.exports.routes = {
   '/nfv-bms/manage-experiment-sets': { view: 'pages/nfv-bms/manage-experiment-sets' },
   '/nfv-bms/manage-experiments': { view: 'pages/nfv-bms/manage-experiments' },
   '/nfv-bms/manage-experiments-nodes-configurations': { view: 'pages/nfv-bms/manage-experiments-nodes-configurations' },
+  '/nfv-bms/view-experiments-results': { action: 'nfv-bms/experiments-results' },
+  '/nfv-lab/': { view: 'pages/nfv-lab/homepage' },
 
   /***************************************************************************
   *                                                                          *
