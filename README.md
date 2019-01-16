@@ -1,4 +1,4 @@
-# NFV-Inspector: An automated platform for NFV researchers and engineers
+# NFV-Inspector: An automated NFV analysis, profiling and optimization platform for NFV researchers and engineers
 
 ## Documentation, guides and tutorials are under preparation.
 # Drop me an email if you need any help, I will respond quickly: michel {at sign} gokan {dot} me
