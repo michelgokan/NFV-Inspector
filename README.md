@@ -1,6 +1,10 @@
 # NFV-Inspector: An automated NFV analysis, profiling and optimization platform for NFV researchers and engineers
 
-## Documentation, guides and tutorials are under preparation.
+## Documentation, guides and tutorials are under preparation. For group chat please follow the link below (Zulip Chat).
+
+
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://chat.zulip.org)
+
 # Drop me an email if you need any help, I will respond quickly: michel {at sign} gokan {dot} me
 
 
