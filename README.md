@@ -3,7 +3,7 @@
 ## Documentation, guides and tutorials are under preparation. For group chat please follow the link below (Zulip Chat).
 
 
-[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://chat.zulip.org)
+[![project chat](https://img.shields.io/badge/zulip-join_chat-brightgreen.svg)](https://nfv-inspector.zulipchat.com)
 
 # Drop me an email if you need any help, I will respond quickly: michel {at sign} gokan {dot} me
 
