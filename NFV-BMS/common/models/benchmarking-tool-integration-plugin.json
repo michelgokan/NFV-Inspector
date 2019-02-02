@@ -11,7 +11,7 @@
       "type": "string",
       "required": true
     },
-    "start_parameter": {
+    "start_endpoint": {
       "type": "string",
       "required": false
     }

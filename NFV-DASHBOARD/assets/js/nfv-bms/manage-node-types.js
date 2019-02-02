@@ -15,7 +15,7 @@ Theme Version: 	2.1.1
     '<a href="#" class="on-default remove-row"><i class="far fa-trash-alt"></i></a>'
   ].join(' ');
 
-  var columnsOrder = ["id", "name", "nfv_vms_plugin_name"];
+  var columnsOrder = ["id", "name", "nfv_vms_plugin_name", "get_nodes_endpoint_name"];
   var url = "http://127.0.0.1:3001/api/node_types";
 
   var EditableTable = {
@@ -57,6 +57,7 @@ Theme Version: 	2.1.1
           {data: "id"},
           {data: "name"},
           {data: "nfv_vms_plugin_name"},
+          {data: "get_nodes_endpoint_name"},
           {"bSortable": false, "mData": null}
         ],
         bProcessing: true,

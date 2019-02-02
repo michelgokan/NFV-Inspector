@@ -21,7 +21,7 @@ module.exports.custom = {
   // …
   nfv_mon_address: '127.0.0.1',
   nfv_mon_port: 3002,
-  nfv_vms_address: '172.16.16.227',
+  nfv_vms_address: '127.0.0.1',
   nfv_vms_port: 3000,
   nfv_bms_address: '127.0.0.1',
   nfv_bms_port: 3001,

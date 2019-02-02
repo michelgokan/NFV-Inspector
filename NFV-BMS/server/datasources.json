@@ -1,10 +1,10 @@
 {
   "mysql": {
-    "host": "172.16.16.227",
+    "host": "127.0.0.1",
     "port": 3306,
-    "url": "mysql://root:root@172.16.16.227:3306/NFV_BMS",
+    "url": "mysql://root:rootroot@127.0.0.1:3306/NFV_BMS",
     "database": "NFV_BMS",
-    "password": "root",
+    "password": "rootroot",
     "name": "mysql",
     "user": "root",
     "connector": "mysql"

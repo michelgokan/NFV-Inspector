@@ -134,7 +134,7 @@ echo "$counter plugins loaded!"
 echo "Please enter a benchmarking integration plugin to install and load ($plugins_str): "
 read -r plugin
 
-echo "Make sure no other instance of NFV-VMS is running..."
+echo "Make sure no other instance of NFV-BMS is running..."
 #sudo killall node
 sleep 2
 echo "Removing node_modules if exists..."

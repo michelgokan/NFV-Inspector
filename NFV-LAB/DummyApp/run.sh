@@ -2,24 +2,36 @@
 
 echo "Welcome to NFV-LAB dummy app"
 
+
+echo "Defining a benchmarking integration plugin..."
+read -r a
+echo "curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"name\": \"nfv-inspector-bms-hss-fe-plugin\" }' 'http://127.0.0.1:3001/api/benchmarking_tool_integration_plugins'"
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "nfv-inspector-bms-hss-fe-plugin" }' 'http://127.0.0.1:3001/api/benchmarking_tool_integration_plugins'
+read -r t
+
+echo "Defining a NFV Deployment"
+curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "Ericsson HSS Frontend", "benchmarking_tool_integration_plugin_id": 1 }' 'http://127.0.0.1:3001/api/deployments'
+echo "curl -X PUT --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"name\": \"Ericsson HSS Frontend\", \"benchmarking_tool_integration_plugin_id\": 1 }' 'http://127.0.0.1:3001/api/deployments'"
+read -r t
+
 echo "Defining node types..."
 read -r a
 echo "Creating a node type: physical_machine"
 read -r a
 echo "curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"name\": \"physical_machine\" }' 'http://127.0.0.1:3001/api/node_types'"
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "physical_machine" }' 'http://127.0.0.1:3001/api/node_types'
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "physical_machine", "nfv_vms_plugin_name": "openstack", "get_nodes_endpoint_name": "getHypervisors" }' 'http://127.0.0.1:3001/api/node_types'
 read -r a
 
 echo "Creating a node type: virtual_machine"
 read -r a
 echo "curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"name\": \"virtual_machine\" }' 'http://127.0.0.1:3001/api/node_types'"
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "virtual_machine" }' 'http://127.0.0.1:3001/api/node_types'
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "virtual_machine", "nfv_vms_plugin_name": "k8s", "get_nodes_endpoint_name": "getWorkers" }' 'http://127.0.0.1:3001/api/node_types'
 read -r a
 
 echo "Creating a node type: container"
 read -r a
 echo "curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"name\": \"container\" }' 'http://127.0.0.1:3001/api/node_types'"
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "container" }' 'http://127.0.0.1:3001/api/node_types'
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "container", "nfv_vms_plugin_name": "k8s", "get_nodes_endpoint_name": "getPods" }' 'http://127.0.0.1:3001/api/node_types'
 read -r a
 
 echo "Defining all VNFs (16 VNFs)"
@@ -34,7 +46,6 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-updateactivets" }' 'http://127.0.0.1:3001/api/vnfs'
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-purge" }' 'http://127.0.0.1:3001/api/vnfs'
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-authentication" }' 'http://127.0.0.1:3001/api/vnfs'
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-cancellocation" }' 'http://127.0.0.1:3001/api/vnfs'
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-cms" }' 'http://127.0.0.1:3001/api/vnfs'
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-cancellocation" }' 'http://127.0.0.1:3001/api/vnfs'
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "hsscna-ldapserv" }' 'http://127.0.0.1:3001/api/vnfs'
@@ -247,11 +258,7 @@ curl -X POST --header 'Content-Type: application/json' --header 'Accept: applica
 read -r a
 
 
-echo "Defining a benchmarking integration plugin..."
-read -r a
-echo "curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ \"name\": \"nfv-inspector-bms-hss-fe-plugin\" }' 'http://127.0.0.1:3001/api/benchmarking_tool_integration_plugins'"
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' -d '{ "name": "nfv-inspector-bms-hss-fe-plugin" }' 'http://127.0.0.1:3001/api/benchmarking_tool_integration_plugins'
-read -r t
+
 
 echo "Creating a system function"
 read -r a

@@ -9,82 +9,82 @@ module.exports = function (app) {
     var quality_metric = app.models.QualityMetric;
     var vnf = app.models.Vnf;
 
-    mysqlDs.autoupdate("quality_metric", function (err) {
+    mysqlDs.autoupdate("benchmarking_tool_integration_plugin", function (err) {
         if (err !== undefined && err !== "" && err !== null) {
-            console.error("Error creating table quality_metric:" + err);
+            console.error("Error creating table benchmarking_tool_integration_plugin:" + err);
         }
-        console.log("Autoupdated table 'quality_metric'");
+        console.log("Autoupdated table 'benchmarking_tool_integration_plugin'");
 
-        mysqlDs.autoupdate("quality_metric_labeling_configuration", function (err) {
+        mysqlDs.autoupdate("quality_metric", function (err) {
             if (err !== undefined && err !== "" && err !== null) {
-                console.error("Error creating table quality_metric_labeling_configuration:" + err);
+                console.error("Error creating table quality_metric:" + err);
             }
-            console.log("Autoupdated table 'quality_metric_labeling_configuration'");
+            console.log("Autoupdated table 'quality_metric'");
 
-            mysqlDs.autoupdate("vnf", function (err) {
+            mysqlDs.autoupdate("quality_metric_labeling_configuration", function (err) {
                 if (err !== undefined && err !== "" && err !== null) {
-                    console.error("Error creating table vnf:" + err);
+                    console.error("Error creating table quality_metric_labeling_configuration:" + err);
                 }
-                console.log("\nAutoupdated table 'vnf'");
+                console.log("Autoupdated table 'quality_metric_labeling_configuration'");
 
-                mysqlDs.autoupdate("node_type", function (err) {
+                mysqlDs.autoupdate("vnf", function (err) {
                     if (err !== undefined && err !== "" && err !== null) {
-                        console.error("Error creating table node_type:" + err);
+                        console.error("Error creating table vnf:" + err);
                     }
-                    console.log("Autoupdated table 'node_type'");
+                    console.log("\nAutoupdated table 'vnf'");
 
-                    mysqlDs.autoupdate("node", function (err) {
+                    mysqlDs.autoupdate("node_type", function (err) {
                         if (err !== undefined && err !== "" && err !== null) {
-                            console.error("Error creating table node:" + err);
+                            console.error("Error creating table node_type:" + err);
                         }
-                        console.log("\nAutoupdated table 'node'");
+                        console.log("Autoupdated table 'node_type'");
 
-                        mysqlDs.autoupdate("node_placement_configuration", function (err) {
+                        mysqlDs.autoupdate("node", function (err) {
                             if (err !== undefined && err !== "" && err !== null) {
-                                console.error("Error creating table node_placement_configuration:" + err);
+                                console.error("Error creating table node:" + err);
                             }
-                            console.log("\nAutoupdated table 'node_placement_configuration'");
+                            console.log("\nAutoupdated table 'node'");
 
-                            mysqlDs.autoupdate("node_properties_configuration", function (err) {
+                            mysqlDs.autoupdate("node_placement_configuration", function (err) {
                                 if (err !== undefined && err !== "" && err !== null) {
-                                    console.error("Error creating table node_properties_configuration:" + err);
+                                    console.error("Error creating table node_placement_configuration:" + err);
                                 }
-                                console.log("Autoupdated table 'node_properties_configuration'");
+                                console.log("\nAutoupdated table 'node_placement_configuration'");
 
-                                mysqlDs.autoupdate("node_property", function (err) {
+                                mysqlDs.autoupdate("node_properties_configuration", function (err) {
                                     if (err !== undefined && err !== "" && err !== null) {
-                                        console.error("Error creating table node_property:" + err);
+                                        console.error("Error creating table node_properties_configuration:" + err);
                                     }
-                                    console.log("\nAutoupdated table 'node_property'");
+                                    console.log("Autoupdated table 'node_properties_configuration'");
 
-                                    mysqlDs.autoupdate("node_properties_configuration_property_value", function (err) {
+                                    mysqlDs.autoupdate("node_property", function (err) {
                                         if (err !== undefined && err !== "" && err !== null) {
-                                            console.error("Error creating table node_properties_configuration_property_value:" + err);
+                                            console.error("Error creating table node_property:" + err);
                                         }
-                                        console.log("\nAutoupdated table 'node_properties_configuration_property_value'");
+                                        console.log("\nAutoupdated table 'node_property'");
+
+                                        mysqlDs.autoupdate("node_properties_configuration_property_value", function (err) {
+                                            if (err !== undefined && err !== "" && err !== null) {
+                                                console.error("Error creating table node_properties_configuration_property_value:" + err);
+                                            }
+                                            console.log("\nAutoupdated table 'node_properties_configuration_property_value'");
+                                        });
                                     });
-                                });
 
 
-                                mysqlDs.autoupdate("node_placement_configuration_node_place", function (err) {
-                                    if (err !== undefined && err !== "" && err !== null) {
-                                        console.error("Error creating table node_placement_configuration_node_place:" + err);
-                                    }
-                                    console.log("\nAutoupdated table 'node_placement_configuration_node_place'");
-                                });
+                                    mysqlDs.autoupdate("node_placement_configuration_node_place", function (err) {
+                                        if (err !== undefined && err !== "" && err !== null) {
+                                            console.error("Error creating table node_placement_configuration_node_place:" + err);
+                                        }
+                                        console.log("\nAutoupdated table 'node_placement_configuration_node_place'");
+                                    });
 
-                                mysqlDs.autoupdate("deployment", function (err) {
-                                    if (err !== undefined && err !== "" && err !== null) {
-                                        console.error("Error creating table deployment:" + err);
-                                    }
-                                    console.log("\nAutoupdated table 'deployment'");
-                                });
-                                mysqlDs.autoupdate("benchmarking_tool_integration_plugin", function (err) {
-                                    if (err !== undefined && err !== "" && err !== null) {
-                                        console.error("Error creating table benchmarking_tool_integration_plugin:" + err);
-                                    }
-                                    console.log("Autoupdated table 'benchmarking_tool_integration_plugin'");
-
+                                    mysqlDs.autoupdate("deployment", function (err) {
+                                        if (err !== undefined && err !== "" && err !== null) {
+                                            console.error("Error creating table deployment:" + err);
+                                        }
+                                        console.log("\nAutoupdated table 'deployment'");
+                                    });
                                     mysqlDs.autoupdate("traffic_demand_configuration", function (err) {
                                         if (err !== undefined && err !== "" && err !== null) {
                                             console.error("Error creating table traffic_demand_configuration:" + err);
@@ -254,6 +254,7 @@ module.exports = function (app) {
             });
         });
     });
+
     mysqlDs.autoupdate("endpoint", function (err) {
         if (err !== undefined && err !== "" && err !== null) {
             console.error("Error creating table:" + err);

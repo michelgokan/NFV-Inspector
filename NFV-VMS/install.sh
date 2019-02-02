@@ -57,9 +57,10 @@ echo "[Re]create MySQL scheme? (y/N) : "
 read -r mysql_database_recreate
 
 if [ ! $mysql_database_recreate == 'y' ] && [ ! $mysql_database_recreate == 'Y' ]; then
-  if ! mysql -h $mysql_address -P $mysql_port -u $mysql_username -p$mysql_password -D $mysql_database -e ";" ; then
+  if mysql -h $mysql_address -P $mysql_port -u $mysql_username -p$mysql_password -D $mysql_database -e ";" ; then
     echo "Database OK!"
   else
+    echo "mysql -h $mysql_address -P $mysql_port -u $mysql_username -p$mysql_password -D $mysql_database -e \";\""
     echo "Database is not there!"
     echo "Exiting installation"
     exit 0

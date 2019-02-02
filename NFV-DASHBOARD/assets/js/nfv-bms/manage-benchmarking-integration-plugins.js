@@ -2,12 +2,12 @@
 
   'use strict';
 
-  var columnsOrder = ["id", "name", "start_parameter"];
+  var columnsOrder = ["id", "name", "start_endpoint"];
   var url = $("#datatable-editable").data("url");
   var aoColumns = [
     {data: "id"},
     {data: "name"},
-    {data: "start_parameter"},
+    {data: "start_endpoint"},
     {"bSortable": false, "mData": null}
   ];
 
