@@ -24,6 +24,39 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "address": {
+      "type": "string",
+      "required": true
+    },
+    "default_cpu_cap": {
+      "type": "number",
+      "required": false
+    },
+    "default_memory_cap": {
+      "type": "number",
+      "required": false
+    },
+    "default_storage_cap": {
+      "type": "number",
+      "required": false
+    },
+    "resource_editable": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "enabled": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
+    "metadata": {
+      "type": "string",
+      "required": false,
+      "mysql": {
+        "dataType": "LONGTEXT"
+      }
     }
   },
   "validations": [],

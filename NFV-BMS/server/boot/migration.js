@@ -128,6 +128,13 @@ module.exports = function (app) {
                                                                 }
                                                                 console.log("Autoupdated table 'resource_type'");
 
+                                                                mysqlDs.autoupdate("vnf_resource_requirement", function (err) {
+                                                                    if (err !== undefined && err !== "" && err !== null) {
+                                                                        console.error("Error creating table vnf_resource_requirement:" + err);
+                                                                    }
+                                                                    console.log("\nAutoupdated table 'vnf_resource_requirement'");
+                                                                });
+
                                                                 mysqlDs.autoupdate("resource_property", function (err) {
                                                                     if (err !== undefined && err !== "" && err !== null) {
                                                                         console.error("Error creating table resource_property:" + err);
@@ -220,13 +227,6 @@ module.exports = function (app) {
                                                                                     console.log("\nAutoupdated table 'experiment_node_configuration'");
                                                                                 });
                                                                             });
-                                                                        });
-
-                                                                        mysqlDs.autoupdate("vnf_resource_requirement", function (err) {
-                                                                            if (err !== undefined && err !== "" && err !== null) {
-                                                                                console.error("Error creating table vnf_resource_requirement:" + err);
-                                                                            }
-                                                                            console.log("\nAutoupdated table 'vnf_resource_requirement'");
                                                                         });
                                                                     });
                                                                 });
