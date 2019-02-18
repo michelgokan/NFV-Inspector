@@ -9,6 +9,7 @@
     {data: "type_id"},
     {data: "name"},
     {data: "vnf_id"},
+    {data: "enabled"},
     {"bSortable": false, "mData": null}
   ];
 
