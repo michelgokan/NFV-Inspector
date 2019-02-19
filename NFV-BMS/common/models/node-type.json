@@ -18,6 +18,10 @@
     "get_nodes_endpoint_name": {
       "type": "string",
       "required": true
+    },
+    "set_node_size_endpoint_name": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],

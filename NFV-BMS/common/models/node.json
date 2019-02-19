@@ -51,6 +51,16 @@
       "required": true,
       "default": true
     },
+    "number_of_replications": {
+      "type": "number",
+      "required": false,
+      "default": 1
+    },
+    "is_set_of_daemons": {
+      "type": "boolean",
+      "required": false,
+      "default": false
+    },
     "metadata": {
       "type": "string",
       "required": false,
