@@ -6,6 +6,14 @@
   "options": {
     "validateUpsert": true
   },
+  "foreignKeys": {
+    "parent_node_type_id": {
+      "name": "parentNodeTypeNodeTypeForeignKey",
+      "foreignKey": "parent_node_type_id",
+      "entityKey": "id",
+      "entity": "node_type"
+    }
+  },
   "properties": {
     "name": {
       "type": "string",
@@ -25,7 +33,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "parentNodeTypeRelation": {
+      "type": "belongsTo",
+      "model": "node_type",
+      "foreignKey": "parent_node_type_id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

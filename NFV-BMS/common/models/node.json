@@ -56,8 +56,13 @@
       "required": false,
       "default": 1
     },
-    "is_set_of_daemons": {
+    "is_available_on_all_parents": {
       "type": "boolean",
+      "required": false,
+      "default": false
+    },
+    "namespace": {
+      "type": "string",
       "required": false,
       "default": false
     },
