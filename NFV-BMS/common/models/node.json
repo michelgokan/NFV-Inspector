@@ -27,7 +27,7 @@
     },
     "address": {
       "type": "string",
-      "required": true
+      "required": false
     },
     "default_cpu_cap": {
       "type": "number",
