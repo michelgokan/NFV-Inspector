@@ -6,16 +6,6 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "min_guaranteed_value": {
-      "type": "number",
-      "required": false
-    },
-    "max_guaranteed_value": {
-      "type": "number",
-      "required": false
-    }
-  },
   "foreignKeys": {
     "sla_id": {
       "name": "slaIdForeignKey",
@@ -34,6 +24,16 @@
       "foreignKey": "quality_metric_id",
       "entityKey": "id",
       "entity": "quality_metric"
+    }
+  },
+  "properties": {
+    "min_guaranteed_value": {
+      "type": "number",
+      "required": false
+    },
+    "max_guaranteed_value": {
+      "type": "number",
+      "required": false
     }
   },
   "validations": [],

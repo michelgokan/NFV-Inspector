@@ -76,19 +76,23 @@
   "acls": [],
   "methods": {
     "start": {
-      "isStatic": true,
       "accepts": [
         {
-          "arg": "id", "type": "any", "description": "Model id", "required": true}
+          "arg": "id",
+          "type": "any",
+          "description": "Model id",
+          "required": true
+        }
       ],
       "returns": {
         "arg": "result",
         "type": "string"
       },
+      "description": "Start an experiment.",
       "http": {
-        "verb": "get", "path": "/:id/start"
-      },
-      "description": "Start an experiment."
+        "verb": "get",
+        "path": "/:id/start"
+      }
     }
   }
 }

@@ -6,18 +6,18 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    }
-  },
   "foreignKeys": {
     "quality_metric_labeling_configuration_id": {
       "name": "slaQualMetrLabConfIdForeignKey",
       "foreignKey": "quality_metric_labeling_configuration_id",
       "entityKey": "id",
       "entity": "quality_metric_labeling_configuration"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

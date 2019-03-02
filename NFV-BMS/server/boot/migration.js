@@ -116,6 +116,13 @@ module.exports = function (app) {
                                                         console.log("Autoupdated table 'system_function'");
 
 
+                                                        mysqlDs.autoupdate("system_function_chain", function (err) {
+                                                            if (err !== undefined && err !== "" && err !== null) {
+                                                                console.error("Error creating table system_function_chain:" + err);
+                                                            }
+                                                            console.log("\nAutoupdated table 'system_function_chain'");
+                                                        });
+
                                                         mysqlDs.autoupdate("experiment", function (err) {
                                                             if (err !== undefined && err !== "" && err !== null) {
                                                                 console.error("Error creating table experiment:" + err);

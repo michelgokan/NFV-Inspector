@@ -3,9 +3,11 @@
   "plural": "nfv_bms",
   "base": "Model",
   "properties": {},
+  "validations": [],
+  "relations": {},
+  "acls": [],
   "methods": {
     "repopulateDatabase": {
-      "isStatic": true,
       "returns": {
         "arg": "result",
         "type": "string"

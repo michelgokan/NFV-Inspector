@@ -6,18 +6,18 @@
   "options": {
     "validateUpsert": true
   },
-  "properties": {
-    "name": {
-      "type": "string",
-      "required": true
-    }
-  },
   "foreignKeys": {
     "benchmarking_tool_integration_plugin_id": {
       "name": "deploymentBenchTollIntPlugIdForeignKey",
       "foreignKey": "benchmarking_tool_integration_plugin_id",
       "entityKey": "id",
       "entity": "benchmarking_tool_integration_plugin"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

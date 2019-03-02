@@ -6,14 +6,32 @@
   "options": {
     "validateUpsert": true
   },
+  "foreignKeys": {
+    "deployment_id": {
+      "name": "systemFunctionDeploymentFK",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment"
+    }
+  },
   "properties": {
     "name": {
       "type": "string",
       "required": true
+    },
+    "endpoint": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "systemFunctionDeploymentRelation": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id"
+    }
+  },
   "acls": [],
   "methods": {}
 }

@@ -1,0 +1,57 @@
+{
+  "name": "system_function_chain",
+  "plural": "system_function_chains",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "system_function_id": {
+      "name": "systemFunctionChainFK",
+      "foreignKey": "system_function_id",
+      "entityKey": "id",
+      "entity": "system_function"
+    },
+    "from_node_id": {
+      "name": "fromNodeChainFK",
+      "foreignKey": "from_node_id",
+      "entityKey": "id",
+      "entity": "node"
+    },
+    "to_node_id": {
+      "name": "toNodeChainFK",
+      "foreignKey": "to_node_id",
+      "entityKey": "id",
+      "entity": "node"
+    }
+  },
+  "properties": {
+    "label": {
+      "type": "string"
+    },
+    "order": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "systemFunctionChainRelation": {
+      "type": "belongsTo",
+      "model": "system_function",
+      "foreignKey": "system_function_id"
+    },
+    "fromNodeChainRelation": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "from_node_id"
+    },
+    "toNodeChainRelation": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "to_node_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

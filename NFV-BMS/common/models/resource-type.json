@@ -16,6 +16,10 @@
     },
     "max_cap": {
       "type": "number"
+    },
+    "increment_step": {
+      "type": "number",
+      "default": 1
     }
   },
   "validations": [],

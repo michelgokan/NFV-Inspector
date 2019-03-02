@@ -185,5 +185,9 @@
   "configuration": {
     "dataSource": "db",
     "public": true
+  },
+  "system_function_chain": {
+    "dataSource": "mysql",
+    "public": true
   }
 }
