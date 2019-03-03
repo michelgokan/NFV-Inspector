@@ -3,6 +3,14 @@
   "plural": "resource_allocation_configurations",
   "base": "PersistedModel",
   "idInjection": true,
+  "foreignKeys": {
+    "deployment_id": {
+      "name": "resourceAllocationConfigDeploymentFK",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment"
+    }
+  },
   "options": {
     "validateUpsert": true
   },
@@ -13,7 +21,13 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "deployment": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id"
+    }
+  },
   "acls": [],
   "methods": {}
 }
