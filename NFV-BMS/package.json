@@ -17,7 +17,7 @@
     "loopback": "^3.19.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.0.0",
-    "loopback-connector-mysql": "github:jolivervidal/loopback-connector-mysql",
+    "loopback-connector-mysql": "^5.3.0",
     "moment-timezone": "^0.5.23",
     "nfv-inspector-bms-hss-fe-plugin": "git+https://github.com/michelgokan/NFV-Inspector-BMS-HSS-FE-Plugin.git",
     "serve-favicon": "^2.0.1",
