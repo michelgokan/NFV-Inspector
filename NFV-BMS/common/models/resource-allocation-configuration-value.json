@@ -23,10 +23,12 @@
   "properties": {
     "size_value": {
       "type": "number",
-      "required": true
+      "required": true,
+      "dataType": "bigint"
     },
     "limit_value": {
-      "type": "number"
+      "type": "number",
+      "dataType": "bigint"
     }
   },
   "validations": [],
