@@ -32,6 +32,13 @@
     },
     "order": {
       "type": "number"
+    },
+    "weight": {
+      "type": "number",
+      "dataType": "float",
+      "default": 0,
+      "description": "Should be a number between 0 and 1",
+      "required": false
     }
   },
   "validations": [],
