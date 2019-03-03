@@ -26,6 +26,12 @@
       "type": "belongsTo",
       "model": "benchmarking_tool_integration_plugin",
       "foreignKey": "benchmarking_tool_integration_plugin_id"
+    },
+    "deploymentVnfsRelation": {
+      "type": "hasMany",
+      "model": "vnf",
+      "foreignKey": "deployment_id",
+      "through": "deployment_vnf"
     }
   },
   "acls": [],
