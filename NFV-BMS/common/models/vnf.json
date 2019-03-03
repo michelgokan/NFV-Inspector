@@ -18,7 +18,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "vnfsDeploymentRelation": {
+      "type": "hasMany",
+      "model": "deployment",
+      "foreignKey": "vnf_id",
+      "through": "deployment_vnf"
+    }
+  },
   "acls": [],
   "methods": {}
 }
