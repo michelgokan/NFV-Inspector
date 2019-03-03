@@ -22,7 +22,7 @@
   },
   "validations": [],
   "relations": {
-    "resourcePropertyResourceIdRelation": {
+    "resource_type": {
       "type": "belongsTo",
       "model": "resource_type",
       "foreignKey": "resource_type_id"

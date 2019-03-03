@@ -38,17 +38,17 @@
   },
   "validations": [],
   "relations": {
-    "slaIdRelation": {
+    "sla": {
       "type": "belongsTo",
       "model": "sla",
       "foreignKey": "sla_id"
     },
-    "slaTrafficDemandConfigRelation": {
+    "traffic_demand_configuration": {
       "type": "belongsTo",
       "model": "traffic_demand_configuration",
       "foreignKey": "traffic_demand_configuration_id"
     },
-    "slaQualityMetricIdRelation": {
+    "quality_metric": {
       "type": "belongsTo",
       "model": "quality_metric",
       "foreignKey": "quality_metric_id"

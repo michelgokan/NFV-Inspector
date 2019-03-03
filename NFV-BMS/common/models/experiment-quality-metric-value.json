@@ -31,12 +31,12 @@
   },
   "validations": [],
   "relations": {
-    "experimentQualityMetricQMIdRelation": {
+    "quality_metric": {
       "type": "belongsTo",
       "model": "quality_metric",
       "foreignKey": "quality_metric_id"
     },
-    "experimentTimeIntervalIdRelation": {
+    "experiment_time_interval": {
       "type": "belongsTo",
       "model": "experiment_time_interval",
       "foreignKey": "experiment_time_interval_id"

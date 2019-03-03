@@ -22,7 +22,7 @@
   },
   "validations": [],
   "relations": {
-    "vnfPropConfVnfIdRelation": {
+    "vnf": {
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf_id"

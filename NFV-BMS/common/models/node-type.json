@@ -34,7 +34,7 @@
   },
   "validations": [],
   "relations": {
-    "parentNodeTypeRelation": {
+    "node_type": {
       "type": "belongsTo",
       "model": "node_type",
       "foreignKey": "parent_node_type_id"

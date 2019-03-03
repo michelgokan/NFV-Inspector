@@ -23,12 +23,12 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "combinedVnfVnf1Relation": {
+    "vnf1": {
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf1_id"
     },
-    "combinedVnfVnf2Relation": {
+    "vnf2": {
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf2_id"

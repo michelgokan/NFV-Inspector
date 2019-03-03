@@ -31,12 +31,12 @@
   },
   "validations": [],
   "relations": {
-    "resourceAllocationConfigIdRelation": {
+    "resource_allocation_configuration": {
       "type": "belongsTo",
       "model": "resource_allocation_configuration",
       "foreignKey": "resource_allocation_configuration_id"
     },
-    "resourceAllocationConfigResTypIdRelation": {
+    "resource_type": {
       "type": "belongsTo",
       "model": "resource_type",
       "foreignKey": "resource_type_id"

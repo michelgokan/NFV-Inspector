@@ -47,27 +47,27 @@
   "properties": {},
   "validations": [],
   "relations": {
-    "experimentNodeConfExpIdRelation": {
+    "experiment": {
       "type": "belongsTo",
       "model": "experiment",
       "foreignKey": "experiment_id"
     },
-    "experimentNodeConfNodeIdRelation": {
+    "node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "node_id"
     },
-    "experimentNodeConfNodePropConfIdRelation": {
+    "node_properties_configuration": {
       "type": "belongsTo",
       "model": "node_properties_configuration",
       "foreignKey": "node_properties_configuration_id"
     },
-    "experimentNodeConfResAllocConfIdRelation": {
+    "resource_allocation_configuration": {
       "type": "belongsTo",
       "model": "resource_allocation_configuration",
       "foreignKey": "resource_allocation_configuration_id"
     },
-    "experNodeConfVnfPropConfIdRelation": {
+    "vnf_properties_configuration": {
       "type": "belongsTo",
       "model": "vnf_properties_configuration",
       "foreignKey": "vnf_properties_configuration_id"

@@ -30,12 +30,12 @@
   },
   "validations": [],
   "relations": {
-    "vnfResourceRequirementVnfIdRelation": {
+    "vnf": {
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf_id"
     },
-    "vnfResourceRequirementRscTypeIdRelation": {
+    "resource_type": {
       "type": "belongsTo",
       "model": "resource_type",
       "foreignKey": "resource_type_id"

@@ -52,22 +52,22 @@
   },
   "validations": [],
   "relations": {
-    "experimentsNodesPlacementIDRelation": {
+    "node_placement_configuration": {
       "type": "belongsTo",
       "model": "node_placement_configuration",
       "foreignKey": "node_placement_configuration_id"
     },
-    "experimentsExperimentSetIDRelation": {
+    "experiment_set": {
       "type": "belongsTo",
       "model": "experiment_set",
       "foreignKey": "experiment_set_id"
     },
-    "experimentSysFuncTrafDemandSysFuncIdRelation": {
+    "system_function": {
       "type": "belongsTo",
       "model": "system_function",
       "foreignKey": "system_function_id"
     },
-    "experimentSysFuncTrafDemandTrafDemIdRelation": {
+    "traffic_demand_configuration": {
       "type": "belongsTo",
       "model": "traffic_demand_configuration",
       "foreignKey": "traffic_demand_configuration_id"

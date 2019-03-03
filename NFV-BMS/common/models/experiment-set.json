@@ -36,12 +36,12 @@
   },
   "validations": [],
   "relations": {
-    "experimentSetDepIdRelation": {
+    "deployment": {
       "type": "belongsTo",
       "model": "deployment",
       "foreignKey": "deployment_id"
     },
-    "experimentSetSlaIdRelation": {
+    "sla": {
       "type": "belongsTo",
       "model": "sla",
       "foreignKey": "sla_id"

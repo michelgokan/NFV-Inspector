@@ -76,12 +76,12 @@
   },
   "validations": [],
   "relations": {
-    "nodeTypeRelation": {
+    "node_type": {
       "type": "belongsTo",
       "model": "node_type",
       "foreignKey": "type_id"
     },
-    "nodeVnf_Relation": {
+    "vnf": {
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf_id"

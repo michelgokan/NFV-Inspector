@@ -22,7 +22,7 @@
   },
   "validations": [],
   "relations": {
-    "deploymentBenchTollIntPlugIdRelation": {
+    "benchmarking_tool_integration_plugin": {
       "type": "belongsTo",
       "model": "benchmarking_tool_integration_plugin",
       "foreignKey": "benchmarking_tool_integration_plugin_id"

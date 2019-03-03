@@ -30,7 +30,7 @@
   },
   "validations": [],
   "relations": {
-    "experimentTimeIntervalExpIdRelation": {
+    "experiment": {
       "type": "belongsTo",
       "model": "experiment",
       "foreignKey": "experiment_id"

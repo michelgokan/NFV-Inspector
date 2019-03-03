@@ -41,12 +41,12 @@
       "model": "system_function",
       "foreignKey": "system_function_id"
     },
-    "fromNodeChainRelation": {
+    "from_node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "from_node_id"
     },
-    "toNodeChainRelation": {
+    "to_node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "to_node_id"

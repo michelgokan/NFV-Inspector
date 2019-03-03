@@ -28,12 +28,12 @@
   },
   "validations": [],
   "relations": {
-    "vnfPropConfValConfIdRelation": {
+    "vnf_properties_configuration": {
       "type": "belongsTo",
       "model": "vnf_properties_configuration",
       "foreignKey": "vnf_properties_configuration_id"
     },
-    "vnfPropConfValPropIdRelation": {
+    "vnf_property": {
       "type": "belongsTo",
       "model": "vnf_property",
       "foreignKey": "vnf_property_id"

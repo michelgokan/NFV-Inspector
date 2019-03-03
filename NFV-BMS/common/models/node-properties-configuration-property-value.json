@@ -28,12 +28,12 @@
   },
   "validations": [],
   "relations": {
-    "nodePropertyValueRelation1": {
+    "node_properties_configuration": {
       "type": "belongsTo",
       "model": "node_properties_configuration",
       "foreignKey": "node_properties_configuration_id"
     },
-    "nodePropertyValueRelation2": {
+    "node_property": {
       "type": "belongsTo",
       "model": "node_property",
       "foreignKey": "node_property_id"

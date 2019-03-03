@@ -37,17 +37,17 @@
   },
   "validations": [],
   "relations": {
-    "experimentResourceUsageResTypIdRelation": {
+    "resource_type": {
       "type": "belongsTo",
       "model": "resource_type",
       "foreignKey": "resource_type_id"
     },
-    "nodeResUsgTimeIntervalIdRelation": {
+    "node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "node_id"
     },
-    "experimentResUsgTimeIntervalIdRelation": {
+    "experiment_time_interval": {
       "type": "belongsTo",
       "model": "experiment_time_interval",
       "foreignKey": "experiment_time_interval_id"

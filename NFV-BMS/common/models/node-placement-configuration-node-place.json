@@ -35,19 +35,19 @@
   },
   "validations": [],
   "relations": {
-    "nodePlacementConfigurationRelation1": {
+    "node_placement_configuration": {
       "type": "belongsTo",
       "model": "node_placement_configuration",
       "foreignKey": "node_placement_configuration_id",
       "required": true
     },
-    "nodePlacementConfigurationRelation2": {
+    "node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "node_id",
       "required": true
     },
-    "nodePlacementConfigurationRelation3": {
+    "node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "parent_node_id"

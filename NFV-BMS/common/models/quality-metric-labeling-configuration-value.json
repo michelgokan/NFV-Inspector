@@ -34,12 +34,12 @@
   },
   "validations": [],
   "relations": {
-    "qualMetrLabConfQualMetrLabConfId1Relation": {
+    "quality_metric_labeling_configuration": {
       "type": "belongsTo",
       "model": "quality_metric_labeling_configuration",
       "foreignKey": "quality_metric_labeling_configuration_id"
     },
-    "qualMetrLabConfQualMetrId1Relation": {
+    "quality_metric": {
       "type": "belongsTo",
       "model": "quality_metric",
       "foreignKey": "quality_metric_id"
