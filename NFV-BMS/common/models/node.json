@@ -46,6 +46,11 @@
       "required": true,
       "default": true
     },
+    "placement_editable": {
+      "type": "boolean",
+      "required": true,
+      "default": true
+    },
     "enabled": {
       "type": "boolean",
       "required": true,
