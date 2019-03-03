@@ -47,7 +47,7 @@
       "foreignKey": "node_id",
       "required": true
     },
-    "node": {
+    "parent_node": {
       "type": "belongsTo",
       "model": "node",
       "foreignKey": "parent_node_id"
