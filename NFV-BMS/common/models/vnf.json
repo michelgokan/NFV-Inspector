@@ -19,11 +19,12 @@
   },
   "validations": [],
   "relations": {
-    "vnfsDeploymentRelation": {
+    "deployments": {
       "type": "hasMany",
       "model": "deployment",
       "foreignKey": "vnf_id",
-      "through": "deployment_vnf"
+      "through": "deployment_vnf",
+      "keyThrough": "deployment_id"
     }
   },
   "acls": [],

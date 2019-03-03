@@ -29,12 +29,12 @@
   },
   "validations": [],
   "relations": {
-    "deploymentVnfDepId1Relation": {
+    "deployment": {
       "type": "belongsTo",
       "model": "deployment",
       "foreignKey": "deployment_id"
     },
-    "deploymentVnfVnfId1Relation": {
+    "vnf": {
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf_id"
