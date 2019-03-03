@@ -18,6 +18,13 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "size_order": {
+      "type": "number",
+      "required": true,
+      "index": {
+        "unique": true
+      }
     }
   },
   "validations": [],
