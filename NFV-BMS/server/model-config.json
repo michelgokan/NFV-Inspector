@@ -189,5 +189,9 @@
   "system_function_chain": {
     "dataSource": "mysql",
     "public": true
+  },
+  "node_placement_affinity_rule": {
+    "dataSource": "mysql",
+    "public": true
   }
 }

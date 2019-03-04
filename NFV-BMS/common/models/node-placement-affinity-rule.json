@@ -1,0 +1,65 @@
+{
+  "name": "node_placement_affinity_rule",
+  "plural": "node_placement_affinity_rule",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "deployment_id": {
+      "name": "nodePlacementDeploymentAffinityFK",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment",
+      "required": true
+    },
+    "node1_id": {
+      "name": "nodePlacementNode1AffinityFK",
+      "foreignKey": "node1_id",
+      "entityKey": "id",
+      "entity": "node",
+      "required": true
+    },
+    "node2_id": {
+      "name": "nodePlacementNode2AffinityFK",
+      "foreignKey": "node2_id",
+      "entityKey": "id",
+      "entity": "node",
+      "required": true
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    },
+    "is_antiaffinity": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "deployment": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id",
+      "required": true
+    },
+    "node1": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node1_id",
+      "required": true
+    },
+    "node2": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node2_id",
+      "required": true
+    }
+  },
+  "acls": [],
+  "methods": {}
+}
