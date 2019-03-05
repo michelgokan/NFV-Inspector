@@ -103,7 +103,7 @@
     "dataSource": "mysql",
     "public": true
   },
-  "vnf_resource_requirement": {
+  "node_resource_requirement": {
     "dataSource": "mysql",
     "public": true
   },

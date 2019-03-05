@@ -143,11 +143,11 @@ module.exports = function (app) {
                                                                     }
                                                                     console.log("Autoupdated table 'resource_type'");
 
-                                                                    mysqlDs.autoupdate("vnf_resource_requirement", function (err) {
+                                                                    mysqlDs.autoupdate("node_resource_requirement", function (err) {
                                                                         if (err !== undefined && err !== "" && err !== null) {
-                                                                            console.error("Error creating table vnf_resource_requirement:" + err);
+                                                                            console.error("Error creating table node_resource_requirement:" + err);
                                                                         }
-                                                                        console.log("\nAutoupdated table 'vnf_resource_requirement'");
+                                                                        console.log("\nAutoupdated table 'node_resource_requirement'");
                                                                     });
 
                                                                     mysqlDs.autoupdate("resource_property", function (err) {
