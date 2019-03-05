@@ -18,6 +18,11 @@
     "name": {
       "type": "string",
       "required": true
+    },
+    "isForTest": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "validations": [],
