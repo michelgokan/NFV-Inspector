@@ -5,6 +5,15 @@
   "options": {
     "validateUpsert": true
   },
+  "foreignKeys": {
+    "deployment_id": {
+      "name": "nodePlacementDeploymentFK",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment",
+      "required": true
+    }
+  },
   "properties": {
     "name": {
       "type": "string",
@@ -12,7 +21,14 @@
     }
   },
   "validations": [],
-  "relations": {},
+  "relations": {
+    "deployment": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id",
+      "required": true
+    }
+  },
   "acls": [],
   "methods": {}
 }

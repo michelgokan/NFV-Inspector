@@ -7,11 +7,11 @@
     "validateUpsert": true
   },
   "foreignKeys": {
-    "deployment_id": {
-      "name": "nodePlacementDeploymentAffinityFK",
-      "foreignKey": "deployment_id",
+    "node_placement_configuration_id": {
+      "name": "nodePlacementAffinityConfFK",
+      "foreignKey": "node_placement_configuration_id",
       "entityKey": "id",
-      "entity": "deployment",
+      "entity": "node_placement_configuration",
       "required": true
     },
     "node1_id": {
@@ -41,10 +41,10 @@
   },
   "validations": [],
   "relations": {
-    "deployment": {
+    "node_placement_configuration": {
       "type": "belongsTo",
-      "model": "deployment",
-      "foreignKey": "deployment_id",
+      "model": "node_placement_configuration",
+      "foreignKey": "node_placement_configuration_id",
       "required": true
     },
     "node1": {
