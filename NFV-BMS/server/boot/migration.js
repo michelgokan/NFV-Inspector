@@ -51,6 +51,13 @@ module.exports = function (app) {
                                 }
                                 console.log("\nAutoupdated table 'node'");
 
+                                mysqlDs.autoupdate("deployment_node", function (err) {
+                                    if (err !== undefined && err !== "" && err !== null) {
+                                        console.error("Error creating table deployment_node:" + err);
+                                    }
+                                    console.log("\nAutoupdated table 'deployment_node'");
+                                });
+
                                 mysqlDs.autoupdate("node_placement_configuration", function (err) {
                                     if (err !== undefined && err !== "" && err !== null) {
                                         console.error("Error creating table node_placement_configuration:" + err);

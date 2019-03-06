@@ -1,0 +1,39 @@
+{
+  "name": "deployment_node",
+  "plural": "deployments_nodes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "foreignKeys": {
+    "node_id": {
+      "name": "deploymentNodeNodeFK",
+      "foreignKey": "node_id",
+      "entityKey": "id",
+      "entity": "node"
+    },
+    "deployment_id": {
+      "name": "deploymentNodeDeploymentFK",
+      "foreignKey": "deployment_id",
+      "entityKey": "id",
+      "entity": "deployment"
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {},
+  "validations": [],
+  "relations": {
+    "node": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node_id"
+    },
+    "deployment": {
+      "type": "belongsTo",
+      "model": "deployment",
+      "foreignKey": "deployment_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

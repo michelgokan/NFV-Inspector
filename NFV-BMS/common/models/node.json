@@ -90,6 +90,13 @@
       "type": "belongsTo",
       "model": "vnf",
       "foreignKey": "vnf_id"
+    },
+    "deployments": {
+      "type": "hasMany",
+      "model": "deployment",
+      "foreignKey": "node_id",
+      "through": "deployment_node",
+      "keyThrough": "deployment_id"
     }
   },
   "acls": [],

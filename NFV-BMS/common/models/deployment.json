@@ -33,6 +33,13 @@
       "foreignKey": "deployment_id",
       "through": "deployment_vnf",
       "keyThrough": "vnf_id"
+    },
+    "nodes": {
+      "type": "hasMany",
+      "model": "node",
+      "foreignKey": "deployment_id",
+      "through": "deployment_node",
+      "keyThrough": "node_id"
     }
   },
   "acls": [],
