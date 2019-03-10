@@ -78,3 +78,4 @@ NFV-BMS/config.json
 NFV-VMS/config.json
 NFV-MON/Server/config.json
 NFV-BMS/Plugins/
+NFV-LAB/DummyApp/*
