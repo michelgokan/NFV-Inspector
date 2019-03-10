@@ -1,0 +1,66 @@
+{
+  "name": "experiment_set_node_setting",
+  "plural": "experiment_set_nodes_settings",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_set_id": {
+      "name": "expSetNodeCompExpIdFK",
+      "foreignKey": "experiment_set_id",
+      "entityKey": "id",
+      "entity": "experiment_set"
+    },
+    "node_id": {
+      "name": "expSetVnfNodeNodeIdFK",
+      "foreignKey": "node_id",
+      "entityKey": "id",
+      "entity": "node"
+    },
+    "resource_allocation_configuration_id": {
+      "name": "experSetNodeSetResAllocConfIdFK",
+      "foreignKey": "resource_allocation_configuration_id",
+      "entityKey": "id",
+      "entity": "resource_allocation_configuration"
+    }
+  },
+  "properties": {
+    "is_resource_editable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "is_placement_editable": {
+      "type": "boolean",
+      "required": true,
+      "default": false
+    },
+    "namespace": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experiment_set": {
+      "type": "belongsTo",
+      "model": "experiment_set",
+      "foreignKey": "experiment_set_id"
+    },
+    "node": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node_id"
+    },
+    "resource_allocation_configuration": {
+      "type": "belongsTo",
+      "model": "resource_allocation_configuration",
+      "foreignKey": "resource_allocation_configuration_id",
+      "description": "Default resource allocation configuration for the entire experiment set"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

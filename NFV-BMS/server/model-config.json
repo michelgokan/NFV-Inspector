@@ -143,7 +143,7 @@
     "dataSource": "mysql",
     "public": true
   },
-  "experiment_quality_metric_value": {
+  "experiment_instance_quality_metric_value": {
     "dataSource": "mysql",
     "public": true
   },
@@ -155,11 +155,11 @@
     "dataSource": "mysql",
     "public": true
   },
-  "experiment_time_interval": {
+  "experiment_instance_time_interval": {
     "dataSource": "mysql",
     "public": true
   },
-  "experiment_resource_usage_value": {
+  "experiment_instance_resource_usage_value": {
     "dataSource": "mysql",
     "public": true
   },
@@ -191,6 +191,38 @@
     "public": true
   },
   "deployment_node": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf_properties_configuration_set": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "vnf_component": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_set_node_setting": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_set_vnf_component_setting": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_instance_node_name_mapping": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_instance": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "cost_parameter": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "experiment_instance_cost": {
     "dataSource": "mysql",
     "public": true
   }

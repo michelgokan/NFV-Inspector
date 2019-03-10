@@ -1,6 +1,6 @@
 {
-  "name": "resource_type",
-  "plural": "resource_types",
+  "name": "cost_parameter",
+  "plural": "cost_parameters",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -11,17 +11,14 @@
       "type": "string",
       "required": true
     },
-    "min_cap": {
-      "type": "number",
-      "dataType": "bigint"
+    "unit_of_measurement": {
+      "type": "string",
+      "required": false
     },
-    "max_cap": {
+    "cost_per_unit": {
       "type": "number",
-      "dataType": "bigint"
-    },
-    "increment_step": {
-      "type": "number",
-      "default": 1
+      "required": false,
+      "dataType": "float"
     }
   },
   "validations": [],

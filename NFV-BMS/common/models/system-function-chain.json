@@ -13,17 +13,17 @@
       "entityKey": "id",
       "entity": "system_function"
     },
-    "from_node_id": {
-      "name": "fromNodeChainFK",
-      "foreignKey": "from_node_id",
+    "from_vnf_component_id": {
+      "name": "fromVnfCompChainFK",
+      "foreignKey": "from_vnf_component_id",
       "entityKey": "id",
-      "entity": "node"
+      "entity": "vnf_component"
     },
-    "to_node_id": {
-      "name": "toNodeChainFK",
-      "foreignKey": "to_node_id",
+    "to_vnf_component_id": {
+      "name": "toVnfCompChainFK",
+      "foreignKey": "to_vnf_component_id",
       "entityKey": "id",
-      "entity": "node"
+      "entity": "vnf_component"
     }
   },
   "properties": {
@@ -35,10 +35,10 @@
     },
     "weight": {
       "type": "number",
-      "dataType": "float",
-      "default": 0,
+      "required": false,
       "description": "Should be a number between 0 and 1",
-      "required": false
+      "dataType": "float",
+      "default": 0
     }
   },
   "validations": [],
@@ -48,15 +48,15 @@
       "model": "system_function",
       "foreignKey": "system_function_id"
     },
-    "from_node": {
+    "from_vnf_component": {
       "type": "belongsTo",
-      "model": "node",
-      "foreignKey": "from_node_id"
+      "model": "vnf_component",
+      "foreignKey": "from_vnf_component_id"
     },
-    "to_node": {
+    "to_vnf_component": {
       "type": "belongsTo",
-      "model": "node",
-      "foreignKey": "to_node_id"
+      "model": "vnf_component",
+      "foreignKey": "to_vnf_component_id"
     }
   },
   "acls": [],

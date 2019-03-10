@@ -3,6 +3,9 @@
   "plural": "deployments_nodes",
   "base": "PersistedModel",
   "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
   "foreignKeys": {
     "node_id": {
       "name": "deploymentNodeNodeFK",
@@ -16,9 +19,6 @@
       "entityKey": "id",
       "entity": "deployment"
     }
-  },
-  "options": {
-    "validateUpsert": true
   },
   "properties": {},
   "validations": [],

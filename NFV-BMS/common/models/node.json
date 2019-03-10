@@ -13,11 +13,17 @@
       "entityKey": "id",
       "entity": "node_type"
     },
-    "vnf_id": {
-      "name": "nodeVnf_ForeignKey",
-      "foreignKey": "vnf_id",
+    "vnf_component_id": {
+      "name": "nodeVnfCompForeignKey",
+      "foreignKey": "vnf_component_id",
       "entityKey": "id",
-      "entity": "vnf"
+      "entity": "vnf_component"
+    },
+    "resource_allocation_configuration_id": {
+      "name": "nodeResourceAllocConfIdFK",
+      "foreignKey": "resource_allocation_configuration_id",
+      "entityKey": "id",
+      "entity": "resource_allocation_configuration"
     }
   },
   "properties": {
@@ -41,32 +47,17 @@
       "type": "number",
       "required": false
     },
-    "resource_editable": {
-      "type": "boolean",
-      "required": true,
-      "default": true
-    },
-    "placement_editable": {
-      "type": "boolean",
-      "required": true,
-      "default": true
-    },
     "enabled": {
       "type": "boolean",
       "required": true,
       "default": true
     },
-    "number_of_replications": {
-      "type": "number",
-      "required": false,
-      "default": 1
-    },
-    "is_available_on_all_parents": {
+    "is_virtual_node": {
       "type": "boolean",
-      "required": false,
+      "required": true,
       "default": false
     },
-    "namespace": {
+    "default_namespace": {
       "type": "string",
       "required": false,
       "default": false
@@ -86,10 +77,16 @@
       "model": "node_type",
       "foreignKey": "type_id"
     },
-    "vnf": {
+    "vnf_component": {
       "type": "belongsTo",
-      "model": "vnf",
-      "foreignKey": "vnf_id"
+      "model": "vnf_component",
+      "foreignKey": "vnf_component_id"
+    },
+    "resource_allocation_configuration": {
+      "type": "belongsTo",
+      "model": "resource_allocation_configuration",
+      "foreignKey": "resource_allocation_configuration_id",
+      "description": "Default resource allocation configuration ID (if available)."
     },
     "deployments": {
       "type": "hasMany",
@@ -97,6 +94,11 @@
       "foreignKey": "node_id",
       "through": "deployment_node",
       "keyThrough": "deployment_id"
+    },
+    "node_resources_requirements": {
+      "type": "hasMany",
+      "model": "node_resource_requirement",
+      "foreignKey": "node_id"
     }
   },
   "acls": [],

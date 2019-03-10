@@ -1,6 +1,6 @@
 {
-  "name": "experiment_quality_metric_value",
-  "plural": "experiments_quality_metrics_values",
+  "name": "experiment_instance_quality_metric_value",
+  "plural": "experiment_instance_quality_metrics_values",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

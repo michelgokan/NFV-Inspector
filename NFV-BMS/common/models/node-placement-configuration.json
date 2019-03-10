@@ -32,6 +32,11 @@
       "model": "deployment",
       "foreignKey": "deployment_id",
       "required": true
+    },
+    "node_placement_configuration_nodes_places": {
+      "type": "hasMany",
+      "model": "node_placement_configuration_node_place",
+      "foreignKey": "node_placement_configuration_id"
     }
   },
   "acls": [],

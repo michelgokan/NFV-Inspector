@@ -7,7 +7,8 @@
     "password": "rootroot",
     "name": "mysql",
     "user": "root",
-    "connector": "mysql"
+    "connector": "mysql",
+    "maxDepthOfQuery": 20
   },
   "db": {
     "name": "db",

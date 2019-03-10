@@ -1,0 +1,44 @@
+{
+  "name": "experiment_instance_node_name_mapping",
+  "plural": "experiment_instance_nodes_name_mapping",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_instanceid": {
+      "name": "expNodeNameExpIdFK",
+      "foreignKey": "experiment_instance_id",
+      "entityKey": "id",
+      "entity": "experiment_instance"
+    },
+    "node_id": {
+      "name": "expNodeNameMapNodeIdFK",
+      "foreignKey": "node_id",
+      "entityKey": "id",
+      "entity": "node"
+    }
+  },
+  "properties": {
+    "mapping_name": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {
+    "node": {
+      "type": "belongsTo",
+      "model": "node",
+      "foreignKey": "node_id"
+    },
+    "experiment_instance": {
+      "type": "belongsTo",
+      "model": "experiment_instance",
+      "foreignKey": "experiment_instance_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

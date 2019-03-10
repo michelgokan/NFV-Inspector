@@ -3,16 +3,28 @@
   "plural": "resource_allocation_configurations",
   "base": "PersistedModel",
   "idInjection": true,
+  "indexes": {
+    "UNIQUE_INDEX": {
+      "columns": "`size_order`,`node_type_id`",
+      "kind": "unique"
+    }
+  },
+  "options": {
+    "validateUpsert": true
+  },
   "foreignKeys": {
     "deployment_id": {
       "name": "resourceAllocationConfigDeploymentFK",
       "foreignKey": "deployment_id",
       "entityKey": "id",
       "entity": "deployment"
+    },
+    "node_type_id": {
+      "name": "resAllocConfigNodeTypeIdFK",
+      "foreignKey": "node_type_id",
+      "entityKey": "id",
+      "entity": "node_type"
     }
-  },
-  "options": {
-    "validateUpsert": true
   },
   "properties": {
     "name": {
@@ -21,10 +33,7 @@
     },
     "size_order": {
       "type": "number",
-      "required": true,
-      "index": {
-        "unique": true
-      }
+      "required": true
     }
   },
   "validations": [],
@@ -33,6 +42,16 @@
       "type": "belongsTo",
       "model": "deployment",
       "foreignKey": "deployment_id"
+    },
+    "node_type": {
+      "type": "belongsTo",
+      "model": "node_type",
+      "foreignKey": "node_type_id"
+    },
+    "resource_allocation_configurations_values": {
+      "type": "hasMany",
+      "model": "resource_allocation_configuration_value",
+      "foreignKey": "resource_allocation_configuration_id"
     }
   },
   "acls": [],

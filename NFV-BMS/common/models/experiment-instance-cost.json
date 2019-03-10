@@ -1,0 +1,45 @@
+{
+  "name": "experiment_instance_cost",
+  "plural": "experiment_instance_costs",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_instance_id": {
+      "name": "expInstCostExpIdFK",
+      "foreignKey": "experiment_instance_id",
+      "entityKey": "id",
+      "entity": "experiment_instance"
+    },
+    "cost_parameter_id": {
+      "name": "expInstCostCostParamIdFK",
+      "foreignKey": "cost_parameter_id",
+      "entityKey": "id",
+      "entity": "cost_parameter"
+    }
+  },
+  "properties": {
+    "value": {
+      "type": "number",
+      "required": true,
+      "dataType": "float"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experiment_instance": {
+      "type": "belongsTo",
+      "model": "experiment_instance",
+      "foreignKey": "experiment_instance_id"
+    },
+    "cost_parameter": {
+      "type": "belongsTo",
+      "model": "cost_parameter",
+      "foreignKey": "cost_parameter_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

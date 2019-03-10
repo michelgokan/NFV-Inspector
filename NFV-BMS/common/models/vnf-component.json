@@ -1,0 +1,33 @@
+{
+  "name": "vnf_component",
+  "plural": "vnf_components",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "vnf_id": {
+      "name": "vnfCompForeignKey",
+      "foreignKey": "vnf_id",
+      "entityKey": "id",
+      "entity": "vnf"
+    }
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {
+    "vnf": {
+      "type": "belongsTo",
+      "model": "vnf",
+      "foreignKey": "vnf_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

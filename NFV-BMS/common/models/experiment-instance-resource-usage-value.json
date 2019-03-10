@@ -1,6 +1,6 @@
 {
-  "name": "experiment_resource_usage_value",
-  "plural": "experiments_resource_usages_values",
+  "name": "experiment_instance_resource_usage_value",
+  "plural": "experiment_instance_resource_usages_values",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {

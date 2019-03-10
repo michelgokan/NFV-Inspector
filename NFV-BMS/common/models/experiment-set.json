@@ -45,6 +45,16 @@
       "type": "belongsTo",
       "model": "sla",
       "foreignKey": "sla_id"
+    },
+    "experiment_set_nodes_settings": {
+      "type": "hasMany",
+      "model": "experiment_set_node_setting",
+      "foreignKey": "experiment_set_id"
+    },
+    "experiment_set_vnf_components_settings": {
+      "type": "hasMany",
+      "model": "experiment_set_vnf_component_setting",
+      "foreignKey": "experiment_set_id"
     }
   },
   "acls": [],

@@ -1,0 +1,68 @@
+{
+  "name": "experiment_set_vnf_component_setting",
+  "plural": "experiment_set_vnf_components_settings",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "foreignKeys": {
+    "experiment_set_id": {
+      "name": "expSetVnfCompExpIdFK",
+      "foreignKey": "experiment_set_id",
+      "entityKey": "id",
+      "entity": "experiment_set"
+    },
+    "vnf_component_id": {
+      "name": "expSetVnfCompVnfCompIdFK",
+      "foreignKey": "vnf_component_id",
+      "entityKey": "id",
+      "entity": "vnf_component"
+    }
+  },
+  "properties": {
+    "is_horizontally_scalable": {
+      "type": "boolean",
+      "required": true,
+      "description": "If true, it will be possible to change number of replications.",
+      "default": true
+    },
+    "is_vertically_scalable": {
+      "type": "boolean",
+      "required": true,
+      "description": "If true, it will be possible to change the resource allocation settings.",
+      "default": true
+    },
+    "is_available_on_all_upper_nodes": {
+      "type": "boolean",
+      "required": true,
+      "description": "If true, it should be available on all nodes that have a layer number one time less than vnf node (i.e in case of containers, it should be available on all available VMs)",
+      "default": false
+    },
+    "max_replications": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    },
+    "min_replications": {
+      "type": "number",
+      "required": true,
+      "default": 1
+    }
+  },
+  "validations": [],
+  "relations": {
+    "experiment_set": {
+      "type": "belongsTo",
+      "model": "experiment_set",
+      "foreignKey": "experiment_set_id"
+    },
+    "vnf_component": {
+      "type": "belongsTo",
+      "model": "vnf_component",
+      "foreignKey": "vnf_component_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

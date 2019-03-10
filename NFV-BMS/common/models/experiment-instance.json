@@ -1,6 +1,6 @@
 {
-  "name": "experiment_time_interval",
-  "plural": "experiments_time_intervals",
+  "name": "experiment_instance",
+  "plural": "experiment_instances",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -8,24 +8,28 @@
   },
   "foreignKeys": {
     "experiment_id": {
-      "name": "experimentTimeIntervalExpIdForeignKey",
+      "name": "expInstExpIdFK",
       "foreignKey": "experiment_id",
       "entityKey": "id",
       "entity": "experiment"
     }
   },
   "properties": {
+    "name": {
+      "type": "string",
+      "required": false
+    },
     "start_time": {
       "type": "date",
-      "required": true
+      "required": false
     },
     "end_time": {
       "type": "date",
-      "required": true
+      "required": false
     },
-    "throughput": {
-      "type": "number",
-      "required": true
+    "status": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],

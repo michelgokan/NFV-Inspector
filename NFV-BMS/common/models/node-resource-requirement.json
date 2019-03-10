@@ -1,6 +1,6 @@
 {
   "name": "node_resource_requirement",
-  "plural": "nodes_resource_requirements",
+  "plural": "node_resources_requirements",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
@@ -22,10 +22,12 @@
   },
   "properties": {
     "min_cap": {
-      "type": "number"
+      "type": "number",
+      "dataType": "bigint"
     },
     "max_cap": {
-      "type": "number"
+      "type": "number",
+      "dataType": "bigint"
     }
   },
   "validations": [],

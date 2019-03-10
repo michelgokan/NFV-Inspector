@@ -30,24 +30,18 @@
       "foreignKey": "node_placement_configuration_id",
       "entityKey": "id",
       "entity": "node_placement_configuration"
+    },
+    "vnf_properties_configuration_set_id": {
+      "name": "experimentsVnfPropConfSetIDForeignKey",
+      "foreignKey": "vnf_properties_configuration_set_id",
+      "entityKey": "id",
+      "entity": "vnf_properties_configuration_set"
     }
   },
   "properties": {
     "name": {
       "type": "string",
       "required": true
-    },
-    "start_time": {
-      "type": "date",
-      "required": false
-    },
-    "end_time": {
-      "type": "date",
-      "required": false
-    },
-    "status": {
-      "type": "string",
-      "required": false
     }
   },
   "validations": [],
@@ -71,6 +65,16 @@
       "type": "belongsTo",
       "model": "traffic_demand_configuration",
       "foreignKey": "traffic_demand_configuration_id"
+    },
+    "vnf_properties_configuration_set": {
+      "type": "belongsTo",
+      "model": "vnf_properties_configuration_set",
+      "foreignKey": "vnf_properties_configuration_set_id"
+    },
+    "experiment_nodes_configurations": {
+      "type": "hasMany",
+      "model": "experiment_node_configuration",
+      "foreignKey": "experiment_id"
     }
   },
   "acls": [],
@@ -92,6 +96,50 @@
       "http": {
         "verb": "get",
         "path": "/:id/start"
+      }
+    },
+    "validate": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "any",
+          "description": "Model id",
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "string"
+      },
+      "description": "Validate an experiment parameters.",
+      "http": {
+        "verb": "get",
+        "path": "/:id/validate"
+      }
+    },
+    "getNodeResourceAllocationConfiguration": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "any",
+          "description": "Model id",
+          "required": true
+        },
+        {
+          "arg": "node_id",
+          "type": "any",
+          "description": "Node id",
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "json"
+      },
+      "description": "Retrieve a node's resource allocation configuration in current experiment.",
+      "http": {
+        "verb": "get",
+        "path": "/:id/:node_id/getNodeResourceAllocationConfiguration"
       }
     }
   }

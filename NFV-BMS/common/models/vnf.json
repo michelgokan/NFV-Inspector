@@ -10,11 +10,6 @@
     "name": {
       "type": "string",
       "required": true
-    },
-    "is_a_combined_vnf": {
-      "type": "boolean",
-      "required": true,
-      "default": false
     }
   },
   "validations": [],
@@ -25,6 +20,11 @@
       "foreignKey": "vnf_id",
       "through": "deployment_vnf",
       "keyThrough": "deployment_id"
+    },
+    "vnf_components": {
+      "type": "hasMany",
+      "model": "vnf_components",
+      "foreignKey": "vnf_id"
     }
   },
   "acls": [],
