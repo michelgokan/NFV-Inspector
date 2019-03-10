@@ -123,10 +123,6 @@
     "dataSource": "mysql",
     "public": true
   },
-  "combined_vnf": {
-    "dataSource": "mysql",
-    "public": true
-  },
   "resource_properties_configuration": {
     "dataSource": "mysql",
     "public": true
