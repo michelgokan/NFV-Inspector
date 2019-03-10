@@ -52,7 +52,8 @@ In order to install each service, simply run `{service}/install.sh`.
 # Contribution
 
 ## Contributors
-Michel Gokan Khan (Karlstad University, Karlstad, Sweden)
+* Michel Gokan Khan (Karlstad University, Karlstad, Sweden)
+* Amirhossein Soroori
 
 ## Academic Supervisors
 * John Javid Taheri (Karlstad University, Karlstad, Sweden)
