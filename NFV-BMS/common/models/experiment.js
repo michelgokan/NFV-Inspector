@@ -441,14 +441,14 @@ module.exports = function (Experiment) {
         });
     };
 
-    Experiment.getNodeResourceAllocationConfiguration = function (id, node_id) {
+    Experiment.getNodeResourceAllocationConfiguration = function (id, node_id, cb) {
         process.nextTick(function () {
                 Experiment.findById(id, filter, function (err, experiment) {
                         if (err !== undefined && err !== "" && err !== null) {
                             cb(err);
                         } else {
                             try {
-                                cb(null, getExperimentNodeResourceConfigId(experiment, node_id));
+                                cb(null, getExperimentNodeResourceConfiguration(experiment, node_id));
                             } catch (err) {
                                 cb(err);
                             }
