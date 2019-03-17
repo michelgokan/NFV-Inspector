@@ -22,6 +22,11 @@
     "increment_step": {
       "type": "number",
       "default": 1
+    },
+    "weight": {
+      "type": "number",
+      "default": 1,
+      "dataType": "float"
     }
   },
   "validations": [],

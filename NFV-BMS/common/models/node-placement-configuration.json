@@ -19,7 +19,7 @@
       "type": "string",
       "required": true
     },
-    "isForTest": {
+    "is_virtual": {
       "type": "boolean",
       "required": false,
       "default": false

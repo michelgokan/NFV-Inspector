@@ -186,7 +186,7 @@
     "dataSource": "mysql",
     "public": true
   },
-  "node_placement_affinity_rule": {
+  "affinity_rule_configuration": {
     "dataSource": "mysql",
     "public": true
   },
@@ -223,6 +223,10 @@
     "public": true
   },
   "experiment_instance_cost": {
+    "dataSource": "mysql",
+    "public": true
+  },
+  "affinity_rule_configuration_value": {
     "dataSource": "mysql",
     "public": true
   }

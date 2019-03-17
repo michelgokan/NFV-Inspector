@@ -1,28 +1,28 @@
 {
-  "name": "node_placement_affinity_rule",
-  "plural": "node_placement_affinity_rule",
+  "name": "affinity_rule_configuration_value",
+  "plural": "affinity_rule_configuration_values",
   "base": "PersistedModel",
   "idInjection": true,
   "options": {
     "validateUpsert": true
   },
   "foreignKeys": {
-    "node_placement_configuration_id": {
-      "name": "nodePlacementAffinityConfFK",
-      "foreignKey": "node_placement_configuration_id",
+    "affinity_rule_configuration_id": {
+      "name": "affinityRuleConfValAffRuleConfIdFK",
+      "foreignKey": "affinity_rule_configuration_id",
       "entityKey": "id",
-      "entity": "node_placement_configuration",
+      "entity": "affinity_rule_configuration",
       "required": true
     },
     "node1_id": {
-      "name": "nodePlacementNode1AffinityFK",
+      "name": "affinityRuleConfNode1FK",
       "foreignKey": "node1_id",
       "entityKey": "id",
       "entity": "node",
       "required": true
     },
     "node2_id": {
-      "name": "nodePlacementNode2AffinityFK",
+      "name": "affinityRuleConfNode2FK",
       "foreignKey": "node2_id",
       "entityKey": "id",
       "entity": "node",
@@ -41,10 +41,10 @@
   },
   "validations": [],
   "relations": {
-    "node_placement_configuration": {
+    "affinity_rule_configuration": {
       "type": "belongsTo",
-      "model": "node_placement_configuration",
-      "foreignKey": "node_placement_configuration_id",
+      "model": "affinity_rule_configuration",
+      "foreignKey": "affinity_rule_configuration_id",
       "required": true
     },
     "node1": {

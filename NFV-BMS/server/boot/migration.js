@@ -45,17 +45,17 @@ module.exports = function (app) {
                             }
                             console.log("\nAutoupdated table 'deployment'");
 
-                                mysqlDs.autoupdate("node_type", function (err) {
-                                    if (err !== undefined && err !== "" && err !== null) {
-                                        console.error("Error creating table node_type:" + err);
-                                    }
-                                    console.log("Autoupdated table 'node_type'");
+                            mysqlDs.autoupdate("node_type", function (err) {
+                                if (err !== undefined && err !== "" && err !== null) {
+                                    console.error("Error creating table node_type:" + err);
+                                }
+                                console.log("Autoupdated table 'node_type'");
 
-                                    mysqlDs.autoupdate("resource_allocation_configuration", function (err) {
-                                        if (err !== undefined && err !== "" && err !== null) {
-                                            console.error("Error creating table resource_allocation_configuration:" + err);
-                                        }
-                                        console.log("Autoupdated table 'resource_allocation_configuration'");
+                                mysqlDs.autoupdate("resource_allocation_configuration", function (err) {
+                                    if (err !== undefined && err !== "" && err !== null) {
+                                        console.error("Error creating table resource_allocation_configuration:" + err);
+                                    }
+                                    console.log("Autoupdated table 'resource_allocation_configuration'");
 
                                     mysqlDs.autoupdate("node", function (err) {
                                         if (err !== undefined && err !== "" && err !== null) {
@@ -75,13 +75,6 @@ module.exports = function (app) {
                                                 console.error("Error creating table node_placement_configuration:" + err);
                                             }
                                             console.log("\nAutoupdated table 'node_placement_configuration'");
-
-                                            mysqlDs.autoupdate("node_placement_affinity_rule", function (err) {
-                                                if (err !== undefined && err !== "" && err !== null) {
-                                                    console.error("Error creating table node_placement_affinity_rule:" + err);
-                                                }
-                                                console.log("\nAutoupdated table 'node_placement_affinity_rule'");
-                                            });
 
                                             mysqlDs.autoupdate("node_properties_configuration", function (err) {
                                                 if (err !== undefined && err !== "" && err !== null) {
@@ -136,156 +129,170 @@ module.exports = function (app) {
                                                                 }
                                                                 console.log("\nAutoupdated table 'vnf_properties_configuration_set'");
 
-                                                                mysqlDs.autoupdate("experiment_set", function (err) {
+                                                                mysqlDs.autoupdate("affinity_rule_configuration", function (err) {
                                                                     if (err !== undefined && err !== "" && err !== null) {
-                                                                        console.error("Error creating table experiment_set:" + err);
+                                                                        console.error("Error creating table affinity_rule_configuration:" + err);
                                                                     }
-                                                                    console.log("\nAutoupdated table 'experiment_set'");
+                                                                    console.log("\nAutoupdated table 'affinity_rule_configuration'");
 
-                                                                    mysqlDs.autoupdate("system_function", function (err) {
+                                                                    mysqlDs.autoupdate("affinity_rule_configuration_value", function (err) {
                                                                         if (err !== undefined && err !== "" && err !== null) {
-                                                                            console.error("Error creating table system_function:" + err);
+                                                                            console.error("Error creating table affinity_rule_configuration_value:" + err);
                                                                         }
-                                                                        console.log("Autoupdated table 'system_function'");
+                                                                        console.log("\nAutoupdated table 'affinity_rule_configuration_value'");
 
-
-                                                                        mysqlDs.autoupdate("system_function_chain", function (err) {
+                                                                        mysqlDs.autoupdate("experiment_set", function (err) {
                                                                             if (err !== undefined && err !== "" && err !== null) {
-                                                                                console.error("Error creating table system_function_chain:" + err);
+                                                                                console.error("Error creating table experiment_set:" + err);
                                                                             }
-                                                                            console.log("\nAutoupdated table 'system_function_chain'");
-                                                                        });
+                                                                            console.log("\nAutoupdated table 'experiment_set'");
 
-                                                                        mysqlDs.autoupdate("experiment", function (err) {
-                                                                            if (err !== undefined && err !== "" && err !== null) {
-                                                                                console.error("Error creating table experiment:" + err);
-                                                                            }
-                                                                            console.log("Autoupdated table 'experiment'");
-
-                                                                            mysqlDs.autoupdate("experiment_instance", function (err) {
+                                                                            mysqlDs.autoupdate("system_function", function (err) {
                                                                                 if (err !== undefined && err !== "" && err !== null) {
-                                                                                    console.error("Error creating table experiment_instance:" + err);
+                                                                                    console.error("Error creating table system_function:" + err);
                                                                                 }
-                                                                                console.log("\nAutoupdated table 'experiment_instance'");
+                                                                                console.log("Autoupdated table 'system_function'");
 
-                                                                                mysqlDs.autoupdate("cost_parameter", function (err) {
+
+                                                                                mysqlDs.autoupdate("system_function_chain", function (err) {
                                                                                     if (err !== undefined && err !== "" && err !== null) {
-                                                                                        console.error("Error creating table cost_parameter:" + err);
+                                                                                        console.error("Error creating table system_function_chain:" + err);
                                                                                     }
-                                                                                    console.log("\nAutoupdated table 'cost_parameter'");
+                                                                                    console.log("\nAutoupdated table 'system_function_chain'");
+                                                                                });
 
-                                                                                    mysqlDs.autoupdate("experiment_instance_cost", function (err) {
+                                                                                mysqlDs.autoupdate("experiment", function (err) {
+                                                                                    if (err !== undefined && err !== "" && err !== null) {
+                                                                                        console.error("Error creating table experiment:" + err);
+                                                                                    }
+                                                                                    console.log("Autoupdated table 'experiment'");
+
+                                                                                    mysqlDs.autoupdate("experiment_instance", function (err) {
                                                                                         if (err !== undefined && err !== "" && err !== null) {
-                                                                                            console.error("Error creating table experiment_instance_cost:" + err);
+                                                                                            console.error("Error creating table experiment_instance:" + err);
                                                                                         }
-                                                                                        console.log("\nAutoupdated table 'experiment_instance_cost'");
+                                                                                        console.log("\nAutoupdated table 'experiment_instance'");
 
-                                                                                        mysqlDs.autoupdate("experiment_instance_node_name_mapping", function (err) {
+                                                                                        mysqlDs.autoupdate("cost_parameter", function (err) {
                                                                                             if (err !== undefined && err !== "" && err !== null) {
-                                                                                                console.error("Error creating table experiment_instance_node_name_mapping:" + err);
+                                                                                                console.error("Error creating table cost_parameter:" + err);
                                                                                             }
-                                                                                            console.log("\nAutoupdated table 'experiment_instance_node_name_mapping'");
+                                                                                            console.log("\nAutoupdated table 'cost_parameter'");
 
-
-                                                                                            mysqlDs.autoupdate("experiment_set_node_setting", function (err) {
+                                                                                            mysqlDs.autoupdate("experiment_instance_cost", function (err) {
                                                                                                 if (err !== undefined && err !== "" && err !== null) {
-                                                                                                    console.error("Error creating table experiment_set_node_setting:" + err);
+                                                                                                    console.error("Error creating table experiment_instance_cost:" + err);
                                                                                                 }
-                                                                                                console.log("Autoupdated table 'experiment_set_node_setting'");
+                                                                                                console.log("\nAutoupdated table 'experiment_instance_cost'");
 
-                                                                                                mysqlDs.autoupdate("experiment_set_vnf_component_setting", function (err) {
+                                                                                                mysqlDs.autoupdate("experiment_instance_node_name_mapping", function (err) {
                                                                                                     if (err !== undefined && err !== "" && err !== null) {
-                                                                                                        console.error("Error creating table experiment_set_vnf_component_setting:" + err);
+                                                                                                        console.error("Error creating table experiment_instance_node_name_mapping:" + err);
                                                                                                     }
-                                                                                                    console.log("Autoupdated table 'experiment_set_vnf_component_setting'");
+                                                                                                    console.log("\nAutoupdated table 'experiment_instance_node_name_mapping'");
 
-                                                                                                    mysqlDs.autoupdate("resource_type", function (err) {
+
+                                                                                                    mysqlDs.autoupdate("experiment_set_node_setting", function (err) {
                                                                                                         if (err !== undefined && err !== "" && err !== null) {
-                                                                                                            console.error("Error creating table resource_type:" + err);
+                                                                                                            console.error("Error creating table experiment_set_node_setting:" + err);
                                                                                                         }
-                                                                                                        console.log("Autoupdated table 'resource_type'");
+                                                                                                        console.log("Autoupdated table 'experiment_set_node_setting'");
 
-                                                                                                        mysqlDs.autoupdate("node_resource_requirement", function (err) {
+                                                                                                        mysqlDs.autoupdate("experiment_set_vnf_component_setting", function (err) {
                                                                                                             if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                console.error("Error creating table node_resource_requirement:" + err);
+                                                                                                                console.error("Error creating table experiment_set_vnf_component_setting:" + err);
                                                                                                             }
-                                                                                                            console.log("\nAutoupdated table 'node_resource_requirement'");
-                                                                                                        });
+                                                                                                            console.log("Autoupdated table 'experiment_set_vnf_component_setting'");
 
-                                                                                                        mysqlDs.autoupdate("resource_property", function (err) {
-                                                                                                            if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                console.error("Error creating table resource_property:" + err);
-                                                                                                            }
-                                                                                                            console.log("Autoupdated table 'resource_property'");
-
-                                                                                                            mysqlDs.autoupdate("resource_allocation_configuration_value", function (err) {
+                                                                                                            mysqlDs.autoupdate("resource_type", function (err) {
                                                                                                                 if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                    console.error("Error creating table resource_allocation_configuration_value:" + err);
+                                                                                                                    console.error("Error creating table resource_type:" + err);
                                                                                                                 }
-                                                                                                                console.log("\nAutoupdated table 'resource_allocation_configuration_value'");
-                                                                                                            });
+                                                                                                                console.log("Autoupdated table 'resource_type'");
 
-
-                                                                                                            mysqlDs.autoupdate("deployment_vnf", function (err) {
-                                                                                                                if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                    console.error("Error creating table deployment_vnf:" + err);
-                                                                                                                }
-                                                                                                                console.log("\nAutoupdated table 'deployment_vnf'");
-
-                                                                                                                mysqlDs.autoupdate("experiment_instance_time_interval", function (err) {
+                                                                                                                mysqlDs.autoupdate("node_resource_requirement", function (err) {
                                                                                                                     if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                        console.error("Error creating table experiment_instance_time_interval:" + err);
+                                                                                                                        console.error("Error creating table node_resource_requirement:" + err);
                                                                                                                     }
-                                                                                                                    console.log("\nAutoupdated table 'experiment_instance_time_interval'");
-
-
-                                                                                                                    mysqlDs.autoupdate("quality_metric_labeling_configuration_value", function (err) {
-                                                                                                                        if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                            console.error("Error creating table quality_metric_labeling_configuration_value:" + err);
-                                                                                                                        }
-                                                                                                                        console.log("Autoupdated table 'quality_metric_labeling_configuration_value'");
-                                                                                                                    });
-
-                                                                                                                    mysqlDs.autoupdate("experiment_instance_quality_metric_value", function (err) {
-                                                                                                                        if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                            console.error("Error creating table experiment_instance_quality_metric_value:" + err);
-                                                                                                                        }
-                                                                                                                        console.log("\nAutoupdated table 'experiment_instance_quality_metric_value'");
-                                                                                                                    });
-
-                                                                                                                    mysqlDs.autoupdate("experiment_instance_resource_usage_value", function (err) {
-                                                                                                                        if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                            console.error("Error creating table experiment_instance_resource_usage_value:" + err);
-                                                                                                                        }
-                                                                                                                        console.log("\nAutoupdated table 'experiment_instance_resource_usage_value'");
-                                                                                                                    });
-
+                                                                                                                    console.log("\nAutoupdated table 'node_resource_requirement'");
                                                                                                                 });
 
-                                                                                                                mysqlDs.autoupdate("vnf_property", function (err) {
+                                                                                                                mysqlDs.autoupdate("resource_property", function (err) {
                                                                                                                     if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                        console.error("Error creating table vnf_property:" + err);
+                                                                                                                        console.error("Error creating table resource_property:" + err);
                                                                                                                     }
-                                                                                                                    console.log("Autoupdated table 'vnf_property'");
+                                                                                                                    console.log("Autoupdated table 'resource_property'");
 
-                                                                                                                    mysqlDs.autoupdate("vnf_properties_configuration", function (err) {
+                                                                                                                    mysqlDs.autoupdate("resource_allocation_configuration_value", function (err) {
                                                                                                                         if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                            console.error("Error creating table vnf_properties_configuration:" + err);
+                                                                                                                            console.error("Error creating table resource_allocation_configuration_value:" + err);
                                                                                                                         }
-                                                                                                                        console.log("Autoupdated table 'vnf_properties_configuration'");
+                                                                                                                        console.log("\nAutoupdated table 'resource_allocation_configuration_value'");
+                                                                                                                    });
 
-                                                                                                                        mysqlDs.autoupdate("vnf_properties_configuration_property_value", function (err) {
+
+                                                                                                                    mysqlDs.autoupdate("deployment_vnf", function (err) {
+                                                                                                                        if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                            console.error("Error creating table deployment_vnf:" + err);
+                                                                                                                        }
+                                                                                                                        console.log("\nAutoupdated table 'deployment_vnf'");
+
+                                                                                                                        mysqlDs.autoupdate("experiment_instance_time_interval", function (err) {
                                                                                                                             if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                                console.error("Error creating table vnf_properties_configuration_property_value:" + err);
+                                                                                                                                console.error("Error creating table experiment_instance_time_interval:" + err);
                                                                                                                             }
-                                                                                                                            console.log("\nAutoupdated table 'vnf_properties_configuration_property_value'");
+                                                                                                                            console.log("\nAutoupdated table 'experiment_instance_time_interval'");
+
+
+                                                                                                                            mysqlDs.autoupdate("quality_metric_labeling_configuration_value", function (err) {
+                                                                                                                                if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                                    console.error("Error creating table quality_metric_labeling_configuration_value:" + err);
+                                                                                                                                }
+                                                                                                                                console.log("Autoupdated table 'quality_metric_labeling_configuration_value'");
+                                                                                                                            });
+
+                                                                                                                            mysqlDs.autoupdate("experiment_instance_quality_metric_value", function (err) {
+                                                                                                                                if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                                    console.error("Error creating table experiment_instance_quality_metric_value:" + err);
+                                                                                                                                }
+                                                                                                                                console.log("\nAutoupdated table 'experiment_instance_quality_metric_value'");
+                                                                                                                            });
+
+                                                                                                                            mysqlDs.autoupdate("experiment_instance_resource_usage_value", function (err) {
+                                                                                                                                if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                                    console.error("Error creating table experiment_instance_resource_usage_value:" + err);
+                                                                                                                                }
+                                                                                                                                console.log("\nAutoupdated table 'experiment_instance_resource_usage_value'");
+                                                                                                                            });
+
                                                                                                                         });
 
-                                                                                                                        mysqlDs.autoupdate("experiment_node_configuration", function (err) {
+                                                                                                                        mysqlDs.autoupdate("vnf_property", function (err) {
                                                                                                                             if (err !== undefined && err !== "" && err !== null) {
-                                                                                                                                console.error("Error creating table experiment_node_configuration:" + err);
+                                                                                                                                console.error("Error creating table vnf_property:" + err);
                                                                                                                             }
-                                                                                                                            console.log("\nAutoupdated table 'experiment_node_configuration'");
+                                                                                                                            console.log("Autoupdated table 'vnf_property'");
+
+                                                                                                                            mysqlDs.autoupdate("vnf_properties_configuration", function (err) {
+                                                                                                                                if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                                    console.error("Error creating table vnf_properties_configuration:" + err);
+                                                                                                                                }
+                                                                                                                                console.log("Autoupdated table 'vnf_properties_configuration'");
+
+                                                                                                                                mysqlDs.autoupdate("vnf_properties_configuration_property_value", function (err) {
+                                                                                                                                    if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                                        console.error("Error creating table vnf_properties_configuration_property_value:" + err);
+                                                                                                                                    }
+                                                                                                                                    console.log("\nAutoupdated table 'vnf_properties_configuration_property_value'");
+                                                                                                                                });
+
+                                                                                                                                mysqlDs.autoupdate("experiment_node_configuration", function (err) {
+                                                                                                                                    if (err !== undefined && err !== "" && err !== null) {
+                                                                                                                                        console.error("Error creating table experiment_node_configuration:" + err);
+                                                                                                                                    }
+                                                                                                                                    console.log("\nAutoupdated table 'experiment_node_configuration'");
+                                                                                                                                });
+                                                                                                                            });
                                                                                                                         });
                                                                                                                     });
                                                                                                                 });

@@ -1,0 +1,24 @@
+{
+  "name": "affinity_rule_configuration",
+  "plural": "affinity_rules_configuration",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string"
+    }
+  },
+  "validations": [],
+  "relations": {
+    "affinity_rule_configuration_values": {
+      "type": "hasMany",
+      "model": "affinity_rule_configuration_value",
+      "foreignKey": "affinity_rule_configuration_id"
+    }
+  },
+  "acls": [],
+  "methods": {}
+}

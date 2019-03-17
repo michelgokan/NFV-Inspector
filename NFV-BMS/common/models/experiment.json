@@ -36,12 +36,23 @@
       "foreignKey": "vnf_properties_configuration_set_id",
       "entityKey": "id",
       "entity": "vnf_properties_configuration_set"
+    },
+    "affinity_rule_configuration_id": {
+      "name": "experimentAffinityRuleConfIDFK",
+      "foreignKey": "affinity_rule_configuration_id",
+      "entityKey": "id",
+      "entity": "affinity_rule_configuration"
     }
   },
   "properties": {
     "name": {
       "type": "string",
       "required": true
+    },
+    "is_virtual": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "validations": [],
@@ -75,6 +86,11 @@
       "type": "hasMany",
       "model": "experiment_node_configuration",
       "foreignKey": "experiment_id"
+    },
+    "affinity_rule_configuration": {
+      "type": "belongsTo",
+      "model": "affinity_rule_configuration",
+      "foreignKey": "affinity_rule_configuration_id"
     }
   },
   "acls": [],
@@ -122,7 +138,7 @@
         {
           "arg": "id",
           "type": "any",
-          "description": "Model id",
+          "description": "Experiment id",
           "required": true
         },
         {
@@ -140,6 +156,56 @@
       "http": {
         "verb": "get",
         "path": "/:id/:node_id/getNodeResourceAllocationConfiguration"
+      }
+    },
+    "placeNode": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "any",
+          "description": "Experiment id",
+          "required": true
+        },
+        {
+          "arg": "node_id",
+          "type": "any",
+          "description": "Node id",
+          "required": true
+        },
+        {
+          "arg": "parent_node_id",
+          "type": "any",
+          "description": "Parent node id",
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "json"
+      },
+      "description": "Place a node_id in experiment's placement configuration and validate. If it's not validated, then it won't place it.",
+      "http": {
+        "verb": "get",
+        "path": "/:id/:node_id/:parent_node_id/placeNode"
+      }
+    },
+    "getNodesResourceQuotaUsage": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "any",
+          "description": "Experiment id",
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "json"
+      },
+      "description": "Get experiment placement nodes quota usages.",
+      "http": {
+        "verb": "get",
+        "path": "/:id/getNodesResourceQuotaUsage"
       }
     }
   }

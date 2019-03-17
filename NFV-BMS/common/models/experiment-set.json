@@ -18,6 +18,12 @@
       "foreignKey": "sla_id",
       "entityKey": "id",
       "entity": "sla"
+    },
+    "affinity_rule_configuration_id": {
+      "name": "experimentSetAffinityRuleConfIDFK",
+      "foreignKey": "affinity_rule_configuration_id",
+      "entityKey": "id",
+      "entity": "affinity_rule_configuration"
     }
   },
   "properties": {
@@ -32,6 +38,11 @@
     "status": {
       "type": "string",
       "required": false
+    },
+    "is_virtual": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "validations": [],
@@ -55,8 +66,33 @@
       "type": "hasMany",
       "model": "experiment_set_vnf_component_setting",
       "foreignKey": "experiment_set_id"
+    },
+    "affinity_rule_configuration": {
+      "type": "belongsTo",
+      "model": "affinity_rule_configuration",
+      "foreignKey": "affinity_rule_configuration_id"
     }
   },
   "acls": [],
-  "methods": {}
+  "methods": {
+    "getNodes": {
+      "accepts": [
+        {
+          "arg": "id",
+          "type": "any",
+          "description": "Experiment set id",
+          "required": true
+        }
+      ],
+      "returns": {
+        "arg": "result",
+        "type": "json"
+      },
+      "description": "Get ExperimentSetNodesSettings with correct ResourceAllocationConfiguration.",
+      "http": {
+        "verb": "get",
+        "path": "/:id/experiment_set_nodes_settings/getProcessedData"
+      }
+    }
+  }
 }

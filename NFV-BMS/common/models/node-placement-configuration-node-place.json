@@ -26,6 +26,11 @@
       "foreignKey": "parent_node_id",
       "entityKey": "id",
       "entity": "node"
+    },
+    "is_virtual": {
+      "type": "boolean",
+      "required": false,
+      "default": false
     }
   },
   "properties": {
