@@ -13,14 +13,13 @@
 2. [Getting Started](#getting-started)
 3. [Setup your test environment](#setup-your-test-environment)
 4. [Install NFV-MON](#install-nfv-mon)
-5. [Install NFV-MON](#install-nfv-mon)
-6. [Install NFV-VMS](#install-nfv-vms)
-7. [Install NFV-BMS](#install-nfv-bms)
-8. [Install NFV-LAB](#install-nfv-lab)
-9. [Kubernetes Support](#kubernetes)
-10. [Example Results](#example-results)
-11. [Call for contribution](#call-for-contribution)
-12. [Acknowledgment](#acknowledgment)
+5. [Install NFV-VMS](#install-nfv-vms)
+6. [Install NFV-BMS](#install-nfv-bms)
+7. [Install NFV-LAB](#install-nfv-lab)
+8. [Kubernetes Support](#kubernetes)
+9.  [Example Results](#example-results)
+10. [Call for contribution](#call-for-contribution)
+11. [Acknowledgment](#acknowledgment)
 
 
 ## Introduction
@@ -29,7 +28,10 @@ NFV-Inspector is a systematic VNF profiling and analysis platform, designed for 
 
 
 ## Getting Started
-**Documentation, guides and tutorials are under preparation.**
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**Documentation, guides and tutorials are under preparation.**
+
+## Installation
+In order to install each service, we have included 'install.sh' files in them. you should simply run `{service}/install.sh` to install. In continue, we documented a step by step guide on how they work in each service.
 
 ## Setup your test environment
 In order to install OpenStack, I wrote a complete guide in DOCS folder: https://github.com/michelgokan/nfv-inspector/tree/master/docs/openstack-installation-guide
@@ -165,23 +167,36 @@ We include an script inside NFV-MON Server for the ease of installation process.
   2. nfv-inspector-mon-influxdb-plugin:
       ###### Under Preparation.
 
-
-## B. Install NFV-MON Client inside VMs
+## B. Install NFV-MON Client
+### Install NFV-MON Client inside VMs
 SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automatically get installed! To start collectd, use followings command:
 
   ````
   $ /opt/collectd/sbin/collectd
   ````
 
-## Installation
-In order to install each service, simply run `{service}/install.sh`.
+## Install NFV-BMS
+We include an script inside NFV-BMS for the ease of installation process. You should use it at least for the first time configuration.
+  ````
+    cd {NFV-Inspector directory path}/NFV-BMS
+    ./install.sh
+    Please enter NFV-MON server endpoint address (i.e. 127.0.0.1):
+    {Enter your NFV-MON Server IP address}
+    Please enter NFV-MON server endpoint port (default port: 3002): 
+    {Enter your NFV-MON Server Port Number}
 
+    Attempting to connect to NFV-MON server based on the given configuration: 127.0.0.1:3002...
+    NFV-MON server seems OK!
+    ...
+    Please enter a benchmarking integration plugin to install and load (1=nfv-inspector-bms-hss-fe-plugin):
+    {Default plugin to test how it works is included and have the number '1'. you could add your own plugin test and use it to test}
+  ````
 
 # Contribution
 
 ## Contributors
 * Michel Gokan Khan (Karlstad University, Karlstad, Sweden)
-* Amirhossein Sorouri 
+* Amir Hossein Sorouri 
 
 ## Academic Supervisors
 * John Javid Taheri (Karlstad University, Karlstad, Sweden)
