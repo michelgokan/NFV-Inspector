@@ -135,8 +135,8 @@ In order to install/setup InfluxDB, based on your operating system, you could us
 ####  3- Install NFV-MON Server
 We include an script inside NFV-MON Server for the ease of installation process. You should use it at least for the first time configuration.
   ````
-    cd {NFV-Inspector directory path}/NFV-MON/Server
-    ./install.sh
+    # cd {NFV-Inspector directory path}/NFV-MON/Server
+    # ./install.sh
     Please NFV-VMS endpoint address (i.e. 127.0.0.1):
     {Enter your NFV-VMS IP address}
     Please NFV-VMS endpoint port (default port: 3000):
@@ -178,8 +178,8 @@ SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automat
 ## Install NFV-BMS
 We include an script inside NFV-BMS for the ease of installation process. You should use it at least for the first time configuration.
   ````
-    cd {NFV-Inspector directory path}/NFV-BMS
-    ./install.sh
+    # cd {NFV-Inspector directory path}/NFV-BMS
+    # ./install.sh
     Please enter NFV-MON server endpoint address (i.e. 127.0.0.1):
     {Enter your NFV-MON Server IP address}
     Please enter NFV-MON server endpoint port (default port: 3002): 
