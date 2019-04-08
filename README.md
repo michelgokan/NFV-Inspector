@@ -76,19 +76,19 @@ If you are about to use NFV-Inspector and your OS is ubuntu, for offline develop
 
 Based on your Operating system, you can use the following instructions:
 
-###### Ubuntu/CentOS
+###### Ubuntu
   We include an script inside NFV-VMS for the ease of installation process. You should use it at least for the first time configuration.
   ````
   # cd {NFV-Inspector directory path}/NFV-VMS
   # ./install.sh
   Please enter MySQL server address (i.e 127.0.0.1): 
-  {Enter you Mysql server address}
+  {Enter your Mysql server address}
   Please enter MySQL server port (i.e 3306):
-  {Enter you Mysql server port}
+  {Enter your Mysql server port}
   Please enter MySQL server username (i.e root):
-  {Enter you Mysql server username}
+  {Enter your Mysql server username}
   Please enter MySQL server password : 
-  {Enter you Mysql server password}
+  {Enter your Mysql server password}
   Please enter MySQL server database (i.e NFV_VMS):
   {Enter the name of database you created in step1(install MySQL)}
   Please enter a comma seperated list of integration plugins to install (1=nfv-inspector-vms-kubernetes-plugin, 2=nfv-inspector-vms-openstack-plugin):
@@ -96,7 +96,7 @@ Based on your Operating system, you can use the following instructions:
   ````
   1. nfv-inspector-vms-kubernetes-plugin:
   
-          # Please enter Kubernetes API server address (HINT: normally master node IP):
+          Please enter Kubernetes API server address (HINT: normally master node IP):
           {Enter your kubernetes master node IP}
           Please enter Kubernetes API server port (i.e 6443):
           {Enter your kubernetes master node Port}
@@ -113,9 +113,60 @@ Based on your Operating system, you can use the following instructions:
 ###### NFV-VMS documentation, guids and tutorials for installing on windows are under preparation.
 
 ## Install NFV-MON
-### Install Elasticsearch and Integrate it with OpenStack
+
+## A. Install NFV-MON Server
+
+### 1- Install Elasticsearch and Integrate it with OpenStack
 In order to install Elasticsearch I wrote a complete guide in my blog: https://gokan.me/2018/02/18/collectd-elasticsearch-openstack/
-### Install NFV-MON Client inside VMs
+
+### 2- Install InfluxDB
+In order to install/setup InfluxDB, based on your operating system, you could use the links below, or search it on google to find the best suited for your cases.
+
+###### Ubuntu
+* 18.04: https://www.howtoforge.com/tutorial/how-to-install-tig-stack-telegraf-influxdb-and-grafana-on-ubuntu-1804/
+* 16.04: 
+* 14.04: 
+
+###### CentOs
+* 7: https://computingforgeeks.com/install-grafana-and-influxdb-on-centos-7/
+
+####  3- Install NFV-MON Server
+We include an script inside NFV-MON Server for the ease of installation process. You should use it at least for the first time configuration.
+  ````
+    cd {NFV-Inspector directory path}/NFV-MON/Server
+    ./install.sh
+    Please NFV-VMS endpoint address (i.e. 127.0.0.1):
+    {Enter your NFV-VMS IP address}
+    Please NFV-VMS endpoint port (default port: 3000):
+    {Enter your NFV-VMS Port Number}
+
+    Attempting to connect to NFV_VMS based on the given configuration: 127.0.0.1:3000...
+    NFV_VMS seems OK!
+    ...
+    Please select the time-series database backend plugin you want to use: (1=nfv-inspector-mon-influxdb-plugin, 2=nfv-inspector-mon-elasticsearch-plugin):
+    1 or 2
+  ````
+   1. nfv-inspector-mon-influxdb-plugin:
+   
+          Please enter InfluxDB host (i.e 172.16.16.242):
+          {Enter your influxdb host IP address}
+          Please enter InfluxDB port (default: 8086):
+          {Enter your influxdb host port number}
+          Please enter InfluxDB username (if exists):
+          {Enter your influxdb username required and exist}
+          Please enter InfluxDB password (if exists):
+          {Enter your influxdb password required and exist}
+          Please enter the database name:
+          {Enter any name for your influxdb database or Enter the database name created before}
+          ...
+          Installation Successful!
+          Please visit http://127.0.0.1:3002/explorer to access NFV-MON Swagger API documentation
+
+  2. nfv-inspector-mon-influxdb-plugin:
+      ###### Under Preparation.
+
+
+## B. Install NFV-MON Client inside VMs
 SSH inside each VM, and run `NFV-MON/nfv-mon-client-install.sh`. It will automatically get installed! To start collectd, use followings command:
 
   ````
