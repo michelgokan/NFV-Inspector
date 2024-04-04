@@ -1,3 +1,7 @@
+> [!NOTE]  
+> This project was a prototype and currently has no active maintainers. It is not a production ready project.
+
+
 # NFV-Inspector: An automated NFV analysis, profiling and optimization platform for NFV researchers and engineers
 
 ## Documentation, guides and tutorials are under preparation. For group chat please follow the link below (Zulip Chat).
